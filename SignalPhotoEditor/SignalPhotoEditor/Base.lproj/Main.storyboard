@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -13,11 +13,63 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="SignalPhotoEditor" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mountain" translatesAutoresizingMaskIntoConstraints="NO" id="sQo-zD-4Hh">
+                                <rect key="frame" x="0.0" y="94.000000000000014" width="390" height="219.33333333333337"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="sQo-zD-4Hh" secondAttribute="height" multiplier="16:9" id="lmp-xl-Ozg"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bWn-f6-5RW">
+                                <rect key="frame" x="97.666666666666686" y="413.33333333333331" width="195" height="50"/>
+                                <color key="backgroundColor" systemColor="systemIndigoColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="xLm-E5-HYw"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <state key="normal" title="Apply">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="didPressApply:" destination="BYZ-38-t0r" eventType="touchUpInside" id="z0P-Xh-trV"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dDz-bH-hcO">
+                                <rect key="frame" x="97.666666666666686" y="513.33333333333337" width="195" height="50"/>
+                                <color key="backgroundColor" systemColor="systemIndigoColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="Juc-yI-6JU"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <state key="normal" title="Reset">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="didPressReset:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ZEt-6m-H1U"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" systemColor="systemBlueColor"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="dDz-bH-hcO" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.5" id="73u-m6-gf8"/>
+                            <constraint firstItem="bWn-f6-5RW" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.5" id="GEg-HN-HdQ"/>
+                            <constraint firstItem="sQo-zD-4Hh" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="HFL-rS-fwd"/>
+                            <constraint firstItem="bWn-f6-5RW" firstAttribute="top" secondItem="sQo-zD-4Hh" secondAttribute="bottom" constant="100" id="LXj-II-MXh"/>
+                            <constraint firstItem="dDz-bH-hcO" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="cSD-6r-Bc0"/>
+                            <constraint firstItem="sQo-zD-4Hh" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="50" id="iNr-8Q-4I3"/>
+                            <constraint firstItem="bWn-f6-5RW" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="s3m-Ag-UtL"/>
+                            <constraint firstItem="sQo-zD-4Hh" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="vtg-ba-mzS"/>
+                            <constraint firstItem="dDz-bH-hcO" firstAttribute="top" secondItem="bWn-f6-5RW" secondAttribute="bottom" constant="50" id="xYU-1O-Rxu"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="applyButton" destination="bWn-f6-5RW" id="FDE-1y-7Jf"/>
+                        <outlet property="mainImageView" destination="sQo-zD-4Hh" id="4hA-8g-RdG"/>
+                        <outlet property="resetButton" destination="dDz-bH-hcO" id="au5-WZ-zas"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -25,8 +77,12 @@
         </scene>
     </scenes>
     <resources>
-        <systemColor name="systemBlueColor">
-            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <image name="mountain" width="2400" height="1600"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemIndigoColor">
+            <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
