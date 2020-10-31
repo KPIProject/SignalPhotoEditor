@@ -13,9 +13,12 @@ class ViewController: UIViewController {
     @IBOutlet weak var applyButton: UIButton!
     @IBOutlet weak var resetButton: UIButton!
     
+    private var originalImage: UIImage?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupButtons()
+        originalImage = mainImageView.image
     }
 
     private func setupButtons() {
