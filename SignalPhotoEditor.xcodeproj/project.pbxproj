@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		5DF8E96E254D9BCC00190C46 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF8E96D254D9BCC00190C46 /* AppDelegate.swift */; };
-		5DF8E970254D9BCC00190C46 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF8E96F254D9BCC00190C46 /* SceneDelegate.swift */; };
 		5DF8E972254D9BCC00190C46 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF8E971254D9BCC00190C46 /* ViewController.swift */; };
 		5DF8E975254D9BCC00190C46 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5DF8E973254D9BCC00190C46 /* Main.storyboard */; };
 		5DF8E977254D9BCE00190C46 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5DF8E976254D9BCE00190C46 /* Assets.xcassets */; };
@@ -18,7 +17,6 @@
 /* Begin PBXFileReference section */
 		5DF8E96A254D9BCC00190C46 /* SignalPhotoEditor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SignalPhotoEditor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5DF8E96D254D9BCC00190C46 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		5DF8E96F254D9BCC00190C46 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		5DF8E971254D9BCC00190C46 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		5DF8E974254D9BCC00190C46 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5DF8E976254D9BCE00190C46 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -57,12 +55,27 @@
 			isa = PBXGroup;
 			children = (
 				5DF8E96D254D9BCC00190C46 /* AppDelegate.swift */,
-				5DF8E96F254D9BCC00190C46 /* SceneDelegate.swift */,
+				5DF8E983254D9D5800190C46 /* SignalPhotoEditor */,
+				5DF8E982254D9C7400190C46 /* CoreSignalPhotoEditor */,
+				5DF8E97B254D9BCE00190C46 /* Info.plist */,
+			);
+			path = SignalPhotoEditor;
+			sourceTree = "<group>";
+		};
+		5DF8E982254D9C7400190C46 /* CoreSignalPhotoEditor */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = CoreSignalPhotoEditor;
+			sourceTree = "<group>";
+		};
+		5DF8E983254D9D5800190C46 /* SignalPhotoEditor */ = {
+			isa = PBXGroup;
+			children = (
 				5DF8E971254D9BCC00190C46 /* ViewController.swift */,
 				5DF8E973254D9BCC00190C46 /* Main.storyboard */,
 				5DF8E976254D9BCE00190C46 /* Assets.xcassets */,
 				5DF8E978254D9BCE00190C46 /* LaunchScreen.storyboard */,
-				5DF8E97B254D9BCE00190C46 /* Info.plist */,
 			);
 			path = SignalPhotoEditor;
 			sourceTree = "<group>";
@@ -139,7 +152,6 @@
 			files = (
 				5DF8E972254D9BCC00190C46 /* ViewController.swift in Sources */,
 				5DF8E96E254D9BCC00190C46 /* AppDelegate.swift in Sources */,
-				5DF8E970254D9BCC00190C46 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
