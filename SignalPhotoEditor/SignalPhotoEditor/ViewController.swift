@@ -22,16 +22,16 @@ class ViewController: UIViewController {
     }
 
     private func setupButtons() {
-        applyButton.layer.cornerRadius = 4
-        resetButton.layer.cornerRadius = 4
+        applyButton.layer.cornerRadius = 10
+        resetButton.layer.cornerRadius = 10
     }
     
     @IBAction func didPressApply(_ sender: UIButton) {
-        
+        print("Apply pressed")
     }
     
     @IBAction func didPressReset(_ sender: UIButton) {
-        
+        print("Reset pressed")
     }
     
 }
