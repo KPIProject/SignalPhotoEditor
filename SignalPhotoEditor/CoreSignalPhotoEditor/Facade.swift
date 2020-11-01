@@ -9,7 +9,7 @@ import UIKit
 import CoreImage
 import CoreImage.CIFilterBuiltins
 
-class Interface {
+class Facade {
     
     let image: UIImage
     let filteres: [Filter]

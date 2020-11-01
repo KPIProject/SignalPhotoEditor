@@ -28,10 +28,20 @@ class ViewController: UIViewController {
     
     @IBAction func didPressApply(_ sender: UIButton) {
         print("Apply pressed")
+//        DispatchQueue.g
+        let facade = Facade(image: mainImageView.image!, filteres: [Filters.vignette(intensity: 1, radius: 10).getFilter()])
+        
+        DispatchQueue.global().async {
+            let image = facade.applyFilters()
+            DispatchQueue.main.async {
+                self.mainImageView.image = image
+            }
+        }
     }
     
     @IBAction func didPressReset(_ sender: UIButton) {
         print("Reset pressed")
+        mainImageView.image = originalImage
     }
     
 }

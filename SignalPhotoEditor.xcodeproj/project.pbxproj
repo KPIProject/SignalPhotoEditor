@@ -7,18 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5D11A697254DB5A200A50925 /* Sepia.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D11A696254DB5A200A50925 /* Sepia.swift */; };
+		5D11A697254DB5A200A50925 /* SepiaFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D11A696254DB5A200A50925 /* SepiaFilter.swift */; };
+		5D19DC74254F2E8D007445A5 /* VignetteFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D19DC73254F2E8D007445A5 /* VignetteFilter.swift */; };
 		5DF8E96E254D9BCC00190C46 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF8E96D254D9BCC00190C46 /* AppDelegate.swift */; };
 		5DF8E972254D9BCC00190C46 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF8E971254D9BCC00190C46 /* ViewController.swift */; };
 		5DF8E975254D9BCC00190C46 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5DF8E973254D9BCC00190C46 /* Main.storyboard */; };
 		5DF8E977254D9BCE00190C46 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5DF8E976254D9BCE00190C46 /* Assets.xcassets */; };
 		5DF8E97A254D9BCE00190C46 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5DF8E978254D9BCE00190C46 /* LaunchScreen.storyboard */; };
 		5DF8E989254DA34100190C46 /* Filter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF8E988254DA34100190C46 /* Filter.swift */; };
-		5DF8E98C254DAA5600190C46 /* Interface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF8E98B254DAA5600190C46 /* Interface.swift */; };
+		5DF8E98C254DAA5600190C46 /* Facade.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF8E98B254DAA5600190C46 /* Facade.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		5D11A696254DB5A200A50925 /* Sepia.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sepia.swift; sourceTree = "<group>"; };
+		5D11A696254DB5A200A50925 /* SepiaFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SepiaFilter.swift; sourceTree = "<group>"; };
+		5D19DC73254F2E8D007445A5 /* VignetteFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VignetteFilter.swift; sourceTree = "<group>"; };
 		5DF8E96A254D9BCC00190C46 /* SignalPhotoEditor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SignalPhotoEditor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5DF8E96D254D9BCC00190C46 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5DF8E971254D9BCC00190C46 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -27,7 +29,7 @@
 		5DF8E979254D9BCE00190C46 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5DF8E97B254D9BCE00190C46 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5DF8E988254DA34100190C46 /* Filter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Filter.swift; sourceTree = "<group>"; };
-		5DF8E98B254DAA5600190C46 /* Interface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Interface.swift; sourceTree = "<group>"; };
+		5DF8E98B254DAA5600190C46 /* Facade.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Facade.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,9 +73,10 @@
 		5DF8E982254D9C7400190C46 /* CoreSignalPhotoEditor */ = {
 			isa = PBXGroup;
 			children = (
+				5DF8E98B254DAA5600190C46 /* Facade.swift */,
 				5DF8E988254DA34100190C46 /* Filter.swift */,
-				5DF8E98B254DAA5600190C46 /* Interface.swift */,
-				5D11A696254DB5A200A50925 /* Sepia.swift */,
+				5D11A696254DB5A200A50925 /* SepiaFilter.swift */,
+				5D19DC73254F2E8D007445A5 /* VignetteFilter.swift */,
 			);
 			path = CoreSignalPhotoEditor;
 			sourceTree = "<group>";
@@ -160,10 +163,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				5DF8E972254D9BCC00190C46 /* ViewController.swift in Sources */,
-				5D11A697254DB5A200A50925 /* Sepia.swift in Sources */,
+				5D19DC74254F2E8D007445A5 /* VignetteFilter.swift in Sources */,
+				5D11A697254DB5A200A50925 /* SepiaFilter.swift in Sources */,
 				5DF8E989254DA34100190C46 /* Filter.swift in Sources */,
 				5DF8E96E254D9BCC00190C46 /* AppDelegate.swift in Sources */,
-				5DF8E98C254DAA5600190C46 /* Interface.swift in Sources */,
+				5DF8E98C254DAA5600190C46 /* Facade.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
