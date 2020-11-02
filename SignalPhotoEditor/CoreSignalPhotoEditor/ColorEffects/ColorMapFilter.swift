@@ -24,11 +24,7 @@ struct ColorMapFilter: Filter {
         currentFilter.gradientImage = ciImage
         
         applyIntensity(image: &image, filter: currentFilter)
-        // get a CIImage from our filter or exit if that fails
-//        guard let outputImage = currentFilter.outputImage else { return }
-        
-//        image = outputImage
-        
+
     }
     
 }
