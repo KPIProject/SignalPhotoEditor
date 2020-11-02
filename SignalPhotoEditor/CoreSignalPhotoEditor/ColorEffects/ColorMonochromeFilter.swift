@@ -11,8 +11,9 @@ struct ColorMonochromeFilter: Filter {
     
     var filterName: String? = "ColorMonochrome"
     
-    var inputColor: CIColor
     var intensity: Float = 1.0
+
+    var inputColor: CIColor
     
     func applyFilter(image: inout CIImage) {
         

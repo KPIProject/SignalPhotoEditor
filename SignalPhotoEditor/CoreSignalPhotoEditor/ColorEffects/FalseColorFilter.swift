@@ -11,11 +11,11 @@ struct FalseColorFilter: Filter {
     
     var filterName: String? = "FalseColor"
     
+    var intensity: Float = 1.0
+    
     var color0: CIColor
     var color1: CIColor
-    
-    var intensity: Float = 1.0
-        
+            
     func applyFilter(image: inout CIImage) {
         
         let currentFilter = CIFilter.falseColor()

@@ -38,17 +38,17 @@ extension Filter {
 }
 
 enum Filters {
-    case sepia(intensity: Float)
-    case vignette(intensity: Float, radius: Float)
-    case vignetteEffect(intensity: Float, radius: Float, center: (x: CGFloat, y: CGFloat))
+    case sepia
+    case vignette(radius: Float)
+    case vignetteEffect(radius: Float, center: (x: CGFloat, y: CGFloat))
     case colorInvert
     case colorMap(inputGradient: UIImage)
-    case colorMonochrome(intensity: Float, inputColor: CIColor)
+    case colorMonochrome(inputColor: CIColor)
     case colorPosterize(level: Float)
     case falseColor(color0: CIColor, color1: CIColor)
     case maximumComponent
     case minimumComponent
-    case photoEffectChrome(intensity: Float)
+    case photoEffectChrome
     case photoEffectFade
     case photoEffectInstant
     case photoEffectMono
@@ -58,46 +58,46 @@ enum Filters {
     case photoEffectTransfer
     case colorCube
     
-    func getFilter() -> Filter {
+    func getFilter(intensity: Float) -> Filter {
         switch self {
-        case let .sepia(intensity: intensity):
+        case .sepia:
             return SepiaFilter(intensity: intensity)
-        case let .vignette(intensity: intensity, radius: radius):
+        case let .vignette(radius: radius):
             return VignetteFilter(intensity: intensity, radius: radius)
-        case let .vignetteEffect(intensity: intensity, radius:  radius, center: (x: x, y: y)):
+        case let .vignetteEffect(radius:  radius, center: (x: x, y: y)):
             return VignetteEffectFilter(intensity: intensity, radius: radius, center: (x: x, y: y))
         case .colorInvert:
             return ColorInvertFilter()
         case let .colorMap(inputGradient: image):
             return ColorMapFilter(inputGradient: image)
-        case let .colorMonochrome(intensity: intensity, inputColor: color):
-            return ColorMonochromeFilter(inputColor: color, intensity: intensity)
+        case let .colorMonochrome(inputColor: color):
+            return ColorMonochromeFilter(intensity: intensity, inputColor: color)
         case let .colorPosterize(level: level):
             return ColorPosterizeFilter(level: level)
         case let .falseColor(color0: color0, color1: color1):
-            return FalseColorFilter(color0: color0, color1: color1)
+            return FalseColorFilter(intensity: intensity, color0: color0, color1: color1)
         case .maximumComponent:
-            return MaximumComponentFilter()
+            return MaximumComponentFilter(intensity: intensity)
         case .minimumComponent:
-            return MinimumComponentFilter()
+            return MinimumComponentFilter(intensity: intensity)
         case .photoEffectChrome:
-            return PhotoEffectChromeFilter()
+            return PhotoEffectChromeFilter(intensity: intensity)
         case .photoEffectFade:
-            return PhotoEffectFadeFilter()
+            return PhotoEffectFadeFilter(intensity: intensity)
         case .photoEffectInstant:
-            return PhotoEffectInstantFilter()
+            return PhotoEffectInstantFilter(intensity: intensity)
         case .photoEffectMono:
-            return PhotoEffectMonoFilter()
+            return PhotoEffectMonoFilter(intensity: intensity)
         case .photoEffectNoir:
-            return PhotoEffectNoirFilter()
+            return PhotoEffectNoirFilter(intensity: intensity)
         case .photoEffectProcess:
-            return PhotoEffectProcessFilter()
+            return PhotoEffectProcessFilter(intensity: intensity)
         case .photoEffectTonal:
-            return PhotoEffectTonalFilter()
+            return PhotoEffectTonalFilter(intensity: intensity)
         case .photoEffectTransfer:
-            return PhotoEffectTransferFilter()
+            return PhotoEffectTransferFilter(intensity: intensity)
         case .colorCube:
-            return ColorCubeFilter()
+            return ColorCubeFilter(intensity: intensity)
         }
     }
 }
