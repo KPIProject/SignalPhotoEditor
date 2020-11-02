@@ -11,14 +11,18 @@ struct MinimumComponentFilter: Filter {
     
     var filterName: String? = "MinimumComponent"
     
+    var intensity: Float = 1.0
+    
     func applyFilter(image: inout CIImage) {
         
         let currentFilter = CIFilter.minimumComponent()
+        currentFilter.inputImage = image
+        applyIntensity(image: &image, filter: currentFilter)
         
         // get a CIImage from our filter or exit if that fails
-        guard let outputImage = currentFilter.outputImage else { return }
+//        guard let outputImage = currentFilter.outputImage else { return }
         
-        image = outputImage
+//        image = outputImage
         
     }
 }

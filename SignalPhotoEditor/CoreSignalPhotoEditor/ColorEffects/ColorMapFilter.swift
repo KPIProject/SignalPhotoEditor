@@ -13,6 +13,8 @@ struct ColorMapFilter: Filter {
     
     var inputGradient: UIImage
     
+    var intensity: Float = 1.0
+    
     func applyFilter(image: inout CIImage) {
         
         let currentFilter = CIFilter.colorMap()
@@ -21,10 +23,11 @@ struct ColorMapFilter: Filter {
         guard let ciImage = CIImage(image: inputGradient) else { return }
         currentFilter.gradientImage = ciImage
         
+        applyIntensity(image: &image, filter: currentFilter)
         // get a CIImage from our filter or exit if that fails
-        guard let outputImage = currentFilter.outputImage else { return }
+//        guard let outputImage = currentFilter.outputImage else { return }
         
-        image = outputImage
+//        image = outputImage
         
     }
     

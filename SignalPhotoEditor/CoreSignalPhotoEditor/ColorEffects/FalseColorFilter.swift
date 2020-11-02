@@ -14,16 +14,20 @@ struct FalseColorFilter: Filter {
     var color0: CIColor
     var color1: CIColor
     
+    var intensity: Float = 1.0
+        
     func applyFilter(image: inout CIImage) {
         
         let currentFilter = CIFilter.falseColor()
         currentFilter.color0 = color0
         currentFilter.color1 = color1
         
-        // get a CIImage from our filter or exit if that fails
-        guard let outputImage = currentFilter.outputImage else { return }
+        applyIntensity(image: &image, filter: currentFilter)
         
-        image = outputImage
+        // get a CIImage from our filter or exit if that fails
+//        guard let outputImage = currentFilter.outputImage else { return }
+        
+//        image = outputImage
         
     }
 }

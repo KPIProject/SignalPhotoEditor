@@ -29,7 +29,7 @@ class ViewController: UIViewController {
     @IBAction func didPressApply(_ sender: UIButton) {
         print("Apply pressed")
 //        DispatchQueue.g
-        let facade = Facade(image: mainImageView.image!, filteres: [Filters.vignette(intensity: 1, radius: 10).getFilter()])
+        let facade = Facade(image: mainImageView.image!, filteres: [Filters.colorCube.getFilter()])
         
         DispatchQueue.global().async {
             let image = facade.applyFilters()

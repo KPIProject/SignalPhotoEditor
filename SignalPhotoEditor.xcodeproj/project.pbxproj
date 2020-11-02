@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		5D11A697254DB5A200A50925 /* SepiaFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D11A696254DB5A200A50925 /* SepiaFilter.swift */; };
 		5D19DC74254F2E8D007445A5 /* VignetteFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D19DC73254F2E8D007445A5 /* VignetteFilter.swift */; };
-		5D19DC7A254F4001007445A5 /* CrossPolynomialFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D19DC79254F4001007445A5 /* CrossPolynomialFilter.swift */; };
+		5D19DC7A254F4001007445A5 /* ColorCubeFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D19DC79254F4001007445A5 /* ColorCubeFilter.swift */; };
 		5D19DC7D254F5C6F007445A5 /* ColorInvertFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D19DC7C254F5C6F007445A5 /* ColorInvertFilter.swift */; };
 		5D19DC80254F5D66007445A5 /* ColorMapFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D19DC7F254F5D66007445A5 /* ColorMapFilter.swift */; };
 		5D19DC84254F5EA2007445A5 /* ColorMonochromeFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D19DC83254F5EA2007445A5 /* ColorMonochromeFilter.swift */; };
@@ -39,7 +39,7 @@
 /* Begin PBXFileReference section */
 		5D11A696254DB5A200A50925 /* SepiaFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SepiaFilter.swift; sourceTree = "<group>"; };
 		5D19DC73254F2E8D007445A5 /* VignetteFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VignetteFilter.swift; sourceTree = "<group>"; };
-		5D19DC79254F4001007445A5 /* CrossPolynomialFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrossPolynomialFilter.swift; sourceTree = "<group>"; };
+		5D19DC79254F4001007445A5 /* ColorCubeFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorCubeFilter.swift; sourceTree = "<group>"; };
 		5D19DC7C254F5C6F007445A5 /* ColorInvertFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorInvertFilter.swift; sourceTree = "<group>"; };
 		5D19DC7F254F5D66007445A5 /* ColorMapFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorMapFilter.swift; sourceTree = "<group>"; };
 		5D19DC83254F5EA2007445A5 /* ColorMonochromeFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorMonochromeFilter.swift; sourceTree = "<group>"; };
@@ -100,7 +100,7 @@
 				5D19DCA1254F639D007445A5 /* PhotoEffectProcessFilter.swift */,
 				5D19DCA4254F63C6007445A5 /* PhotoEffectTonalFilter.swift */,
 				5D19DCA7254F647B007445A5 /* PhotoEffectTransferFilter.swift */,
-				5D19DC79254F4001007445A5 /* CrossPolynomialFilter.swift */,
+				5D19DC79254F4001007445A5 /* ColorCubeFilter.swift */,
 			);
 			path = ColorEffects;
 			sourceTree = "<group>";
@@ -238,7 +238,7 @@
 				5D11A697254DB5A200A50925 /* SepiaFilter.swift in Sources */,
 				5DF8E989254DA34100190C46 /* Filter.swift in Sources */,
 				5DF8E96E254D9BCC00190C46 /* AppDelegate.swift in Sources */,
-				5D19DC7A254F4001007445A5 /* CrossPolynomialFilter.swift in Sources */,
+				5D19DC7A254F4001007445A5 /* ColorCubeFilter.swift in Sources */,
 				5D19DCA2254F639D007445A5 /* PhotoEffectProcessFilter.swift in Sources */,
 				5DF8E98C254DAA5600190C46 /* Facade.swift in Sources */,
 				5D19DC7D254F5C6F007445A5 /* ColorInvertFilter.swift in Sources */,

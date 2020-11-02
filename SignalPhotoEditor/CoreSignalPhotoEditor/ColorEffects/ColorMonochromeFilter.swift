@@ -19,6 +19,7 @@ struct ColorMonochromeFilter: Filter {
         let currentFilter = CIFilter.colorMonochrome()
         currentFilter.intensity = intensity
         currentFilter.color = inputColor
+        currentFilter.inputImage = image
         
         // get a CIImage from our filter or exit if that fails
         guard let outputImage = currentFilter.outputImage else { return }

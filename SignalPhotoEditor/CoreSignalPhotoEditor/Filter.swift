@@ -10,9 +10,32 @@ import UIKit
 
 protocol Filter {
     var filterName: String? { get }
+    var intensity: Float { get }
     func applyFilter(image: inout CIImage)
 }
 
+extension Filter {
+    func applyIntensity(image: inout CIImage, filter: CIFilter) {
+        let background = image
+        let foreground = filter.outputImage!.applyingFilter(
+            "CIColorMatrix", parameters: [
+                "inputRVector": CIVector(x: 1, y: 0, z: 0, w: CGFloat(0)),
+                "inputGVector": CIVector(x: 0, y: 1, z: 0, w: CGFloat(0)),
+                "inputBVector": CIVector(x: 0, y: 0, z: 1, w: CGFloat(0)),
+                "inputAVector": CIVector(x: 0, y: 0, z: 0, w: CGFloat(intensity)),
+                "inputBiasVector": CIVector(x: 0, y: 0, z: 0, w: 0),
+        ])
+        
+        let composition = CIFilter(
+            name: "CISourceOverCompositing",
+            parameters: [
+                kCIInputImageKey : foreground,
+                kCIInputBackgroundImageKey : background
+        ])!
+        
+        image = composition.outputImage!
+    }
+}
 
 enum Filters {
     case sepia(intensity: Float)
@@ -25,7 +48,7 @@ enum Filters {
     case falseColor(color0: CIColor, color1: CIColor)
     case maximumComponent
     case minimumComponent
-    case photoEffectChrome
+    case photoEffectChrome(intensity: Float)
     case photoEffectFade
     case photoEffectInstant
     case photoEffectMono
@@ -33,6 +56,7 @@ enum Filters {
     case photoEffectProcess
     case photoEffectTonal
     case photoEffectTransfer
+    case colorCube
     
     func getFilter() -> Filter {
         switch self {
@@ -72,6 +96,8 @@ enum Filters {
             return PhotoEffectTonalFilter()
         case .photoEffectTransfer:
             return PhotoEffectTransferFilter()
+        case .colorCube:
+            return ColorCubeFilter()
         }
     }
 }
