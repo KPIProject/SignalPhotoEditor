@@ -1,0 +1,31 @@
+//
+//  ColorMapFilter.swift
+//  SignalPhotoEditor
+//
+//  Created by Головаш Анастасия on 01.11.2020.
+//
+
+import UIKit
+
+struct ColorMapFilter: Filter {
+    
+    var filterName: String? = "ColorMap"
+    
+    var inputGradient: UIImage
+    
+    func applyFilter(image: inout CIImage) {
+        
+        let currentFilter = CIFilter.colorMap()
+        currentFilter.inputImage = image
+
+        guard let ciImage = CIImage(image: inputGradient) else { return }
+        currentFilter.gradientImage = ciImage
+        
+        // get a CIImage from our filter or exit if that fails
+        guard let outputImage = currentFilter.outputImage else { return }
+        
+        image = outputImage
+        
+    }
+    
+}
