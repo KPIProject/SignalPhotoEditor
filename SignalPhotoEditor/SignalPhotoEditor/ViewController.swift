@@ -29,7 +29,10 @@ class ViewController: UIViewController {
     @IBAction func didPressApply(_ sender: UIButton) {
         print("Apply pressed")
 
-        let facade = Facade(image: mainImageView.image!, filteres: [Filters.photoEffectFade.getFilter(intensity: 1)])
+        let filteres: [Filter] = [Filters.photoEffectFade.getFilter(intensity: 1),
+                                  Filters.colorCube(lutImage: UIImage(named: "ClearLUT")!).getFilter(intensity: 1)]
+        
+        let facade = Facade(image: mainImageView.image!, filteres: [filteres[1]])
         
         DispatchQueue.global().async {
             let image = facade.applyFilters()

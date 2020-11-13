@@ -56,7 +56,7 @@ enum Filters {
     case photoEffectProcess
     case photoEffectTonal
     case photoEffectTransfer
-    case colorCube
+    case colorCube(lutImage: UIImage)
     
     func getFilter(intensity: Float) -> Filter {
         switch self {
@@ -96,8 +96,8 @@ enum Filters {
             return PhotoEffectTonalFilter(intensity: intensity)
         case .photoEffectTransfer:
             return PhotoEffectTransferFilter(intensity: intensity)
-        case .colorCube:
-            return ColorCubeFilter(intensity: intensity)
+        case let .colorCube(lutImage):
+            return ColorCubeFilter(lutImage: lutImage, intensity: intensity)
         }
     }
 }

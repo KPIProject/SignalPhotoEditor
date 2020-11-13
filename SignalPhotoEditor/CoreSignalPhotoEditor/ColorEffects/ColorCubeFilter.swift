@@ -13,13 +13,14 @@ struct ColorCubeFilter: Filter {
     
     var cubeData: Data?
     var dimension: Float = 64
+    var lutImage: UIImage
     
     var intensity: Float = 1.0
     
     func applyFilter(image: inout CIImage) {
         
         // TODO: - Other LUTs adding
-        let data = ColorCube.cubeData(lutImage: UIImage(named: "Persian")!, dimension: 64, colorSpace: CGColorSpaceCreateDeviceRGB())
+        let data = ColorCube.cubeData(lutImage: lutImage, dimension: 64, colorSpace: CGColorSpaceCreateDeviceRGB())
                 
         let currentFilter = CIFilter.colorCube()
         currentFilter.cubeDimension = dimension
