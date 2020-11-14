@@ -26,6 +26,7 @@
 		5D19DCA5254F63C6007445A5 /* PhotoEffectTonalFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D19DCA4254F63C6007445A5 /* PhotoEffectTonalFilter.swift */; };
 		5D19DCA8254F647B007445A5 /* PhotoEffectTransferFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D19DCA7254F647B007445A5 /* PhotoEffectTransferFilter.swift */; };
 		5D19DCAB254F64B9007445A5 /* VignetteEffectFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D19DCAA254F64B9007445A5 /* VignetteEffectFilter.swift */; };
+		5D6FB414255EE64C00300FC7 /* LUTsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D6FB413255EE64C00300FC7 /* LUTsViewController.swift */; };
 		5DF8E96E254D9BCC00190C46 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF8E96D254D9BCC00190C46 /* AppDelegate.swift */; };
 		5DF8E972254D9BCC00190C46 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF8E971254D9BCC00190C46 /* ViewController.swift */; };
 		5DF8E975254D9BCC00190C46 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5DF8E973254D9BCC00190C46 /* Main.storyboard */; };
@@ -56,6 +57,7 @@
 		5D19DCA4254F63C6007445A5 /* PhotoEffectTonalFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoEffectTonalFilter.swift; sourceTree = "<group>"; };
 		5D19DCA7254F647B007445A5 /* PhotoEffectTransferFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoEffectTransferFilter.swift; sourceTree = "<group>"; };
 		5D19DCAA254F64B9007445A5 /* VignetteEffectFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VignetteEffectFilter.swift; sourceTree = "<group>"; };
+		5D6FB413255EE64C00300FC7 /* LUTsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LUTsViewController.swift; sourceTree = "<group>"; };
 		5DF8E96A254D9BCC00190C46 /* SignalPhotoEditor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SignalPhotoEditor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5DF8E96D254D9BCC00190C46 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5DF8E971254D9BCC00190C46 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -147,6 +149,7 @@
 			isa = PBXGroup;
 			children = (
 				5DF8E971254D9BCC00190C46 /* ViewController.swift */,
+				5D6FB413255EE64C00300FC7 /* LUTsViewController.swift */,
 				5DF8E973254D9BCC00190C46 /* Main.storyboard */,
 				5DF8E976254D9BCE00190C46 /* Assets.xcassets */,
 				5DF8E978254D9BCE00190C46 /* LaunchScreen.storyboard */,
@@ -225,6 +228,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5D6FB414255EE64C00300FC7 /* LUTsViewController.swift in Sources */,
 				5FB06A51254F68310037132B /* LUT.swift in Sources */,
 				5D19DC9C254F6348007445A5 /* PhotoEffectMonoFilter.swift in Sources */,
 				5D19DCA5254F63C6007445A5 /* PhotoEffectTonalFilter.swift in Sources */,
