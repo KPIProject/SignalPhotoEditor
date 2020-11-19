@@ -2,7 +2,7 @@
 //  Filter.swift
 //  SignalPhotoEditor
 //
-//  Created by Головаш Анастасия on 31.10.2020.
+//  Created by Anastasia Holovash on 31.10.2020.
 //
 
 import UIKit

@@ -21,7 +21,4 @@ class LUTsViewController: UIViewController {
             secondImageView.image = image
         }
     }
-    
-
-
 }

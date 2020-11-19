@@ -33,7 +33,7 @@
 		5DF8E977254D9BCE00190C46 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5DF8E976254D9BCE00190C46 /* Assets.xcassets */; };
 		5DF8E97A254D9BCE00190C46 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5DF8E978254D9BCE00190C46 /* LaunchScreen.storyboard */; };
 		5DF8E989254DA34100190C46 /* Filter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF8E988254DA34100190C46 /* Filter.swift */; };
-		5DF8E98C254DAA5600190C46 /* Facade.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF8E98B254DAA5600190C46 /* Facade.swift */; };
+		5DF8E98C254DAA5600190C46 /* CoreSignalPhotoEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF8E98B254DAA5600190C46 /* CoreSignalPhotoEditor.swift */; };
 		5FB06A51254F68310037132B /* LUT.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB06A50254F68310037132B /* LUT.swift */; };
 /* End PBXBuildFile section */
 
@@ -66,7 +66,7 @@
 		5DF8E979254D9BCE00190C46 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5DF8E97B254D9BCE00190C46 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5DF8E988254DA34100190C46 /* Filter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Filter.swift; sourceTree = "<group>"; };
-		5DF8E98B254DAA5600190C46 /* Facade.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Facade.swift; sourceTree = "<group>"; };
+		5DF8E98B254DAA5600190C46 /* CoreSignalPhotoEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreSignalPhotoEditor.swift; sourceTree = "<group>"; };
 		5FB06A50254F68310037132B /* LUT.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LUT.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -137,7 +137,7 @@
 		5DF8E982254D9C7400190C46 /* CoreSignalPhotoEditor */ = {
 			isa = PBXGroup;
 			children = (
-				5DF8E98B254DAA5600190C46 /* Facade.swift */,
+				5DF8E98B254DAA5600190C46 /* CoreSignalPhotoEditor.swift */,
 				5DF8E988254DA34100190C46 /* Filter.swift */,
 				5FB06A50254F68310037132B /* LUT.swift */,
 				5D19DC78254F3D27007445A5 /* ColorEffects */,
@@ -245,7 +245,7 @@
 				5DF8E96E254D9BCC00190C46 /* AppDelegate.swift in Sources */,
 				5D19DC7A254F4001007445A5 /* ColorCubeFilter.swift in Sources */,
 				5D19DCA2254F639D007445A5 /* PhotoEffectProcessFilter.swift in Sources */,
-				5DF8E98C254DAA5600190C46 /* Facade.swift in Sources */,
+				5DF8E98C254DAA5600190C46 /* CoreSignalPhotoEditor.swift in Sources */,
 				5D19DC7D254F5C6F007445A5 /* ColorInvertFilter.swift in Sources */,
 				5D19DC87254F6075007445A5 /* ColorPosterizeFilter.swift in Sources */,
 				5D19DC80254F5D66007445A5 /* ColorMapFilter.swift in Sources */,
