@@ -11,17 +11,23 @@ import CoreImage.CIFilterBuiltins
 
 class CoreSignalPhotoEditor {
     
-    private let sourceImage: UIImage
+    private let sourceImage: UIImage    // remove?
+    
+    /// Current displayed image
     private var editedImage: UIImage
+    private var editedImageIndex: Int = 0
+    
     private var filteres: [Filter] = []
     private var imageStack: [UIImage] = []
     
     init(image: UIImage) {
         self.sourceImage = image
         self.editedImage = image
+        self.imageStack = [image]
     }
     
-    func applyFilter(_ filter: Filter, complition: @escaping (UIImage) -> Void) {
+    public func applyFilter(_ filter: Filter, complition: @escaping (UIImage) -> Void) {
+        removeOldFilters()
         
         guard var ciImage = CIImage(image: sourceImage) else { return }
         filteres.append(filter)
@@ -43,6 +49,47 @@ class CoreSignalPhotoEditor {
             DispatchQueue.main.async {
                 complition(editedImage)
             }
+        }
+    }
+    
+    /**
+     Returns image there was before last filter appling.
+     */
+    public func cancelLastFilter() -> UIImage {
+        if imageStack.count > 1 {
+            editedImageIndex -= 1
+            return imageStack[editedImageIndex]
+        } else {
+            return imageStack[editedImageIndex]
+        }
+    }
+    
+    /**
+     Returns image there was before cancel last filter.
+     */
+    public func applyBackFilter() -> UIImage {
+        if imageStack.count > editedImageIndex + 1 {
+            editedImageIndex += 1
+            return imageStack[editedImageIndex]
+        } else {
+            return imageStack[editedImageIndex]
+        }
+    }
+    
+    /**
+     Returns original image.
+     */
+    public func restoreImage() -> UIImage {
+        return sourceImage
+    }
+    
+    /**
+     Remooves filteres from filteres array which are no longer needed.
+     */
+    private func removeOldFilters() {
+        if imageStack.count != editedImageIndex + 1 {
+            imageStack.removeSubrange(editedImageIndex + 1..<imageStack.count)
+            filteres.removeSubrange(editedImageIndex + 1..<imageStack.count)
         }
     }
     
