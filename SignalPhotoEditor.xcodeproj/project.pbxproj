@@ -175,12 +175,20 @@
 			isa = PBXGroup;
 			children = (
 				5F23E50B256AB0BB00EB2D9D /* FilterModel.swift */,
-				5F23E510256AB92500EB2D9D /* FilterCollectionViewCell.swift */,
-				5F23E511256AB92500EB2D9D /* FilterCollectionViewCell.xib */,
 				5F23E4F6256AADA400EB2D9D /* FilterCollectionView.swift */,
 				5F23E4F9256AADBC00EB2D9D /* FilterCollectionView.xib */,
+				5F84CD40256AD39900F08A9C /* FilterCollectionViewCell */,
 			);
 			path = FilterCollectionView;
+			sourceTree = "<group>";
+		};
+		5F84CD40256AD39900F08A9C /* FilterCollectionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				5F23E510256AB92500EB2D9D /* FilterCollectionViewCell.swift */,
+				5F23E511256AB92500EB2D9D /* FilterCollectionViewCell.xib */,
+			);
+			path = FilterCollectionViewCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

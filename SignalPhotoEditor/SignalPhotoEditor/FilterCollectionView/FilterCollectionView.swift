@@ -27,10 +27,7 @@ class FilterCollectionView: UIView {
     
     public func config(with filterModel: [FilterModel]) {
         
-        print("config")
-        collectionView.register(UINib(nibName: "FilterCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "reuseID")// CustomTableViewCell.self, forCellReuseIdentifier: "customCell")
-
-//        collectionView.register(FilterCollectionViewCell.self, forCellWithReuseIdentifier: "reuseID")
+        collectionView.register(UINib(nibName: "FilterCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "reuseID")
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.contentInset = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
@@ -39,7 +36,6 @@ class FilterCollectionView: UIView {
         collectionView.reloadData()
     }
 
-    
     private func loadView() {
         
         guard let nib = loadNib() else {
@@ -65,7 +61,6 @@ class FilterCollectionView: UIView {
     }
 }
 
-
 extension FilterCollectionView: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -81,5 +76,10 @@ extension FilterCollectionView: UICollectionViewDataSource, UICollectionViewDele
         filterCell.imageView.image = filter.image
         
         return filterCell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        print(filters[indexPath.row].name)
     }
 }

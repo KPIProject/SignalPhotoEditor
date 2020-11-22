@@ -9,11 +9,17 @@ import UIKit
 
 class MainViewController: UIViewController {
     
+    // MARK: - IBOutlets
+
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var imageVIew: UIImageView!
-    @IBOutlet weak var contentView: UIView!
     
     @IBOutlet weak var filterCollectionView: FilterCollectionView!
+    @IBOutlet weak var filterStackView: UIStackView!
+    @IBOutlet weak var regulationStackVIew: UIStackView!
+    @IBOutlet weak var downloadStackView: UIStackView!
+    
+    // MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,19 +36,29 @@ class MainViewController: UIViewController {
         ]
         filterCollectionView.config(with: filters)
         
-//        scrollView.contentInset = UIEdgeInsets(top: <#T##CGFloat#>, left: <#T##CGFloat#>, bottom: <#T##CGFloat#>, right: <#T##CGFloat#>)
+        let filterGuesture = UITapGestureRecognizer(target: self, action: #selector(showFilter))
+        filterStackView.addGestureRecognizer(filterGuesture)
+        
+        let regulationGuesture = UITapGestureRecognizer(target: self, action: #selector(showRegulation))
+        regulationStackVIew.addGestureRecognizer(regulationGuesture)
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        
+    @objc
+    func showFilter() {
+        print("filterTapped")
     }
-
+    
+    @objc
+    func showRegulation() {
+        print("regulationTapped")
+    }
 }
 
+// MARK: - UIScrollViewDelegate
 
 extension MainViewController: UIScrollViewDelegate {
     
     func viewForZooming(in scrollView: UIScrollView) -> UIView? {
-        return contentView
+        return imageVIew
     }
 }
