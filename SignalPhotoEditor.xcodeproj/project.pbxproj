@@ -35,6 +35,11 @@
 		5DF8E989254DA34100190C46 /* Filter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF8E988254DA34100190C46 /* Filter.swift */; };
 		5DF8E98C254DAA5600190C46 /* CoreSignalPhotoEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF8E98B254DAA5600190C46 /* CoreSignalPhotoEditor.swift */; };
 		5F23E4F4256A9E3000EB2D9D /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F23E4F3256A9E3000EB2D9D /* MainViewController.swift */; };
+		5F23E4F7256AADA400EB2D9D /* FilterCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F23E4F6256AADA400EB2D9D /* FilterCollectionView.swift */; };
+		5F23E4FA256AADBC00EB2D9D /* FilterCollectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5F23E4F9256AADBC00EB2D9D /* FilterCollectionView.xib */; };
+		5F23E50C256AB0BB00EB2D9D /* FilterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F23E50B256AB0BB00EB2D9D /* FilterModel.swift */; };
+		5F23E512256AB92500EB2D9D /* FilterCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F23E510256AB92500EB2D9D /* FilterCollectionViewCell.swift */; };
+		5F23E513256AB92500EB2D9D /* FilterCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5F23E511256AB92500EB2D9D /* FilterCollectionViewCell.xib */; };
 		5FB06A51254F68310037132B /* LUT.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB06A50254F68310037132B /* LUT.swift */; };
 /* End PBXBuildFile section */
 
@@ -69,6 +74,11 @@
 		5DF8E988254DA34100190C46 /* Filter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Filter.swift; sourceTree = "<group>"; };
 		5DF8E98B254DAA5600190C46 /* CoreSignalPhotoEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreSignalPhotoEditor.swift; sourceTree = "<group>"; };
 		5F23E4F3256A9E3000EB2D9D /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		5F23E4F6256AADA400EB2D9D /* FilterCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterCollectionView.swift; sourceTree = "<group>"; };
+		5F23E4F9256AADBC00EB2D9D /* FilterCollectionView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FilterCollectionView.xib; sourceTree = "<group>"; };
+		5F23E50B256AB0BB00EB2D9D /* FilterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterModel.swift; sourceTree = "<group>"; };
+		5F23E510256AB92500EB2D9D /* FilterCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterCollectionViewCell.swift; sourceTree = "<group>"; };
+		5F23E511256AB92500EB2D9D /* FilterCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FilterCollectionViewCell.xib; sourceTree = "<group>"; };
 		5FB06A50254F68310037132B /* LUT.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LUT.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -153,11 +163,24 @@
 				5DF8E971254D9BCC00190C46 /* ViewController.swift */,
 				5D6FB413255EE64C00300FC7 /* LUTsViewController.swift */,
 				5F23E4F3256A9E3000EB2D9D /* MainViewController.swift */,
+				5F23E4FD256AADD900EB2D9D /* FilterCollectionView */,
 				5DF8E973254D9BCC00190C46 /* Main.storyboard */,
 				5DF8E976254D9BCE00190C46 /* Assets.xcassets */,
 				5DF8E978254D9BCE00190C46 /* LaunchScreen.storyboard */,
 			);
 			path = SignalPhotoEditor;
+			sourceTree = "<group>";
+		};
+		5F23E4FD256AADD900EB2D9D /* FilterCollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				5F23E50B256AB0BB00EB2D9D /* FilterModel.swift */,
+				5F23E510256AB92500EB2D9D /* FilterCollectionViewCell.swift */,
+				5F23E511256AB92500EB2D9D /* FilterCollectionViewCell.xib */,
+				5F23E4F6256AADA400EB2D9D /* FilterCollectionView.swift */,
+				5F23E4F9256AADBC00EB2D9D /* FilterCollectionView.xib */,
+			);
+			path = FilterCollectionView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -219,7 +242,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				5DF8E97A254D9BCE00190C46 /* LaunchScreen.storyboard in Resources */,
+				5F23E513256AB92500EB2D9D /* FilterCollectionViewCell.xib in Resources */,
 				5DF8E977254D9BCE00190C46 /* Assets.xcassets in Resources */,
+				5F23E4FA256AADBC00EB2D9D /* FilterCollectionView.xib in Resources */,
 				5DF8E975254D9BCC00190C46 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -236,6 +261,7 @@
 				5FB06A51254F68310037132B /* LUT.swift in Sources */,
 				5D19DC9C254F6348007445A5 /* PhotoEffectMonoFilter.swift in Sources */,
 				5D19DCA5254F63C6007445A5 /* PhotoEffectTonalFilter.swift in Sources */,
+				5F23E4F7256AADA400EB2D9D /* FilterCollectionView.swift in Sources */,
 				5D19DC84254F5EA2007445A5 /* ColorMonochromeFilter.swift in Sources */,
 				5D19DC8A254F6121007445A5 /* FalseColorFilter.swift in Sources */,
 				5DF8E972254D9BCC00190C46 /* ViewController.swift in Sources */,
@@ -255,6 +281,8 @@
 				5D19DC80254F5D66007445A5 /* ColorMapFilter.swift in Sources */,
 				5D19DC90254F6272007445A5 /* MinimumComponentFilter.swift in Sources */,
 				5D19DCA8254F647B007445A5 /* PhotoEffectTransferFilter.swift in Sources */,
+				5F23E512256AB92500EB2D9D /* FilterCollectionViewCell.swift in Sources */,
+				5F23E50C256AB0BB00EB2D9D /* FilterModel.swift in Sources */,
 				5D19DCAB254F64B9007445A5 /* VignetteEffectFilter.swift in Sources */,
 				5D19DC8D254F623E007445A5 /* MaximumComponentFilter.swift in Sources */,
 			);
@@ -405,6 +433,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = M92VXVU7J9;
 				INFOPLIST_FILE = SignalPhotoEditor/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -427,6 +456,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = M92VXVU7J9;
 				INFOPLIST_FILE = SignalPhotoEditor/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
