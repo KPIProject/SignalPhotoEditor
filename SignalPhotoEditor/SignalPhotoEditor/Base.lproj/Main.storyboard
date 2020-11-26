@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="UnS-bI-lLL">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="meX-M2-5SO">
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
@@ -25,6 +25,119 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nfl-Dh-Eoh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-820" y="70"/>
+        </scene>
+        <!--Download-->
+        <scene sceneID="93P-Wb-zM7">
+            <objects>
+                <viewController id="KxY-7v-5sb" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="vQa-ZX-wf3">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Szy-bC-H8Y">
+                                <rect key="frame" x="136" y="388.66666666666669" width="118.33333333333331" height="28"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <color key="tintColor" systemColor="linkColor"/>
+                                <state key="normal" title="Download" image="arrow.down.doc" catalog="system">
+                                    <color key="titleColor" systemColor="linkColor"/>
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" weight="medium"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="GXh-ca-Z3M"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Szy-bC-H8Y" firstAttribute="centerY" secondItem="GXh-ca-Z3M" secondAttribute="centerY" id="2hW-ZC-rII"/>
+                            <constraint firstItem="Szy-bC-H8Y" firstAttribute="centerX" secondItem="GXh-ca-Z3M" secondAttribute="centerX" id="HBe-3T-OLg"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Download" image="arrow.down.doc" catalog="system" id="FVb-sZ-wiH"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lIJ-9v-Bi1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1003.0769230769231" y="1601.6587677725117"/>
+        </scene>
+        <!--Item-->
+        <scene sceneID="PlF-Ym-Fok">
+            <objects>
+                <viewController storyboardIdentifier="FilterViewController" id="ZIb-xY-hkO" customClass="FilterViewController" customModule="SignalPhotoEditor" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="a2S-zV-mBG">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" maximumZoomScale="5" translatesAutoresizingMaskIntoConstraints="NO" id="9xd-vg-2Ga">
+                                <rect key="frame" x="0.0" y="88" width="390" height="573"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="2" translatesAutoresizingMaskIntoConstraints="NO" id="lSb-SH-dNu">
+                                        <rect key="frame" x="0.0" y="0.0" width="390" height="573"/>
+                                    </imageView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="lSb-SH-dNu" secondAttribute="trailing" id="3eQ-yC-3Mm"/>
+                                    <constraint firstItem="lSb-SH-dNu" firstAttribute="top" secondItem="9xd-vg-2Ga" secondAttribute="top" id="6ji-yz-NkI"/>
+                                    <constraint firstItem="lSb-SH-dNu" firstAttribute="width" secondItem="9xd-vg-2Ga" secondAttribute="width" id="Ewv-9t-13P"/>
+                                    <constraint firstItem="lSb-SH-dNu" firstAttribute="leading" secondItem="9xd-vg-2Ga" secondAttribute="leading" id="Qom-70-kaU"/>
+                                    <constraint firstAttribute="bottom" secondItem="lSb-SH-dNu" secondAttribute="bottom" id="e5x-U1-ssg"/>
+                                    <constraint firstItem="lSb-SH-dNu" firstAttribute="height" secondItem="9xd-vg-2Ga" secondAttribute="height" id="eis-zp-xLu"/>
+                                </constraints>
+                            </scrollView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="wnv-PK-b4y">
+                                <rect key="frame" x="0.0" y="671" width="390" height="90"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mlj-wb-wVz" customClass="FilterCollectionView" customModule="SignalPhotoEditor" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="390" height="90"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="90" id="Grx-0Q-VLr"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="tBp-pY-gMt"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="9xd-vg-2Ga" firstAttribute="leading" secondItem="tBp-pY-gMt" secondAttribute="leading" id="DZS-4v-ecm"/>
+                            <constraint firstItem="wnv-PK-b4y" firstAttribute="top" secondItem="9xd-vg-2Ga" secondAttribute="bottom" constant="10" id="VZi-wL-LBB"/>
+                            <constraint firstItem="tBp-pY-gMt" firstAttribute="bottom" secondItem="wnv-PK-b4y" secondAttribute="bottom" id="jkQ-Uu-DyD"/>
+                            <constraint firstItem="tBp-pY-gMt" firstAttribute="trailing" secondItem="wnv-PK-b4y" secondAttribute="trailing" id="kIl-Ku-VxI"/>
+                            <constraint firstItem="wnv-PK-b4y" firstAttribute="leading" secondItem="tBp-pY-gMt" secondAttribute="leading" id="pxo-Cf-gl0"/>
+                            <constraint firstItem="9xd-vg-2Ga" firstAttribute="top" secondItem="tBp-pY-gMt" secondAttribute="top" id="wVt-Sd-IMr"/>
+                            <constraint firstItem="tBp-pY-gMt" firstAttribute="trailing" secondItem="9xd-vg-2Ga" secondAttribute="trailing" id="wl5-aA-zdZ"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="KFx-tA-zRq"/>
+                    <navigationItem key="navigationItem" id="bOR-AZ-Xgu"/>
+                    <connections>
+                        <outlet property="bottomStackView" destination="wnv-PK-b4y" id="GsZ-xI-G7Z"/>
+                        <outlet property="filterCollectionView" destination="mlj-wb-wVz" id="sxv-GV-HvV"/>
+                        <outlet property="mainImageView" destination="lSb-SH-dNu" id="4po-uX-Hp1"/>
+                        <outlet property="scrollView" destination="9xd-vg-2Ga" id="4Xf-Vc-bBE"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0eK-HW-76x" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-3629" y="2511"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="Z3z-L7-Vd1">
+            <objects>
+                <tabBarController id="meX-M2-5SO" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="KeE-ke-PCH">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="selectedImageTintColor" systemColor="labelColor"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="sWh-wL-xS2" kind="relationship" relationship="viewControllers" id="P88-cL-GGm"/>
+                        <segue destination="MXv-X5-dNu" kind="relationship" relationship="viewControllers" id="rSQ-Rn-kSi"/>
+                        <segue destination="KxY-7v-5sb" kind="relationship" relationship="viewControllers" id="hlc-5n-dlR"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Hc3-t2-dzf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-3222" y="863"/>
         </scene>
         <!--Main View Controller-->
         <scene sceneID="hRM-sK-etw">
@@ -415,19 +528,68 @@
             </objects>
             <point key="canvasLocation" x="978" y="70"/>
         </scene>
+        <!--Filter-->
+        <scene sceneID="cZW-Ag-DK7">
+            <objects>
+                <navigationController storyboardIdentifier="CustomNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="sWh-wL-xS2" customClass="CustomNavigationController" customModule="SignalPhotoEditor" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Filter" image="camera.filters" catalog="system" id="3Si-XL-qfs"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="hJg-dK-wIW">
+                        <rect key="frame" x="0.0" y="44" width="390" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="ZIb-xY-hkO" kind="relationship" relationship="rootViewController" id="ji6-gx-yYz"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aTo-Bz-hxh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-4426.1538461538457" y="1601.6587677725117"/>
+        </scene>
+        <!--Regulation-->
+        <scene sceneID="VLV-zB-hzX">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="MXv-X5-dNu" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Regulation" image="slider.horizontal.below.rectangle" catalog="system" id="n2S-Es-S60"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="QND-Ko-KZb">
+                        <rect key="frame" x="0.0" y="44" width="390" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="ZIb-xY-hkO" kind="relationship" relationship="rootViewController" id="Jj8-IA-CXT"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="U5d-0z-dft" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2820" y="1602"/>
+        </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="ji6-gx-yYz"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="2" width="720" height="1280"/>
         <image name="ClearLUT" width="512" height="512"/>
+        <image name="arrow.down.doc" catalog="system" width="115" height="128"/>
         <image name="camera.filters" catalog="system" width="128" height="116"/>
         <image name="mountain" width="2400" height="1600"/>
         <image name="photo.on.rectangle.angled" catalog="system" width="128" height="101"/>
         <image name="slider.horizontal.3" catalog="system" width="128" height="100"/>
+        <image name="slider.horizontal.below.rectangle" catalog="system" width="128" height="115"/>
         <image name="square.and.arrow.down" catalog="system" width="121" height="128"/>
         <image name="stepBack" width="27" height="34"/>
         <image name="stepForward" width="27" height="34"/>
         <image name="steps" width="27" height="34"/>
         <image name="tray.and.arrow.down" catalog="system" width="128" height="109"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="linkColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="opaqueSeparatorColor">
             <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
