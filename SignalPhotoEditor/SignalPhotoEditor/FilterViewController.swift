@@ -9,14 +9,16 @@ import UIKit
 
 final class FilterViewController: UIViewController {
     
-    private let imagePicker = ImagePicker(type: .image)
     
-    private let coreSignal = CoreSignalPhotoEditor.shared
     
     @IBOutlet weak var mainImageView: UIImageView!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var bottomStackView: UIStackView!
     @IBOutlet weak var filterCollectionView: FilterCollectionView!
+    
+    private let imagePicker = ImagePicker(type: .image)
+    
+    private let coreSignal = CoreSignalPhotoEditor.shared
     
     private var state: FilterViewController.State = .filter
     
@@ -49,15 +51,30 @@ final class FilterViewController: UIViewController {
     }
     
     private func setupCollectionView() {
-        let filters: [FilterModel] = [
-            FilterModel(image: UIImage(named: "mountain")!, name: "Filter1"),
-            FilterModel(image: UIImage(named: "mountain")!, name: "Filter2"),
-            FilterModel(image: UIImage(named: "mountain")!, name: "Filter3"),
-            FilterModel(image: UIImage(named: "mountain")!, name: "Filter4"),
-            FilterModel(image: UIImage(named: "mountain")!, name: "Filter5"),
-            FilterModel(image: UIImage(named: "mountain")!, name: "Filter6")
-        ]
-        filterCollectionView.config(with: filters)
+        
+        var filters = [FilterModel]()
+        
+        switch state {
+        case .filter:
+            filters = [
+                FilterModel(image: UIImage(named: "mountain")!, name: "Filter1"),
+                FilterModel(image: UIImage(named: "mountain")!, name: "Filter2"),
+                FilterModel(image: UIImage(named: "mountain")!, name: "Filter3"),
+                FilterModel(image: UIImage(named: "mountain")!, name: "Filter4"),
+                FilterModel(image: UIImage(named: "mountain")!, name: "Filter5"),
+                FilterModel(image: UIImage(named: "mountain")!, name: "Filter6")
+            ]
+            filterCollectionView.config(with: filters)
+
+        case .regulation:
+            filters = [
+                FilterModel(image: UIImage(named: "brightness")!, name: "Brightness"),
+                FilterModel(image: UIImage(named: "saturation")!, name: "Saturation"),
+                FilterModel(image: UIImage(named: "contrast")!, name: "Contrast")
+            ]
+            filterCollectionView.config(with: filters, imageContentMode: .center)
+        }
+                
     }
     
     @objc

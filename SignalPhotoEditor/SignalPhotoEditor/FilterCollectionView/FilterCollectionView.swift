@@ -10,6 +10,7 @@ import UIKit
 class FilterCollectionView: UIView {
 
     @IBOutlet weak var collectionView: UICollectionView!
+    var imageContentMode: UIView.ContentMode = .scaleAspectFill
     
     var filters: [FilterModel] = []
     
@@ -25,8 +26,9 @@ class FilterCollectionView: UIView {
         loadView()
     }
     
-    public func config(with filterModel: [FilterModel]) {
-        
+    public func config(with filterModel: [FilterModel], imageContentMode: UIView.ContentMode = .scaleAspectFill) {
+        self.imageContentMode = imageContentMode
+
         collectionView.register(UINib(nibName: "FilterCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "reuseID")
         collectionView.dataSource = self
         collectionView.delegate = self
@@ -74,6 +76,7 @@ extension FilterCollectionView: UICollectionViewDataSource, UICollectionViewDele
         
         filterCell.textLabel.text = filter.name
         filterCell.imageView.image = filter.image
+        filterCell.imageView.contentMode = imageContentMode
         
         return filterCell
     }

@@ -29,7 +29,11 @@ class CoreSignalPhotoEditor {
     private var filteres: [Filter] = []
     private var imageStack: [UIImage] = []
     
-    private init() { }
+    private init() {
+        sourceImage = UIImage(named: "mountain")!
+        editedImage = UIImage(named: "mountain")!
+        imageStack = [UIImage(named: "mountain")!]
+    }
     
     public func applyFilter(_ filter: Filter, complition: @escaping (UIImage) -> Void) {
         removeOldFilters()
