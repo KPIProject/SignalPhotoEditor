@@ -8,6 +8,7 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
     @IBOutlet weak var selectPhotoButton: UIButton!
     
     @IBOutlet weak var mainImageView: UIImageView!
@@ -49,10 +50,10 @@ class ViewController: UIViewController {
         filteres = [Filters.photoEffectFade.getFilter(intensity: 1),
                                   Filters.colorCube(lutImage: UIImage(named: "ClearLUT")!).getFilter(intensity: 1)]
         
-        let coreSignal = CoreSignalPhotoEditor(image:  mainImageView.image!)
-        coreSignal.applyFilter(filteres[0]) { [weak self] editedImage in
-            self?.mainImageView.image = editedImage
-        }
+//        let coreSignal = CoreSignalPhotoEditor(image: mainImageView.image!)
+//        coreSignal.applyFilter(filteres[0]) { [weak self] editedImage in
+//            self?.mainImageView.image = editedImage
+//        }
     }
     
     @IBAction func didPressReset(_ sender: UIButton) {

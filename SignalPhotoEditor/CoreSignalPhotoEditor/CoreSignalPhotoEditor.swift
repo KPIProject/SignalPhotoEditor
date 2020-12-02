@@ -11,25 +11,36 @@ import CoreImage.CIFilterBuiltins
 
 class CoreSignalPhotoEditor {
     
-    private let sourceImage: UIImage    // remove?
+    public static let shared = CoreSignalPhotoEditor()
+    
+    public var sourceImage: UIImage? {
+        didSet {
+            if let image = sourceImage {
+                editedImage = image
+                imageStack = [image]
+            }
+        }
+    }
     
     /// Current displayed image
-    private var editedImage: UIImage
+    public var editedImage: UIImage?
     private var editedImageIndex: Int = 0
     
     private var filteres: [Filter] = []
     private var imageStack: [UIImage] = []
     
-    init(image: UIImage) {
-        self.sourceImage = image
-        self.editedImage = image
-        self.imageStack = [image]
+    private init() {
+        sourceImage = UIImage(named: "mountain")!
+        editedImage = UIImage(named: "mountain")!
+        imageStack = [UIImage(named: "mountain")!]
     }
     
     public func applyFilter(_ filter: Filter, complition: @escaping (UIImage) -> Void) {
         removeOldFilters()
-        
-        guard var ciImage = CIImage(image: sourceImage) else { return }
+                
+        guard var editedImage = editedImage else { return }
+
+        guard var ciImage = CIImage(image: editedImage) else { return }
         filteres.append(filter)
         
         let context = CIContext()
@@ -79,7 +90,7 @@ class CoreSignalPhotoEditor {
     /**
      Returns original image.
      */
-    public func restoreImage() -> UIImage {
+    public func restoreImage() -> UIImage? {
         return sourceImage
     }
     
