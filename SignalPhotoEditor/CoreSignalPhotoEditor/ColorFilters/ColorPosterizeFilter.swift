@@ -9,7 +9,7 @@ import UIKit
 
 struct ColorPosterizeFilter: Filter {
     
-    var filterName: String? = "ColorPosterize"
+    var filterName: String? = "Posterize"
     
     var level: Float = 1.0
     

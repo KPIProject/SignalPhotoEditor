@@ -47,8 +47,8 @@ class ViewController: UIViewController {
     @IBAction func didPressApply(_ sender: UIButton) {
         print("Apply pressed")
 
-        filteres = [Filters.photoEffectFade.getFilter(intensity: 1),
-                                  Filters.colorCube(lutImage: UIImage(named: "ClearLUT")!).getFilter(intensity: 1)]
+//        filteres = [Filters.photoEffectFade.getFilter(intensity: 1),
+//                                  Filters.colorCube(lutImage: UIImage(named: "ClearLUT")!).getFilter(intensity: 1)]
         
 //        let coreSignal = CoreSignalPhotoEditor(image: mainImageView.image!)
 //        coreSignal.applyFilter(filteres[0]) { [weak self] editedImage in

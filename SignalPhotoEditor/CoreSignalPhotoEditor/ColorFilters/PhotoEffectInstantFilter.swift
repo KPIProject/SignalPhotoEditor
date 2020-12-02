@@ -9,7 +9,7 @@ import UIKit
 
 struct PhotoEffectInstantFilter: Filter {
     
-    var filterName: String? = "PhotoEffectInstant"
+    var filterName: String? = "Instant"
     var intensity: Float? = 1.0
     func applyFilter(image: inout CIImage) {
         

@@ -9,7 +9,7 @@ import UIKit
 
 struct ColorMonochromeFilter: Filter {
     
-    var filterName: String? = "ColorMonochrome"
+    var filterName: String? = "Monochrome"
     
     var intensity: Float?
 

@@ -9,7 +9,7 @@ import UIKit
 
 struct PhotoEffectMonoFilter: Filter {
     
-    var filterName: String? = "PhotoEffectMono"
+    var filterName: String? = "Mono"
     var intensity: Float? = 1.0
     func applyFilter(image: inout CIImage) {
         

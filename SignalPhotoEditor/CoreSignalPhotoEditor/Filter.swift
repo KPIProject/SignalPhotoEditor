@@ -45,7 +45,7 @@ enum Filters {
     //    case vignetteEffect(radius: Float, center: (x: CGFloat, y: CGFloat))
     case colorInvert
     case colorMonochrome(inputColor: CIColor)
-    case colorPosterize(level: Float)
+    case colorPosterize(level: Float = 6)
     case falseColor(color0: CIColor, color1: CIColor)
     case maximumComponent
     case minimumComponent
@@ -59,12 +59,23 @@ enum Filters {
     case photoEffectTransfer
     // With input Image
     case colorMap(inputGradient: UIImage)
-    case colorCube(lutImage: UIImage)
+    case colorCube(name: String, lutImage: UIImage)
     
-    static var allCases: [Filter] = [ Filters.sepia.getFilter(),
-                                      Filters.photoEffectChrome.getFilter(),
-                                      Filters.photoEffectFade.getFilter(),
-                                      Filters.photoEffectMono.getFilter(),
+    static var allCases: [Filter] = [
+        Filters.sepia.getFilter(),
+        Filters.photoEffectChrome.getFilter(),
+        Filters.photoEffectFade.getFilter(),
+        Filters.photoEffectMono.getFilter(),
+        Filters.maximumComponent.getFilter(),
+        Filters.minimumComponent.getFilter(),
+        Filters.photoEffectInstant.getFilter(),
+        Filters.photoEffectNoir.getFilter(),
+        Filters.photoEffectProcess.getFilter(),
+        Filters.photoEffectTonal.getFilter(),
+        Filters.photoEffectTransfer.getFilter(),
+        Filters.colorInvert.getFilter(),
+        Filters.colorPosterize().getFilter(),
+        Filters.colorCube(name: "Persian", lutImage: UIImage(named: "Persian") ?? UIImage()).getFilter(),
     ]
     
     func getFilter(intensity: Float = 1) -> Filter {
@@ -103,8 +114,8 @@ enum Filters {
             return PhotoEffectTonalFilter(intensity: intensity)
         case .photoEffectTransfer:
             return PhotoEffectTransferFilter(intensity: intensity)
-        case let .colorCube(lutImage):
-            return ColorCubeFilter(lutImage: lutImage, intensity: intensity)
+        case let .colorCube(name, lutImage):
+            return ColorCubeFilter(filterName: name, lutImage: lutImage, intensity: intensity)
         }
     }
 }

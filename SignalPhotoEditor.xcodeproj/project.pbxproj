@@ -135,8 +135,8 @@
 		5D19DC78254F3D27007445A5 /* ColorFilters */ = {
 			isa = PBXGroup;
 			children = (
-				5D11A696254DB5A200A50925 /* SepiaFilter.swift */,
 				5D19DCAA254F64B9007445A5 /* VignetteEffectFilter.swift */,
+				5D11A696254DB5A200A50925 /* SepiaFilter.swift */,
 				5D19DC7C254F5C6F007445A5 /* ColorInvertFilter.swift */,
 				5D19DC7F254F5D66007445A5 /* ColorMapFilter.swift */,
 				5D19DC83254F5EA2007445A5 /* ColorMonochromeFilter.swift */,
