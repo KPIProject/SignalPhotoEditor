@@ -26,25 +26,24 @@ extension Filter {
                 "inputBVector": CIVector(x: 0, y: 0, z: 1, w: CGFloat(0)),
                 "inputAVector": CIVector(x: 0, y: 0, z: 0, w: CGFloat(intensity ?? 1)),
                 "inputBiasVector": CIVector(x: 0, y: 0, z: 0, w: 0),
-        ])
+            ])
         
         let composition = CIFilter(
             name: "CISourceOverCompositing",
             parameters: [
                 kCIInputImageKey : foreground,
                 kCIInputBackgroundImageKey : background
-        ])!
+            ])!
         
         image = composition.outputImage!
     }
 }
 
 enum Filters {
+    
     case sepia
-    case vignette(radius: Float)
-    case vignetteEffect(radius: Float, center: (x: CGFloat, y: CGFloat))
+    //    case vignetteEffect(radius: Float, center: (x: CGFloat, y: CGFloat))
     case colorInvert
-    case colorMap(inputGradient: UIImage)
     case colorMonochrome(inputColor: CIColor)
     case colorPosterize(level: Float)
     case falseColor(color0: CIColor, color1: CIColor)
@@ -58,16 +57,22 @@ enum Filters {
     case photoEffectProcess
     case photoEffectTonal
     case photoEffectTransfer
+    // With input Image
+    case colorMap(inputGradient: UIImage)
     case colorCube(lutImage: UIImage)
     
-    func getFilter(intensity: Float) -> Filter {
+    static var allCases: [Filter] = [ Filters.sepia.getFilter(),
+                                      Filters.photoEffectChrome.getFilter(),
+                                      Filters.photoEffectFade.getFilter(),
+                                      Filters.photoEffectMono.getFilter(),
+    ]
+    
+    func getFilter(intensity: Float = 1) -> Filter {
         switch self {
         case .sepia:
             return SepiaFilter(intensity: intensity)
-        case let .vignette(radius: radius):
-            return VignetteFilter(intensity: intensity, radius: radius)
-        case let .vignetteEffect(radius:  radius, center: (x: x, y: y)):
-            return VignetteEffectFilter(intensity: intensity, radius: radius, center: (x: x, y: y))
+        //        case let .vignetteEffect(radius:  radius, center: (x: x, y: y)):
+        //            return VignetteEffectFilter(intensity: intensity, radius: radius, center: (x: x, y: y))
         case .colorInvert:
             return ColorInvertFilter()
         case let .colorMap(inputGradient: image):

@@ -37,7 +37,7 @@ final class FilterViewController: UIViewController {
         
         print(state)
         mainImageView.image = coreSignal.editedImage
-        setupCollectionView(image: coreSignal.compressedImage ?? UIImage())
+        setupCollectionView()
     }
     
     private func setupNavigation() {
@@ -53,21 +53,65 @@ final class FilterViewController: UIViewController {
         navigationItem.leftBarButtonItem = selectImageButton
     }
     
-    private func setupCollectionView(image: UIImage) {
+    private func setupCollectionView() {
         
         var filters = [FilterModel]()
         
         switch state {
         case .filter:
-            filters = [
-                FilterModel(image: image, name: "Filter1"),
-                FilterModel(image: image, name: "Filter2"),
-                FilterModel(image: image, name: "Filter3"),
-                FilterModel(image: image, name: "Filter4"),
-                FilterModel(image: image, name: "Filter5"),
-                FilterModel(image: image, name: "Filter6")
-            ]
-            filterCollectionView.config(with: filters)
+            
+            coreSignal.applyFiltersToCompressed { filters in
+                self.filterCollectionView.config(with: filters)
+            }
+//            coreSignal.applyFilterToCompressed(Filters.colorCube(lutImage: UIImage(named: "Persian") ?? UIImage()).getFilter(intensity: 1)) { (image) in
+//                filters.append(FilterModel(image: image, name: "Persian"))
+//                self.filterCollectionView.config(with: filters)
+//            }
+//            coreSignal.applyFilterToCompressed(Filters.sepia.getFilter(intensity: 1)) { (image) in
+//                filters.append(FilterModel(image: image, name: "Sepia"))
+//                self.filterCollectionView.config(with: filters)
+//            }
+//            coreSignal.applyFilterToCompressed(Filters.maximumComponent.getFilter(intensity: 1)) { (image) in
+//                filters.append(FilterModel(image: image, name: "Max Component"))
+//                self.filterCollectionView.config(with: filters)
+//            }
+//            coreSignal.applyFilterToCompressed(Filters.minimumComponent.getFilter(intensity: 1)) { (image) in
+//                filters.append(FilterModel(image: image, name: "Min Component"))
+//                self.filterCollectionView.config(with: filters)
+//            }
+//            coreSignal.applyFilterToCompressed(Filters.photoEffectChrome.getFilter(intensity: 1)) { (image) in
+//                filters.append(FilterModel(image: image, name: "Crome"))
+//            }
+//            coreSignal.applyFilterToCompressed(Filters.photoEffectFade.getFilter(intensity: 1)) { (image) in
+//                filters.append(FilterModel(image: image, name: "Fade"))
+//            }
+//            coreSignal.applyFilterToCompressed(Filters.photoEffectInstant.getFilter(intensity: 1)) { (image) in
+//                filters.append(FilterModel(image: image, name: "Instant"))
+//            }
+//            coreSignal.applyFilterToCompressed(Filters.photoEffectMono.getFilter(intensity: 1)) { (image) in
+//                filters.append(FilterModel(image: image, name: "Mono"))
+//            }
+//            coreSignal.applyFilterToCompressed(Filters.photoEffectNoir.getFilter(intensity: 1)) { (image) in
+//                filters.append(FilterModel(image: image, name: "Noir"))
+//            }
+//            coreSignal.applyFilterToCompressed(Filters.photoEffectProcess.getFilter(intensity: 1)) { (image) in
+//                filters.append(FilterModel(image: image, name: "Process"))
+//            }
+//            coreSignal.applyFilterToCompressed(Filters.photoEffectTonal.getFilter(intensity: 1)) { (image) in
+//                filters.append(FilterModel(image: image, name: "Tonal"))
+//            }
+//            coreSignal.applyFilterToCompressed(Filters.photoEffectTransfer.getFilter(intensity: 1)) { (image) in
+//                filters.append(FilterModel(image: image, name: "Transfer"))
+//            }
+            
+//                FilterModel(image: image, name: "Filter1"),
+//                FilterModel(image: image, name: "Filter2"),
+//                FilterModel(image: image, name: "Filter3"),
+//                FilterModel(image: image, name: "Filter4"),
+//                FilterModel(image: image, name: "Filter5"),
+//                FilterModel(image: image, name: "Filter6")
+//            ]
+//            filterCollectionView.config(with: filters)
 
         case .regulation:
             filters = [
@@ -88,7 +132,7 @@ final class FilterViewController: UIViewController {
             case let .success(image: image):
                 self?.coreSignal.sourceImage = image
                 self?.mainImageView.image = image
-                self?.setupCollectionView(image: self?.coreSignal.compressedImage ?? UIImage())
+                self?.setupCollectionView()
             default:
                 break
             }

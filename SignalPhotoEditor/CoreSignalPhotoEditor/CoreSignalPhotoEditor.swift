@@ -69,6 +69,42 @@ class CoreSignalPhotoEditor {
         }
     }
     
+    public func applyFilterToCompressed(_ filter: Filter, completion: @escaping (UIImage) -> Void) {
+                
+        guard var editedImage = compressedImage else { return }
+        guard var ciImage = CIImage(image: editedImage) else { return }
+        let context = CIContext()
+        
+        DispatchQueue.global(qos: .userInteractive).async {
+            
+            filter.applyFilter(image: &ciImage)
+            
+            // attempt to get a CGImage from our CIImage
+            if let newCGImage = context.createCGImage(ciImage, from: ciImage.extent) {
+                // convert that to a UIImage
+                editedImage = UIImage(cgImage: newCGImage)
+            }
+                        
+            DispatchQueue.main.async {
+                completion(editedImage)
+            }
+        }
+    }
+    
+    func applyFiltersToCompressed(completion: @escaping ([FilterModel]) -> Void) {
+        var filters = [FilterModel]()
+        
+        Filters.allCases.forEach { filter in
+            self.applyFilterToCompressed(filter) { image in
+                
+                filters.append(FilterModel(image: image, name: filter.filterName ?? ""))
+                if filters.count == Filters.allCases.count {
+                    completion(filters.sorted { $0.name < $1.name })
+                }
+            }
+        }
+    }
+    
     /**
      Returns image there was before last filter appling.
      */

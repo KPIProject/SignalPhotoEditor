@@ -24,6 +24,7 @@ enum Regulations {
     case tint(value: Float)
     case vibrance(value: Float)
     case whitePointAdjust(color: CIColor, intensity: Float)
+    case vignette(radius: Float, intensity: Float)
     
     func getFilter() -> Filter {
         switch self {
@@ -47,6 +48,8 @@ enum Regulations {
             return VibranceRegulation(inputAmount: value)
         case let .whitePointAdjust(color, intensity):
             return WhitePointAdjustRegulation(intensity: intensity, inputColor: color)
+        case let .vignette(radius, intensity):
+            return VignetteFilter(intensity: intensity, radius: radius)
         }
     }
 }
