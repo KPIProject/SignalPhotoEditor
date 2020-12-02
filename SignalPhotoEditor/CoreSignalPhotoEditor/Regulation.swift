@@ -6,11 +6,11 @@
 //
 
 import UIKit
-
-protocol Regulation {
-    var filterName: String? { get }
-    func applyFilter(image: inout CIImage)
-}
+//
+//protocol Regulation {
+//    var filterName: String? { get }
+//    func applyFilter(image: inout CIImage)
+//}
 
 
 enum Regulations {
@@ -23,9 +23,9 @@ enum Regulations {
     case temperature(value: Float)
     case tint(value: Float)
     case vibrance(value: Float)
-    case whitePointAdjust(color: CIColor)
+    case whitePointAdjust(color: CIColor, intensity: Float)
     
-    func getFilter() -> Regulation {
+    func getFilter() -> Filter {
         switch self {
         case let .saturation(value):
             return ColorControlsRegulation(inputSaturation: value)
@@ -45,8 +45,8 @@ enum Regulations {
             return TemperatureAndTintRegulation(inputTint: value)
         case let .vibrance(value):
             return VibranceRegulation(inputAmount: value)
-        case let .whitePointAdjust(color):
-            return WhitePointAdjustRegulation(inputColor: color)
+        case let .whitePointAdjust(color, intensity):
+            return WhitePointAdjustRegulation(intensity: intensity, inputColor: color)
         }
     }
 }

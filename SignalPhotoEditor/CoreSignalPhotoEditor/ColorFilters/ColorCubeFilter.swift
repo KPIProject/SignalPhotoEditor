@@ -15,7 +15,7 @@ struct ColorCubeFilter: Filter {
     var dimension: Float = 64
     var lutImage: UIImage
     
-    var intensity: Float = 1.0
+    var intensity: Float? = 1.0
     
     func applyFilter(image: inout CIImage) {
         

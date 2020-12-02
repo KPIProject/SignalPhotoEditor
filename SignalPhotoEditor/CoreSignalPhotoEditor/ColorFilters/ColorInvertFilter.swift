@@ -9,7 +9,7 @@ import UIKit
 
 struct ColorInvertFilter: Filter {
     
-    var intensity: Float = 1.0
+    var intensity: Float? = 1.0
     
     var filterName: String? = "Invert"
     

@@ -13,7 +13,7 @@ struct ColorMapFilter: Filter {
     
     var inputGradient: UIImage
     
-    var intensity: Float = 1.0
+    var intensity: Float? = 1.0
     
     func applyFilter(image: inout CIImage) {
         

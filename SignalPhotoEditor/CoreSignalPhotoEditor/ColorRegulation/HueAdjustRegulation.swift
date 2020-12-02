@@ -11,7 +11,8 @@ import UIKit
  Changes the overall hue, or tint, of the source pixels.
  This filter essentially rotates the color cube around the neutral axis.
  */
-struct HueAdjustRegulation: Regulation {
+struct HueAdjustRegulation: Filter {
+    var intensity: Float?
     
     var filterName: String? = "Hue Adjust"
     

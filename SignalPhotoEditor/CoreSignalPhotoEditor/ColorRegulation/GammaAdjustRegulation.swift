@@ -10,7 +10,8 @@ import UIKit
 /**
  Adjusts midtone brightness.
  */
-struct GammaAdjustRegulation: Regulation {
+struct GammaAdjustRegulation: Filter {
+    var intensity: Float?
     
     var filterName: String? = "Gamma Adjust"
     

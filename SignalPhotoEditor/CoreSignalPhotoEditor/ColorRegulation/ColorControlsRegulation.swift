@@ -10,7 +10,8 @@ import UIKit
 /**
  Saturation + Brightness + Contrast
  */
-struct ColorControlsRegulation: Regulation {
+struct ColorControlsRegulation: Filter {
+    var intensity: Float?
     
     var filterName: String? = "Color Controls"
     

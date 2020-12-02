@@ -7,7 +7,8 @@
 
 import UIKit
 
-struct ExposureAdjustRegulation: Regulation {
+struct ExposureAdjustRegulation: Filter {
+    var intensity: Float?
     
     var filterName: String? = "Exposure Adjust"
     

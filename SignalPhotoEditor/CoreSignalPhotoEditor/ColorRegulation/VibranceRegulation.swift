@@ -10,7 +10,8 @@ import UIKit
 /**
  Adjusts the saturation of an image while keeping pleasing skin tones.
  */
-struct VibranceRegulation: Regulation {
+struct VibranceRegulation: Filter {
+    var intensity: Float?
     
     var filterName: String? = "Color Controls"
     

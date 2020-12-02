@@ -11,7 +11,7 @@ struct FalseColorFilter: Filter {
     
     var filterName: String? = "FalseColor"
     
-    var intensity: Float = 1.0
+    var intensity: Float? = 1.0
     
     var color0: CIColor
     var color1: CIColor

@@ -11,7 +11,7 @@ struct MaximumComponentFilter: Filter {
     
     var filterName: String? = "MaximumComponent"
     
-    var intensity: Float = 0.5
+    var intensity: Float? = 0.5
     
     func applyFilter(image: inout CIImage) {
         

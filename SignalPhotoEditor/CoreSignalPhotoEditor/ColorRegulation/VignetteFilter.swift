@@ -11,7 +11,7 @@ struct VignetteFilter: Filter {
     
     var filterName: String? = "Vignette"
     
-    var intensity: Float = 0.0
+    var intensity: Float?
     
     var radius: Float = 1.0
     
@@ -19,7 +19,7 @@ struct VignetteFilter: Filter {
         
         let currentFilter = CIFilter.vignette()
         currentFilter.inputImage = image
-        currentFilter.intensity = intensity
+        currentFilter.intensity = intensity ?? 0.0
         currentFilter.radius = radius
         
         // get a CIImage from our filter or exit if that fails

@@ -10,7 +10,7 @@ import UIKit
 
 protocol Filter {
     var filterName: String? { get }
-    var intensity: Float { get }
+    var intensity: Float? { get }
     func applyFilter(image: inout CIImage)
 }
 
@@ -24,7 +24,7 @@ extension Filter {
                 "inputRVector": CIVector(x: 1, y: 0, z: 0, w: CGFloat(0)),
                 "inputGVector": CIVector(x: 0, y: 1, z: 0, w: CGFloat(0)),
                 "inputBVector": CIVector(x: 0, y: 0, z: 1, w: CGFloat(0)),
-                "inputAVector": CIVector(x: 0, y: 0, z: 0, w: CGFloat(intensity)),
+                "inputAVector": CIVector(x: 0, y: 0, z: 0, w: CGFloat(intensity ?? 1)),
                 "inputBiasVector": CIVector(x: 0, y: 0, z: 0, w: 0),
         ])
         

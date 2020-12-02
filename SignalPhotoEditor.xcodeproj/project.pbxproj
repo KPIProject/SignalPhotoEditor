@@ -125,6 +125,7 @@
 				5D1107562577C64900DBD7D9 /* TemperatureAndTintRegulation.swift */,
 				5D11075A2577CA8500DBD7D9 /* VibranceRegulation.swift */,
 				5D11075D2577CDD500DBD7D9 /* WhitePointAdjustRegulation.swift */,
+				5D19DC73254F2E8D007445A5 /* VignetteFilter.swift */,
 			);
 			path = ColorRegulation;
 			sourceTree = "<group>";
@@ -133,7 +134,6 @@
 			isa = PBXGroup;
 			children = (
 				5D11A696254DB5A200A50925 /* SepiaFilter.swift */,
-				5D19DC73254F2E8D007445A5 /* VignetteFilter.swift */,
 				5D19DCAA254F64B9007445A5 /* VignetteEffectFilter.swift */,
 				5D19DC7C254F5C6F007445A5 /* ColorInvertFilter.swift */,
 				5D19DC7F254F5D66007445A5 /* ColorMapFilter.swift */,

@@ -11,7 +11,7 @@ struct VignetteEffectFilter: Filter {
     
     var filterName: String? = "VignetteEffect"
     
-    var intensity: Float = 0.0
+    var intensity: Float?
     
     var radius: Float = 1.0
     
@@ -21,7 +21,7 @@ struct VignetteEffectFilter: Filter {
         
         let currentFilter = CIFilter.vignetteEffect()
         currentFilter.inputImage = image
-        currentFilter.intensity = intensity
+        currentFilter.intensity = intensity ?? 0.0
         currentFilter.radius = radius
         
         let vector = CGPoint(x: center.x, y: center.y)

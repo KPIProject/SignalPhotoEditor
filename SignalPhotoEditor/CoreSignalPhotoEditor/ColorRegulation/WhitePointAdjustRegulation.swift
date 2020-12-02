@@ -10,7 +10,8 @@ import UIKit
 /**
  Adjusts the saturation of an image while keeping pleasing skin tones.
  */
-struct WhitePointAdjustRegulation: Regulation {
+struct WhitePointAdjustRegulation: Filter {
+    var intensity: Float?
     
     var filterName: String? = "White Point Adjust"
     
@@ -22,10 +23,11 @@ struct WhitePointAdjustRegulation: Regulation {
         currentFilter.inputImage = image
         currentFilter.color = inputColor
        
-
-        // get a CIImage from our filter or exit if that fails
-        guard let outputImage = currentFilter.outputImage else { return }
+        applyIntensity(image: &image, filter: currentFilter)
         
-        image = outputImage
+        // get a CIImage from our filter or exit if that fails
+//        guard let outputImage = currentFilter.outputImage else { return }
+//        
+//        image = outputImage
     }
 }
