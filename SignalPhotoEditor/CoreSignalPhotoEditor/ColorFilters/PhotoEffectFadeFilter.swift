@@ -9,7 +9,7 @@ import UIKit
 
 struct PhotoEffectFadeFilter: Filter {
     
-    var filterName: String? = "Fade"
+    var filterName: String = "Fade"
     var intensity: Float? = 1.0
     
     func applyFilter(image: inout CIImage) {

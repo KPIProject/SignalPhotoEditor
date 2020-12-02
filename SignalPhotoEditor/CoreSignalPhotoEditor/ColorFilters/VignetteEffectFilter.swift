@@ -9,7 +9,7 @@ import UIKit
 
 struct VignetteEffectFilter: Filter {
     
-    var filterName: String? = "VignetteEffect"
+    var filterName: String = "VignetteEffect"
     
     var intensity: Float?
     

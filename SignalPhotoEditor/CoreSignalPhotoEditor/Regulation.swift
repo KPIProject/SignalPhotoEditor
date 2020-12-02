@@ -8,7 +8,7 @@
 import UIKit
 //
 //protocol Regulation {
-//    var filterName: String? { get }
+//    var filterName: String { get }
 //    func applyFilter(image: inout CIImage)
 //}
 

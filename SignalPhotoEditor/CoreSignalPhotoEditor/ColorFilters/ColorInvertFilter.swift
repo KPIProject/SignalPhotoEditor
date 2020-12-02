@@ -11,7 +11,7 @@ struct ColorInvertFilter: Filter {
     
     var intensity: Float? = 1.0
     
-    var filterName: String? = "Invert"
+    var filterName: String = "Invert"
     
     func applyFilter(image: inout CIImage) {
         

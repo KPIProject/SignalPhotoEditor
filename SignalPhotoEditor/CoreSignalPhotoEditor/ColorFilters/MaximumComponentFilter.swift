@@ -9,7 +9,7 @@ import UIKit
 
 struct MaximumComponentFilter: Filter {
     
-    var filterName: String? = "Max"
+    var filterName: String = "Max"
     
     var intensity: Float? = 0.5
     

@@ -13,7 +13,7 @@ import UIKit
 struct TemperatureAndTintRegulation: Filter {
     var intensity: Float?
     
-    var filterName: String? = "Color Controls"
+    var filterName: String = "Color Controls"
     
 //    var inputNeutral: Float = 1.0
 //

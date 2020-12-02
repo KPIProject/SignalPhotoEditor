@@ -9,7 +9,7 @@ import UIKit
 
 struct ColorCubeFilter: Filter {
     
-    var filterName: String? = "ColorCube"
+    var filterName: String = "ColorCube"
     
     var cubeData: Data?
     var dimension: Float = 64

@@ -9,7 +9,7 @@ import UIKit
 
 struct SepiaFilter: Filter {
     
-    var filterName: String? = "Sepia"
+    var filterName: String = "Sepia"
     
     var intensity: Float?
         
@@ -17,7 +17,7 @@ struct SepiaFilter: Filter {
         
         let currentFilter = CIFilter.sepiaTone()
         currentFilter.inputImage = image
-        currentFilter.intensity = intensity ?? 1
+        currentFilter.intensity = unwrappedIntensity
         
         // get a CIImage from our filter or exit if that fails
         guard let outputImage = currentFilter.outputImage else { return }

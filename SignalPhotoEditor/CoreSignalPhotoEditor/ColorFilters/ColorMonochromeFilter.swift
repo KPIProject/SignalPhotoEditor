@@ -9,7 +9,7 @@ import UIKit
 
 struct ColorMonochromeFilter: Filter {
     
-    var filterName: String? = "Monochrome"
+    var filterName: String = "Monochrome"
     
     var intensity: Float?
 
@@ -18,7 +18,7 @@ struct ColorMonochromeFilter: Filter {
     func applyFilter(image: inout CIImage) {
         
         let currentFilter = CIFilter.colorMonochrome()
-        currentFilter.intensity = intensity ?? 1.0
+        currentFilter.intensity = unwrappedIntensity
         currentFilter.color = inputColor
         currentFilter.inputImage = image
         

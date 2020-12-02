@@ -13,7 +13,7 @@ import UIKit
 struct GammaAdjustRegulation: Filter {
     var intensity: Float?
     
-    var filterName: String? = "Gamma Adjust"
+    var filterName: String = "Gamma Adjust"
     
     var inputPower: Float = 0.75
 

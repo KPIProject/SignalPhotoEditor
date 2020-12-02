@@ -9,7 +9,7 @@ import UIKit
 
 struct PhotoEffectChromeFilter: Filter {
     
-    var filterName: String? = "Chrome"
+    var filterName: String = "Chrome"
     var intensity: Float? = 1.0
     
     func applyFilter(image: inout CIImage) {

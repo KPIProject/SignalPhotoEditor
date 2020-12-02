@@ -13,7 +13,7 @@ import UIKit
 struct ColorControlsRegulation: Filter {
     var intensity: Float?
     
-    var filterName: String? = "Color Controls"
+    var filterName: String = "Color Controls"
     
     var inputSaturation: Float = 1.0
     

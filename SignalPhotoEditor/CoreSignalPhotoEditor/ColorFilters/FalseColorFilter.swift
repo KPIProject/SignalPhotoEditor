@@ -9,7 +9,7 @@ import UIKit
 
 struct FalseColorFilter: Filter {
     
-    var filterName: String? = "False Color"
+    var filterName: String = "False Color"
     
     var intensity: Float? = 1.0
     

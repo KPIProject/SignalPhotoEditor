@@ -13,7 +13,7 @@ import UIKit
 struct WhitePointAdjustRegulation: Filter {
     var intensity: Float?
     
-    var filterName: String? = "White Point Adjust"
+    var filterName: String = "White Point Adjust"
     
     var inputColor: CIColor = .white
         

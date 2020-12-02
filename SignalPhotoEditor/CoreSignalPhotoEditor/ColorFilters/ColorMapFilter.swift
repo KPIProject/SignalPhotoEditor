@@ -9,7 +9,7 @@ import UIKit
 
 struct ColorMapFilter: Filter {
     
-    var filterName: String? = "ColorMap"
+    var filterName: String = "ColorMap"
     
     var inputGradient: UIImage
     

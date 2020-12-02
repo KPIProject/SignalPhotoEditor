@@ -9,7 +9,7 @@ import UIKit
 
 struct MinimumComponentFilter: Filter {
     
-    var filterName: String? = "Min"
+    var filterName: String = "Min"
     
     var intensity: Float? = 1.0
     
