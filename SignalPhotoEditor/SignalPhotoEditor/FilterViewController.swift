@@ -9,7 +9,6 @@ import UIKit
 
 final class FilterViewController: UIViewController {
     
-    
     @IBOutlet weak var mainImageView: UIImageView!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var bottomStackView: UIStackView!
@@ -21,13 +20,15 @@ final class FilterViewController: UIViewController {
     
     private var state: FilterViewController.State = .filter
     
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         state = navigationController is CustomNavigationController ? .filter : .regulation
         scrollView.delegate = self
         setupNavigation()
-        setupCollectionView()
+//        setupCollectionView(image: UIImage())
         
         filterCollectionView.delegate = self
     }
@@ -36,6 +37,7 @@ final class FilterViewController: UIViewController {
         
         print(state)
         mainImageView.image = coreSignal.editedImage
+        setupCollectionView(image: coreSignal.compressedImage ?? UIImage())
     }
     
     private func setupNavigation() {
@@ -51,19 +53,19 @@ final class FilterViewController: UIViewController {
         navigationItem.leftBarButtonItem = selectImageButton
     }
     
-    private func setupCollectionView() {
+    private func setupCollectionView(image: UIImage) {
         
         var filters = [FilterModel]()
         
         switch state {
         case .filter:
             filters = [
-                FilterModel(image: UIImage(named: "mountain")!, name: "Filter1"),
-                FilterModel(image: UIImage(named: "mountain")!, name: "Filter2"),
-                FilterModel(image: UIImage(named: "mountain")!, name: "Filter3"),
-                FilterModel(image: UIImage(named: "mountain")!, name: "Filter4"),
-                FilterModel(image: UIImage(named: "mountain")!, name: "Filter5"),
-                FilterModel(image: UIImage(named: "mountain")!, name: "Filter6")
+                FilterModel(image: image, name: "Filter1"),
+                FilterModel(image: image, name: "Filter2"),
+                FilterModel(image: image, name: "Filter3"),
+                FilterModel(image: image, name: "Filter4"),
+                FilterModel(image: image, name: "Filter5"),
+                FilterModel(image: image, name: "Filter6")
             ]
             filterCollectionView.config(with: filters)
 
@@ -86,6 +88,7 @@ final class FilterViewController: UIViewController {
             case let .success(image: image):
                 self?.coreSignal.sourceImage = image
                 self?.mainImageView.image = image
+                self?.setupCollectionView(image: self?.coreSignal.compressedImage ?? UIImage())
             default:
                 break
             }

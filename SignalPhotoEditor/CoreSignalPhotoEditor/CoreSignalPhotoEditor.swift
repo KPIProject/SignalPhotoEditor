@@ -18,22 +18,28 @@ class CoreSignalPhotoEditor {
             if let image = sourceImage {
                 editedImage = image
                 imageStack = [image]
+                compressedImage = resizeImage(to: CGSize(width: 120, height: 120))
             }
         }
     }
     
     /// Current displayed image
     public var editedImage: UIImage?
+    /// Current displayed image index in stack
     private var editedImageIndex: Int = 0
-    
-    private var filteres: [Filter] = []
+    private var filteres: [Filter] = [] // ???
     private var imageStack: [UIImage] = []
     
+    private(set) var compressedImage: UIImage?
+    
+    #if DEBUG
     private init() {
         sourceImage = UIImage(named: "mountain")!
         editedImage = UIImage(named: "mountain")!
         imageStack = [UIImage(named: "mountain")!]
+        compressedImage = resizeImage(to: CGSize(width: 60, height: 60))
     }
+    #endif
     
     public func applyFilter(_ filter: Filter, complition: @escaping (UIImage) -> Void) {
         removeOldFilters()
