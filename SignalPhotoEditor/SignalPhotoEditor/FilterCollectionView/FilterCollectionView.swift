@@ -7,13 +7,20 @@
 
 import UIKit
 
-class FilterCollectionView: UIView {
+protocol FilterCollectionViewDelegate: class {
+    func didTapOn(filer: FilterModel)
+}
+
+final class FilterCollectionView: UIView {
 
     @IBOutlet weak var collectionView: UICollectionView!
+    
     var imageContentMode: UIView.ContentMode = .scaleAspectFill
     
     var filters: [FilterModel] = []
     
+    weak var delegate: FilterCollectionViewDelegate?
+        
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -72,8 +79,8 @@ extension FilterCollectionView: UICollectionViewDataSource, UICollectionViewDele
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         guard let filterCell = collectionView.dequeueReusableCell(withReuseIdentifier: "reuseID", for: indexPath) as? FilterCollectionViewCell else { return UICollectionViewCell() }
-        let filter = filters[indexPath.row]
         
+        let filter = filters[indexPath.row]
         filterCell.textLabel.text = filter.name
         filterCell.imageView.image = filter.image
         filterCell.imageView.contentMode = imageContentMode
@@ -83,6 +90,6 @@ extension FilterCollectionView: UICollectionViewDataSource, UICollectionViewDele
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        print(filters[indexPath.row].name)
+        delegate?.didTapOn(filer: filters[indexPath.row])
     }
 }

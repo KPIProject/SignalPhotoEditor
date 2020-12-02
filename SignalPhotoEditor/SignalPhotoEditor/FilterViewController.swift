@@ -10,7 +10,6 @@ import UIKit
 final class FilterViewController: UIViewController {
     
     
-    
     @IBOutlet weak var mainImageView: UIImageView!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var bottomStackView: UIStackView!
@@ -29,6 +28,8 @@ final class FilterViewController: UIViewController {
         scrollView.delegate = self
         setupNavigation()
         setupCollectionView()
+        
+        filterCollectionView.delegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -74,7 +75,7 @@ final class FilterViewController: UIViewController {
             ]
             filterCollectionView.config(with: filters, imageContentMode: .center)
         }
-                
+        
     }
     
     @objc
@@ -89,6 +90,23 @@ final class FilterViewController: UIViewController {
                 break
             }
         }
+    }
+}
+
+extension FilterViewController: FilterCollectionViewDelegate {
+    
+    func didTapOn(filer: FilterModel) {
+        let viewToInsert = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 40))
+        
+        viewToInsert.widthAnchor.constraint(equalToConstant: self.view.frame.width).isActive = true
+        viewToInsert.heightAnchor.constraint(equalToConstant: 40.0).isActive = true
+        
+        viewToInsert.backgroundColor = .red
+        bottomStackView.insertArrangedSubview(viewToInsert, at: 0)
+//        bottomStackView.addArrangedSubview(viewToInsert)
+        bottomStackView.layoutSubviews()
+        print(bottomStackView.arrangedSubviews)
+        print(filer)
     }
 }
 
