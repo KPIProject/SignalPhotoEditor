@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5D1107462577B87B00DBD7D9 /* ColorControlsRegulation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D1107452577B87B00DBD7D9 /* ColorControlsRegulation.swift */; };
+		5D11074A2577BB2C00DBD7D9 /* Regulation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D1107492577BB2C00DBD7D9 /* Regulation.swift */; };
+		5D11074D2577BDF300DBD7D9 /* ExposureAdjustRegulation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D11074C2577BDF300DBD7D9 /* ExposureAdjustRegulation.swift */; };
+		5D1107502577BF1200DBD7D9 /* GammaAdjustRegulation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D11074F2577BF1200DBD7D9 /* GammaAdjustRegulation.swift */; };
+		5D1107532577C14000DBD7D9 /* HueAdjustRegulation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D1107522577C14000DBD7D9 /* HueAdjustRegulation.swift */; };
+		5D1107572577C64900DBD7D9 /* TemperatureAndTintRegulation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D1107562577C64900DBD7D9 /* TemperatureAndTintRegulation.swift */; };
+		5D11075B2577CA8500DBD7D9 /* VibranceRegulation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D11075A2577CA8500DBD7D9 /* VibranceRegulation.swift */; };
+		5D11075E2577CDD500DBD7D9 /* WhitePointAdjustRegulation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D11075D2577CDD500DBD7D9 /* WhitePointAdjustRegulation.swift */; };
 		5D11A697254DB5A200A50925 /* SepiaFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D11A696254DB5A200A50925 /* SepiaFilter.swift */; };
 		5D19DC74254F2E8D007445A5 /* VignetteFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D19DC73254F2E8D007445A5 /* VignetteFilter.swift */; };
 		5D19DC7A254F4001007445A5 /* ColorCubeFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D19DC79254F4001007445A5 /* ColorCubeFilter.swift */; };
@@ -47,6 +55,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5D1107452577B87B00DBD7D9 /* ColorControlsRegulation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorControlsRegulation.swift; sourceTree = "<group>"; };
+		5D1107492577BB2C00DBD7D9 /* Regulation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Regulation.swift; sourceTree = "<group>"; };
+		5D11074C2577BDF300DBD7D9 /* ExposureAdjustRegulation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExposureAdjustRegulation.swift; sourceTree = "<group>"; };
+		5D11074F2577BF1200DBD7D9 /* GammaAdjustRegulation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GammaAdjustRegulation.swift; sourceTree = "<group>"; };
+		5D1107522577C14000DBD7D9 /* HueAdjustRegulation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HueAdjustRegulation.swift; sourceTree = "<group>"; };
+		5D1107562577C64900DBD7D9 /* TemperatureAndTintRegulation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemperatureAndTintRegulation.swift; sourceTree = "<group>"; };
+		5D11075A2577CA8500DBD7D9 /* VibranceRegulation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VibranceRegulation.swift; sourceTree = "<group>"; };
+		5D11075D2577CDD500DBD7D9 /* WhitePointAdjustRegulation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhitePointAdjustRegulation.swift; sourceTree = "<group>"; };
 		5D11A696254DB5A200A50925 /* SepiaFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SepiaFilter.swift; sourceTree = "<group>"; };
 		5D19DC73254F2E8D007445A5 /* VignetteFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VignetteFilter.swift; sourceTree = "<group>"; };
 		5D19DC79254F4001007445A5 /* ColorCubeFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorCubeFilter.swift; sourceTree = "<group>"; };
@@ -99,7 +115,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		5D19DC78254F3D27007445A5 /* ColorEffects */ = {
+		5D1107442577B75100DBD7D9 /* ColorRegulation */ = {
+			isa = PBXGroup;
+			children = (
+				5D1107452577B87B00DBD7D9 /* ColorControlsRegulation.swift */,
+				5D11074C2577BDF300DBD7D9 /* ExposureAdjustRegulation.swift */,
+				5D11074F2577BF1200DBD7D9 /* GammaAdjustRegulation.swift */,
+				5D1107522577C14000DBD7D9 /* HueAdjustRegulation.swift */,
+				5D1107562577C64900DBD7D9 /* TemperatureAndTintRegulation.swift */,
+				5D11075A2577CA8500DBD7D9 /* VibranceRegulation.swift */,
+				5D11075D2577CDD500DBD7D9 /* WhitePointAdjustRegulation.swift */,
+			);
+			path = ColorRegulation;
+			sourceTree = "<group>";
+		};
+		5D19DC78254F3D27007445A5 /* ColorFilters */ = {
 			isa = PBXGroup;
 			children = (
 				5D11A696254DB5A200A50925 /* SepiaFilter.swift */,
@@ -122,7 +152,7 @@
 				5D19DCA7254F647B007445A5 /* PhotoEffectTransferFilter.swift */,
 				5D19DC79254F4001007445A5 /* ColorCubeFilter.swift */,
 			);
-			path = ColorEffects;
+			path = ColorFilters;
 			sourceTree = "<group>";
 		};
 		5DF8E961254D9BCC00190C46 = {
@@ -157,8 +187,10 @@
 			children = (
 				5DF8E98B254DAA5600190C46 /* CoreSignalPhotoEditor.swift */,
 				5DF8E988254DA34100190C46 /* Filter.swift */,
+				5D1107492577BB2C00DBD7D9 /* Regulation.swift */,
 				5FB06A50254F68310037132B /* LUT.swift */,
-				5D19DC78254F3D27007445A5 /* ColorEffects */,
+				5D1107442577B75100DBD7D9 /* ColorRegulation */,
+				5D19DC78254F3D27007445A5 /* ColorFilters */,
 			);
 			path = CoreSignalPhotoEditor;
 			sourceTree = "<group>";
@@ -283,16 +315,19 @@
 			files = (
 				5D6FB414255EE64C00300FC7 /* LUTsViewController.swift in Sources */,
 				5F23E4F4256A9E3000EB2D9D /* MainViewController.swift in Sources */,
+				5D11075B2577CA8500DBD7D9 /* VibranceRegulation.swift in Sources */,
 				5FB06A51254F68310037132B /* LUT.swift in Sources */,
 				5D19DC9C254F6348007445A5 /* PhotoEffectMonoFilter.swift in Sources */,
 				5D19DCA5254F63C6007445A5 /* PhotoEffectTonalFilter.swift in Sources */,
 				5F23E4F7256AADA400EB2D9D /* FilterCollectionView.swift in Sources */,
+				5D1107502577BF1200DBD7D9 /* GammaAdjustRegulation.swift in Sources */,
 				5D19DC84254F5EA2007445A5 /* ColorMonochromeFilter.swift in Sources */,
 				5D19DC8A254F6121007445A5 /* FalseColorFilter.swift in Sources */,
 				5DF8E972254D9BCC00190C46 /* ViewController.swift in Sources */,
 				5D19DC9F254F636D007445A5 /* PhotoEffectNoirFilter.swift in Sources */,
 				5D19DC96254F62DD007445A5 /* PhotoEffectFadeFilter.swift in Sources */,
 				5D19DC99254F6308007445A5 /* PhotoEffectInstantFilter.swift in Sources */,
+				5D11075E2577CDD500DBD7D9 /* WhitePointAdjustRegulation.swift in Sources */,
 				5D19DC93254F62A6007445A5 /* PhotoEffectChromeFilter.swift in Sources */,
 				5F5A3FD425702D4A00A7517E /* ImagePicker.swift in Sources */,
 				5D19DC74254F2E8D007445A5 /* VignetteFilter.swift in Sources */,
@@ -302,11 +337,16 @@
 				5F5A3FCF25702A3500A7517E /* CustomNavigationController.swift in Sources */,
 				5D19DC7A254F4001007445A5 /* ColorCubeFilter.swift in Sources */,
 				5D19DCA2254F639D007445A5 /* PhotoEffectProcessFilter.swift in Sources */,
+				5D11074D2577BDF300DBD7D9 /* ExposureAdjustRegulation.swift in Sources */,
 				5DF8E98C254DAA5600190C46 /* CoreSignalPhotoEditor.swift in Sources */,
+				5D1107532577C14000DBD7D9 /* HueAdjustRegulation.swift in Sources */,
 				5D19DC7D254F5C6F007445A5 /* ColorInvertFilter.swift in Sources */,
+				5D1107462577B87B00DBD7D9 /* ColorControlsRegulation.swift in Sources */,
+				5D1107572577C64900DBD7D9 /* TemperatureAndTintRegulation.swift in Sources */,
 				5D19DC87254F6075007445A5 /* ColorPosterizeFilter.swift in Sources */,
 				5D19DC80254F5D66007445A5 /* ColorMapFilter.swift in Sources */,
 				5D19DC90254F6272007445A5 /* MinimumComponentFilter.swift in Sources */,
+				5D11074A2577BB2C00DBD7D9 /* Regulation.swift in Sources */,
 				5F5A3FCA257029F200A7517E /* FilterViewController.swift in Sources */,
 				5D19DCA8254F647B007445A5 /* PhotoEffectTransferFilter.swift in Sources */,
 				5F23E512256AB92500EB2D9D /* FilterCollectionViewCell.swift in Sources */,

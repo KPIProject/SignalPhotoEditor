@@ -14,6 +14,8 @@ protocol Filter {
     func applyFilter(image: inout CIImage)
 }
 
+
+
 extension Filter {
     func applyIntensity(image: inout CIImage, filter: CIFilter) {
         let background = image
