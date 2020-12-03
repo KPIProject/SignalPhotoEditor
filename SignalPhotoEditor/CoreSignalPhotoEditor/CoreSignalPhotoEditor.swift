@@ -37,7 +37,7 @@ class CoreSignalPhotoEditor {
         sourceImage = UIImage(named: "mountain")!
         editedImage = UIImage(named: "mountain")!
         imageStack = [UIImage(named: "mountain")!]
-        compressedImage = resizeImage(to: CGSize(width: 60, height: 60))
+        compressedImage = resizeImage(to: CGSize(width: 120, height: 120))
     }
     #endif
     
@@ -97,7 +97,7 @@ class CoreSignalPhotoEditor {
         Filters.allCases.forEach { filter in
             self.applyFilterToCompressed(filter) { image in
                 
-                filters.append(FilterModel(image: image, name: filter.filterName ?? ""))
+                filters.append(FilterModel(image: image, name: filter.filterName))
                 if filters.count == Filters.allCases.count {
                     completion(filters.sorted { $0.name < $1.name })
                 }

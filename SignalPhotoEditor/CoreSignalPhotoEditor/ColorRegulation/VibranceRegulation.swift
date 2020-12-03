@@ -13,7 +13,7 @@ import UIKit
 struct VibranceRegulation: Filter {
     var intensity: Float?
     
-    var filterName: String = "Color Controls"
+    var filterName: String = "Vibrance"
     
     var inputAmount: Float = 0.0
         

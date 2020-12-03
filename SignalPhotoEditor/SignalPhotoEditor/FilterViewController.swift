@@ -63,61 +63,31 @@ final class FilterViewController: UIViewController {
             coreSignal.applyFiltersToCompressed { filters in
                 self.filterCollectionView.config(with: filters)
             }
-//            coreSignal.applyFilterToCompressed(Filters.colorCube(lutImage: UIImage(named: "Persian") ?? UIImage()).getFilter(intensity: 1)) { (image) in
-//                filters.append(FilterModel(image: image, name: "Persian"))
-//                self.filterCollectionView.config(with: filters)
-//            }
-//            coreSignal.applyFilterToCompressed(Filters.sepia.getFilter(intensity: 1)) { (image) in
-//                filters.append(FilterModel(image: image, name: "Sepia"))
-//                self.filterCollectionView.config(with: filters)
-//            }
-//            coreSignal.applyFilterToCompressed(Filters.maximumComponent.getFilter(intensity: 1)) { (image) in
-//                filters.append(FilterModel(image: image, name: "Max Component"))
-//                self.filterCollectionView.config(with: filters)
-//            }
-//            coreSignal.applyFilterToCompressed(Filters.minimumComponent.getFilter(intensity: 1)) { (image) in
-//                filters.append(FilterModel(image: image, name: "Min Component"))
-//                self.filterCollectionView.config(with: filters)
-//            }
-//            coreSignal.applyFilterToCompressed(Filters.photoEffectChrome.getFilter(intensity: 1)) { (image) in
-//                filters.append(FilterModel(image: image, name: "Crome"))
-//            }
-//            coreSignal.applyFilterToCompressed(Filters.photoEffectFade.getFilter(intensity: 1)) { (image) in
-//                filters.append(FilterModel(image: image, name: "Fade"))
-//            }
-//            coreSignal.applyFilterToCompressed(Filters.photoEffectInstant.getFilter(intensity: 1)) { (image) in
-//                filters.append(FilterModel(image: image, name: "Instant"))
-//            }
-//            coreSignal.applyFilterToCompressed(Filters.photoEffectMono.getFilter(intensity: 1)) { (image) in
-//                filters.append(FilterModel(image: image, name: "Mono"))
-//            }
-//            coreSignal.applyFilterToCompressed(Filters.photoEffectNoir.getFilter(intensity: 1)) { (image) in
-//                filters.append(FilterModel(image: image, name: "Noir"))
-//            }
-//            coreSignal.applyFilterToCompressed(Filters.photoEffectProcess.getFilter(intensity: 1)) { (image) in
-//                filters.append(FilterModel(image: image, name: "Process"))
-//            }
-//            coreSignal.applyFilterToCompressed(Filters.photoEffectTonal.getFilter(intensity: 1)) { (image) in
-//                filters.append(FilterModel(image: image, name: "Tonal"))
-//            }
-//            coreSignal.applyFilterToCompressed(Filters.photoEffectTransfer.getFilter(intensity: 1)) { (image) in
-//                filters.append(FilterModel(image: image, name: "Transfer"))
-//            }
-            
-//                FilterModel(image: image, name: "Filter1"),
-//                FilterModel(image: image, name: "Filter2"),
-//                FilterModel(image: image, name: "Filter3"),
-//                FilterModel(image: image, name: "Filter4"),
-//                FilterModel(image: image, name: "Filter5"),
-//                FilterModel(image: image, name: "Filter6")
-//            ]
-//            filterCollectionView.config(with: filters)
 
         case .regulation:
             filters = [
-                FilterModel(image: UIImage(named: "brightness")!, name: "Brightness"),
-                FilterModel(image: UIImage(named: "saturation")!, name: "Saturation"),
-                FilterModel(image: UIImage(named: "contrast")!, name: "Contrast")
+                // inputBrightness [-1...1]
+                FilterModel(image: UIImage(named: "Brightness")!, name: "Brightness"),
+                // inputSaturation [0...1]
+                FilterModel(image: UIImage(named: "Saturation")!, name: "Saturation"),
+                // inputContrast [0...1]
+                FilterModel(image: UIImage(named: "Contrast")!, name: "Contrast"),
+                // inputEV[0...1]
+                FilterModel(image: UIImage(named: "Exposure")!, name: "Exposure"),
+                // inputPower[0...1]
+                FilterModel(image: UIImage(named: "Gamma")!, name: "Gamma"),
+                // inputAngle[-180...180]
+                FilterModel(image: UIImage(named: "Hue")!, name: "Hue"),
+                // inputTemperatute[-1000...+1000 ? ]
+                FilterModel(image: UIImage(named: "Temperature")!, name: "Temperature"),
+                // inputTint[?]
+                FilterModel(image: UIImage(named: "Tint")!, name: "Tint"),
+                // inputAmount [0...1]
+                FilterModel(image: UIImage(named: "Vibrance")!, name: "Vibrance"),
+                // intensity [-1...1], inputColor [CIColor]
+                FilterModel(image: UIImage(named: "WhitePoint")!, name: "White Point"),
+                // intensity [0...1], radius[1...100 ? ]
+                FilterModel(image: UIImage(named: "Vignette")!, name: "Vignette"),
             ]
             filterCollectionView.config(with: filters, imageContentMode: .center)
         }
@@ -143,17 +113,20 @@ final class FilterViewController: UIViewController {
 extension FilterViewController: FilterCollectionViewDelegate {
     
     func didTapOn(filer: FilterModel) {
-        let viewToInsert = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 40))
+//        let viewToInsert = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 40))
+//
+//        viewToInsert.widthAnchor.constraint(equalToConstant: self.view.frame.width).isActive = true
+//        viewToInsert.heightAnchor.constraint(equalToConstant: 40.0).isActive = true
+//
+//        viewToInsert.backgroundColor = .red
+//        bottomStackView.insertArrangedSubview(viewToInsert, at: 0)
+////        bottomStackView.addArrangedSubview(viewToInsert)
+//        bottomStackView.layoutSubviews()
+//        print(bottomStackView.arrangedSubviews)
+//        print(filer)
         
-        viewToInsert.widthAnchor.constraint(equalToConstant: self.view.frame.width).isActive = true
-        viewToInsert.heightAnchor.constraint(equalToConstant: 40.0).isActive = true
         
-        viewToInsert.backgroundColor = .red
-        bottomStackView.insertArrangedSubview(viewToInsert, at: 0)
-//        bottomStackView.addArrangedSubview(viewToInsert)
-        bottomStackView.layoutSubviews()
-        print(bottomStackView.arrangedSubviews)
-        print(filer)
+        
     }
 }
 
