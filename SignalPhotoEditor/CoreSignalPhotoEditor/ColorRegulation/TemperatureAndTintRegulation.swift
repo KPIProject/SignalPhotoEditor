@@ -27,6 +27,7 @@ struct TemperatureAndTintRegulation: Filter {
         
         let currentFilter = CIFilter.temperatureAndTint()
         currentFilter.inputImage = image
+//        currentFilter.neutral = CIVector(x: CGFloat(6500 + inputTemperatute), y: CGFloat(inputTint))
         currentFilter.targetNeutral = CIVector(x: CGFloat(6500 + inputTemperatute), y: CGFloat(inputTint))
        
 

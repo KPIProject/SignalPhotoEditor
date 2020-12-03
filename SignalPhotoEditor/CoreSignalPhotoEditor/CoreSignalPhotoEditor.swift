@@ -62,6 +62,8 @@ class CoreSignalPhotoEditor {
             }
             
             imageStack.append(editedImage)
+            editedImageIndex += 1
+            self.editedImage = editedImage
             
             DispatchQueue.main.async {
                 complition(editedImage)
@@ -109,8 +111,9 @@ class CoreSignalPhotoEditor {
      Returns image there was before last filter appling.
      */
     public func cancelLastFilter() -> UIImage {
-        if imageStack.count > 1 {
+        if editedImageIndex > 0 {
             editedImageIndex -= 1
+            editedImage = imageStack[editedImageIndex]
             return imageStack[editedImageIndex]
         } else {
             return imageStack[editedImageIndex]
@@ -123,6 +126,7 @@ class CoreSignalPhotoEditor {
     public func applyBackFilter() -> UIImage {
         if imageStack.count > editedImageIndex + 1 {
             editedImageIndex += 1
+            editedImage = imageStack[editedImageIndex]
             return imageStack[editedImageIndex]
         } else {
             return imageStack[editedImageIndex]
@@ -142,7 +146,7 @@ class CoreSignalPhotoEditor {
     private func removeOldFilters() {
         if imageStack.count != editedImageIndex + 1 {
             imageStack.removeSubrange(editedImageIndex + 1..<imageStack.count)
-            filteres.removeSubrange(editedImageIndex + 1..<imageStack.count)
+            filteres.removeSubrange(editedImageIndex..<imageStack.count)
         }
     }
     

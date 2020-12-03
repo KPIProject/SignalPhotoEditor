@@ -6,16 +6,10 @@
 //
 
 import UIKit
-//
-//protocol Regulation {
-//    var filterName: String { get }
-//    func applyFilter(image: inout CIImage)
-//}
-
 
 enum Regulations {
-    case saturation(value: Float)
     case brightness(value: Float)
+    case saturation(value: Float)
     case contrast(value: Float)
     case exposure(value: Float)
     case gammaAdjust(value: Float)
