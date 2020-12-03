@@ -20,7 +20,7 @@ final class FilterCollectionView: UIView, NibLoadable {
     
     // MARK: - Private properties
 
-    private var filters: [FilterModel] = []
+    private var filterCollectionModels: [FilterCollectionModel] = []
         
     // MARK: - Lifecycle
 
@@ -36,10 +36,10 @@ final class FilterCollectionView: UIView, NibLoadable {
         setupView()
     }
     
-    public func config(with filterModel: [FilterModel], imageContentMode: UIView.ContentMode = .scaleAspectFill) {
+    public func config(with filterModel: [FilterCollectionModel], imageContentMode: UIView.ContentMode = .scaleAspectFill) {
         
         self.imageContentMode = imageContentMode
-        filters = filterModel
+        filterCollectionModels = filterModel
         collectionView.reloadData()
     }
 
@@ -60,7 +60,7 @@ final class FilterCollectionView: UIView, NibLoadable {
 extension FilterCollectionView: UICollectionViewDataSource, UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return filters.count
+        return filterCollectionModels.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -69,9 +69,9 @@ extension FilterCollectionView: UICollectionViewDataSource, UICollectionViewDele
             return UICollectionViewCell()
         }
         
-        let filter = filters[indexPath.row]
-        filterCell.textLabel.text = filter.name
-        filterCell.imageView.image = filter.image
+        let filterCollectionModel = filterCollectionModels[indexPath.row]
+        filterCell.textLabel.text = filterCollectionModel.filter.filterName
+        filterCell.imageView.image = filterCollectionModel.image
         filterCell.imageView.contentMode = imageContentMode
         
         return filterCell
@@ -79,6 +79,6 @@ extension FilterCollectionView: UICollectionViewDataSource, UICollectionViewDele
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        delegate?.didTapOn(filer: filters[indexPath.row])
+        delegate?.didTapOn(filterCollectionModel: filterCollectionModels[indexPath.row])
     }
 }

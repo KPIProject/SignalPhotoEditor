@@ -9,5 +9,5 @@ import Foundation
 
 protocol FilterCollectionViewDelegate: class {
     
-    func didTapOn(filer: FilterModel)
+    func didTapOn(filterCollectionModel: FilterCollectionModel)
 }

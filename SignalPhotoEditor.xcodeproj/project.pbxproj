@@ -44,7 +44,7 @@
 		5DF8E98C254DAA5600190C46 /* CoreSignalPhotoEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF8E98B254DAA5600190C46 /* CoreSignalPhotoEditor.swift */; };
 		5F23E4F7256AADA400EB2D9D /* FilterCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F23E4F6256AADA400EB2D9D /* FilterCollectionView.swift */; };
 		5F23E4FA256AADBC00EB2D9D /* FilterCollectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5F23E4F9256AADBC00EB2D9D /* FilterCollectionView.xib */; };
-		5F23E50C256AB0BB00EB2D9D /* FilterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F23E50B256AB0BB00EB2D9D /* FilterModel.swift */; };
+		5F23E50C256AB0BB00EB2D9D /* FilterCollectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F23E50B256AB0BB00EB2D9D /* FilterCollectionModel.swift */; };
 		5F23E512256AB92500EB2D9D /* FilterCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F23E510256AB92500EB2D9D /* FilterCollectionViewCell.swift */; };
 		5F23E513256AB92500EB2D9D /* FilterCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5F23E511256AB92500EB2D9D /* FilterCollectionViewCell.xib */; };
 		5F5A3FCA257029F200A7517E /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F5A3FC9257029F200A7517E /* FilterViewController.swift */; };
@@ -102,7 +102,7 @@
 		5DF8E98B254DAA5600190C46 /* CoreSignalPhotoEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreSignalPhotoEditor.swift; sourceTree = "<group>"; };
 		5F23E4F6256AADA400EB2D9D /* FilterCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterCollectionView.swift; sourceTree = "<group>"; };
 		5F23E4F9256AADBC00EB2D9D /* FilterCollectionView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FilterCollectionView.xib; sourceTree = "<group>"; };
-		5F23E50B256AB0BB00EB2D9D /* FilterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterModel.swift; sourceTree = "<group>"; };
+		5F23E50B256AB0BB00EB2D9D /* FilterCollectionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterCollectionModel.swift; sourceTree = "<group>"; };
 		5F23E510256AB92500EB2D9D /* FilterCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterCollectionViewCell.swift; sourceTree = "<group>"; };
 		5F23E511256AB92500EB2D9D /* FilterCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FilterCollectionViewCell.xib; sourceTree = "<group>"; };
 		5F5A3FC9257029F200A7517E /* FilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterViewController.swift; sourceTree = "<group>"; };
@@ -259,7 +259,7 @@
 		5FD20C41257976C600034D12 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				5F23E50B256AB0BB00EB2D9D /* FilterModel.swift */,
+				5F23E50B256AB0BB00EB2D9D /* FilterCollectionModel.swift */,
 				5FD20C7B25797D7000034D12 /* SliderModel.swift */,
 			);
 			path = Models;
@@ -430,7 +430,7 @@
 				5F5A3FCA257029F200A7517E /* FilterViewController.swift in Sources */,
 				5D19DCA8254F647B007445A5 /* PhotoEffectTransferFilter.swift in Sources */,
 				5F23E512256AB92500EB2D9D /* FilterCollectionViewCell.swift in Sources */,
-				5F23E50C256AB0BB00EB2D9D /* FilterModel.swift in Sources */,
+				5F23E50C256AB0BB00EB2D9D /* FilterCollectionModel.swift in Sources */,
 				5D19DCAB254F64B9007445A5 /* VignetteEffectFilter.swift in Sources */,
 				5D19DC8D254F623E007445A5 /* MaximumComponentFilter.swift in Sources */,
 			);
