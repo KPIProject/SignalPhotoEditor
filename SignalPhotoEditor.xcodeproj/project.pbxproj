@@ -58,6 +58,8 @@
 		5FD20C6F2579793600034D12 /* SliderСontrollerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5FD20C6E2579793600034D12 /* SliderСontrollerView.xib */; };
 		5FD20C7525797B2500034D12 /* SliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FD20C7425797B2500034D12 /* SliderView.swift */; };
 		5FD20C7925797B2E00034D12 /* SliderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5FD20C7825797B2E00034D12 /* SliderView.xib */; };
+		5FD20C7C25797D7000034D12 /* SliderModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FD20C7B25797D7000034D12 /* SliderModel.swift */; };
+		5FD20C7F25797F6C00034D12 /* SliderViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FD20C7E25797F6C00034D12 /* SliderViewDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -114,6 +116,8 @@
 		5FD20C6E2579793600034D12 /* SliderСontrollerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = "SliderСontrollerView.xib"; sourceTree = "<group>"; };
 		5FD20C7425797B2500034D12 /* SliderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderView.swift; sourceTree = "<group>"; };
 		5FD20C7825797B2E00034D12 /* SliderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SliderView.xib; sourceTree = "<group>"; };
+		5FD20C7B25797D7000034D12 /* SliderModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderModel.swift; sourceTree = "<group>"; };
+		5FD20C7E25797F6C00034D12 /* SliderViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderViewDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -256,6 +260,7 @@
 			isa = PBXGroup;
 			children = (
 				5F23E50B256AB0BB00EB2D9D /* FilterModel.swift */,
+				5FD20C7B25797D7000034D12 /* SliderModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -300,6 +305,7 @@
 		5FD20C7325797B1300034D12 /* SliderView */ = {
 			isa = PBXGroup;
 			children = (
+				5FD20C7E25797F6C00034D12 /* SliderViewDelegate.swift */,
 				5FD20C7425797B2500034D12 /* SliderView.swift */,
 				5FD20C7825797B2E00034D12 /* SliderView.xib */,
 			);
@@ -393,6 +399,7 @@
 				5D19DC8A254F6121007445A5 /* FalseColorFilter.swift in Sources */,
 				5D19DC9F254F636D007445A5 /* PhotoEffectNoirFilter.swift in Sources */,
 				5D19DC96254F62DD007445A5 /* PhotoEffectFadeFilter.swift in Sources */,
+				5FD20C7C25797D7000034D12 /* SliderModel.swift in Sources */,
 				5D19DC99254F6308007445A5 /* PhotoEffectInstantFilter.swift in Sources */,
 				5D11075E2577CDD500DBD7D9 /* WhitePointAdjustRegulation.swift in Sources */,
 				5D19DC93254F62A6007445A5 /* PhotoEffectChromeFilter.swift in Sources */,
@@ -408,6 +415,7 @@
 				5FD20C61257977BD00034D12 /* NibLoadable.swift in Sources */,
 				5D19DCA2254F639D007445A5 /* PhotoEffectProcessFilter.swift in Sources */,
 				5D11074D2577BDF300DBD7D9 /* ExposureAdjustRegulation.swift in Sources */,
+				5FD20C7F25797F6C00034D12 /* SliderViewDelegate.swift in Sources */,
 				5DF8E98C254DAA5600190C46 /* CoreSignalPhotoEditor.swift in Sources */,
 				5D1107532577C14000DBD7D9 /* HueAdjustRegulation.swift in Sources */,
 				5D19DC7D254F5C6F007445A5 /* ColorInvertFilter.swift in Sources */,

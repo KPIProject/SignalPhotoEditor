@@ -9,36 +9,47 @@ import UIKit
 
 final class FilterViewController: UIViewController {
     
+    // MARK: - IBOutlets
+
     @IBOutlet weak var mainImageView: UIImageView!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var bottomStackView: UIStackView!
+    
+    @IBOutlet weak var sliderControllerView: SliderСontrollerView!
     @IBOutlet weak var filterCollectionView: FilterCollectionView!
     
+    // MARK: - Private properties
+
     private let imagePicker = ImagePicker(type: .image)
-    
     private let coreSignal = CoreSignalPhotoEditor.shared
-    
     private var state: FilterViewController.State = .filter
     
-    
-    
+    // MARK: - Lifecylce
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        state = navigationController is CustomNavigationController ? .filter : .regulation
-        scrollView.delegate = self
+        setupState()
         setupNavigation()
-//        setupCollectionView(image: UIImage())
         
         filterCollectionView.delegate = self
+        sliderControllerView.delegate = self
+        
+        sliderControllerView.hideInStackView(animated: false)
+        scrollView.delegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
         
-        print(state)
         mainImageView.image = coreSignal.editedImage
         setupCollectionView()
     }
+    
+    private func setupState() {
+        
+        state = navigationController is CustomNavigationController ? .filter : .regulation
+    }
+    
     
     private func setupNavigation() {
         
@@ -66,8 +77,6 @@ final class FilterViewController: UIViewController {
         
         navigationItem.leftBarButtonItem = selectImageButton
         navigationItem.rightBarButtonItems = [forward, back]
-//        navigationItem.rightBarButtonItem = forward
-        
     }
     
     private func setupCollectionView() {
@@ -137,22 +146,41 @@ final class FilterViewController: UIViewController {
     }
 }
 
+// MARK: - FilterCollectionViewDelegate
+
 extension FilterViewController: FilterCollectionViewDelegate {
     
     func didTapOn(filer: FilterModel) {
         switch state {
         case .filter:
-            let viewToInsert = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 40))
-
-            viewToInsert.widthAnchor.constraint(equalToConstant: self.view.frame.width).isActive = true
-            viewToInsert.heightAnchor.constraint(equalToConstant: 40.0).isActive = true
-
-            viewToInsert.backgroundColor = .red
-            bottomStackView.insertArrangedSubview(viewToInsert, at: 0)
-    //        bottomStackView.addArrangedSubview(viewToInsert)
+            
+            if filer.name == "Chrome" {
+                sliderControllerView.config(firstSliderModel:
+                                                SliderModel(name: "Intesity",
+                                                            sliderNumber: 1,
+                                                            defaultValue: 50,
+                                                            minimumValue: 0,
+                                                            maximumValue: 100))
+                sliderControllerView.showInStackView(animated: true)
+            }
+            
+            if filer.name == "Fade" {
+                sliderControllerView.config(firstSliderModel:
+                                                SliderModel(name: "Intesity",
+                                                            sliderNumber: 1,
+                                                            defaultValue: 50,
+                                                            minimumValue: 0,
+                                                            maximumValue: 100),
+                                            secondSliderModel:
+                                                SliderModel(name: "Intesity2",
+                                                            sliderNumber: 2,
+                                                            defaultValue: 40,
+                                                            minimumValue: -100,
+                                                            maximumValue: 100))
+                sliderControllerView.showInStackView(animated: true)
+                
+            }
             bottomStackView.layoutSubviews()
-            print(bottomStackView.arrangedSubviews)
-            print(filer)
             
         case .regulation:
             switch filer.name {
@@ -218,6 +246,18 @@ extension FilterViewController: FilterCollectionViewDelegate {
     }
 }
 
+// MARK: - SliderViewDelegate
+
+extension FilterViewController: SliderViewDelegate {
+    
+    func sliderChangeValue(_ sliderNumber: Int, _ newValue: Float) {
+        print(sliderNumber)
+        print(newValue)
+    }
+}
+
+// MARK: - UIScrollViewDelegate
+
 extension FilterViewController: UIScrollViewDelegate {
     
     func viewForZooming(in scrollView: UIScrollView) -> UIView? {
@@ -225,6 +265,7 @@ extension FilterViewController: UIScrollViewDelegate {
     }
 }
 
+// MARK: - State
 
 extension FilterViewController {
     
