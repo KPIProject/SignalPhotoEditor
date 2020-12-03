@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SliderСontrollerView">
+            <connections>
+                <outlet property="firstSliderView" destination="Se2-rY-zuN" id="M7M-y3-jAM"/>
+                <outlet property="secondSliderView" destination="40g-z8-efh" id="nwp-bw-Eeg"/>
+                <outlet property="thirdSliderView" destination="97e-MH-ew8" id="Cau-zH-5Wd"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="180"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="sQe-HT-Ucm">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="180"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="97e-MH-ew8" customClass="SliderView" customModule="SignalPhotoEditor" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="60"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="60" id="6Yu-ac-eqa"/>
+                            </constraints>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="40g-z8-efh" customClass="SliderView" customModule="SignalPhotoEditor" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="60" width="414" height="60"/>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="60" id="D2K-h4-sTA"/>
+                            </constraints>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Se2-rY-zuN" customClass="SliderView" customModule="SignalPhotoEditor" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="120" width="414" height="60"/>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="60" id="UXt-Mg-AYu"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                </stackView>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="sQe-HT-Ucm" secondAttribute="bottom" id="Jiu-Hn-RgK"/>
+                <constraint firstItem="sQe-HT-Ucm" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="TYz-go-t6P"/>
+                <constraint firstItem="sQe-HT-Ucm" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="iae-sa-KpB"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="sQe-HT-Ucm" secondAttribute="trailing" id="xHa-Qb-c9k"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="-204.80000000000001" y="393.10344827586209"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
