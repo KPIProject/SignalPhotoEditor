@@ -15,6 +15,7 @@ final class FilterViewController: UIViewController {
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var bottomStackView: UIStackView!
     
+    @IBOutlet weak var bottomView: UIView!
     @IBOutlet weak var sliderControllerView: SliderСontrollerView!
     @IBOutlet weak var filterCollectionView: FilterCollectionView!
     
@@ -45,11 +46,12 @@ final class FilterViewController: UIViewController {
         setupCollectionView()
     }
     
+    // MARK: - Setup functions
+
     private func setupState() {
         
         state = navigationController is CustomNavigationController ? .filter : .regulation
     }
-    
     
     private func setupNavigation() {
         
@@ -120,6 +122,18 @@ final class FilterViewController: UIViewController {
         
     }
     
+    // MARK: - IBActions
+    
+    @IBAction func doneAction(_ sender: UIButton) {
+        
+        toogleBottomView()
+    }
+    
+    @IBAction func cancelAction(_ sender: UIButton) {
+        
+        toogleBottomView()
+    }
+    
     @objc
     private func selectImage() {
         imagePicker.setType(type: .image).show(in: self) { [weak self] result in
@@ -144,6 +158,31 @@ final class FilterViewController: UIViewController {
     private func applyBack() {
         mainImageView.image = coreSignal.applyBackFilter()
     }
+    
+    private func toogleBottomView() {
+        
+        guard let tabBar = tabBarController?.tabBar else {
+            return
+        }
+        
+        if bottomView.isHidden {
+            bottomView.isHidden = false
+            UIView.animate(withDuration: 0.35) { [self] in
+                bottomView.alpha = 1
+                tabBar.alpha = 0
+            } completion: { _ in
+                tabBar.isHidden = true
+            }
+        } else {
+            tabBar.isHidden = false
+            UIView.animate(withDuration: 0.35) { [self] in
+                tabBar.alpha = 1
+                bottomView.alpha = 0
+            } completion: { [self] _ in
+                bottomView.isHidden = true
+            }
+        }
+    }
 }
 
 // MARK: - FilterCollectionViewDelegate
@@ -151,8 +190,12 @@ final class FilterViewController: UIViewController {
 extension FilterViewController: FilterCollectionViewDelegate {
     
     func didTapOn(filer: FilterModel) {
+        
+        toogleBottomView()
+
         switch state {
         case .filter:
+            
             
             if filer.name == "Chrome" {
                 sliderControllerView.config(firstSliderModel:
@@ -183,6 +226,7 @@ extension FilterViewController: FilterCollectionViewDelegate {
             bottomStackView.layoutSubviews()
             
         case .regulation:
+                        
             switch filer.name {
             case "Brightness":
                 coreSignal.applyFilter(Regulations.brightness(value: 0).getFilter()) { image in

@@ -11,34 +11,34 @@ extension UIView {
     
     /// Hide view in stack if needed
     func hideInStackView(animated: Bool, duration: TimeInterval = 0.35) {
-        if self.isHidden == false {
+        if !isHidden {
             if animated {
-                UIView.animate(withDuration: duration) {
-                    self.alpha = 0
-                    self.isHidden = true
-                    self.superview?.layoutSubviews()
+                UIView.animate(withDuration: duration) { [self] in
+                    alpha = 0
+                    isHidden = true
+                    superview?.layoutSubviews()
                 }
             } else {
-                self.alpha = 0
-                self.isHidden = true
-                self.superview?.layoutSubviews()
+                alpha = 0
+                isHidden = true
+                superview?.layoutSubviews()
             }
         }
     }
     
     /// Show view in stack if needed
     func showInStackView(animated: Bool, duration: TimeInterval = 0.35) {
-        if self.isHidden == true {
+        if isHidden {
             if animated {
-                UIView.animate(withDuration: duration) {
-                    self.alpha = 1
-                    self.isHidden = false
-                    self.superview?.layoutSubviews()
+                UIView.animate(withDuration: duration) { [self] in
+                    alpha = 1
+                    isHidden = false
+                    superview?.layoutSubviews()
                 }
             } else {
-                self.alpha = 1
-                self.isHidden = false
-                self.superview?.layoutSubviews()
+                alpha = 1
+                isHidden = false
+                superview?.layoutSubviews()
             }
         }
     }

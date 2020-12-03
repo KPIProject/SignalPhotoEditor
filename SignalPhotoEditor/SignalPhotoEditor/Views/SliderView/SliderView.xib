@@ -21,25 +21,25 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="50" minValue="0.0" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="lOo-dA-bXl">
-                    <rect key="frame" x="50" y="28" width="314.5" height="31"/>
+                    <rect key="frame" x="50" y="26" width="314.5" height="31"/>
                     <connections>
                         <action selector="didChageSliderValue:" destination="-1" eventType="valueChanged" id="Z96-rc-gLA"/>
                     </connections>
                 </slider>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AvW-zy-nKS">
-                    <rect key="frame" x="35" y="35" width="9" height="16"/>
+                    <rect key="frame" x="35" y="33" width="9" height="16"/>
                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cg2-r6-doz">
-                    <rect key="frame" x="370.5" y="35" width="22.5" height="16"/>
+                    <rect key="frame" x="370.5" y="33" width="22.5" height="16"/>
                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Intensity: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="csw-h7-8di">
-                    <rect key="frame" x="52" y="7" width="63" height="17"/>
+                    <rect key="frame" x="52" y="5" width="63" height="17"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
@@ -50,7 +50,7 @@
             <constraints>
                 <constraint firstItem="lOo-dA-bXl" firstAttribute="leading" secondItem="AvW-zy-nKS" secondAttribute="trailing" constant="8" id="9y0-oE-zcQ"/>
                 <constraint firstItem="lOo-dA-bXl" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="0.75" id="I2M-bq-801"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="lOo-dA-bXl" secondAttribute="bottom" constant="2" id="IhZ-th-U1Y"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="lOo-dA-bXl" secondAttribute="bottom" constant="4" id="IhZ-th-U1Y"/>
                 <constraint firstItem="csw-h7-8di" firstAttribute="leading" secondItem="lOo-dA-bXl" secondAttribute="leading" id="PXA-Kl-oaC"/>
                 <constraint firstItem="Cg2-r6-doz" firstAttribute="leading" secondItem="lOo-dA-bXl" secondAttribute="trailing" constant="8" id="QSz-fH-3Fe"/>
                 <constraint firstItem="lOo-dA-bXl" firstAttribute="top" secondItem="csw-h7-8di" secondAttribute="bottom" constant="4" id="TcN-Mg-O3g"/>
