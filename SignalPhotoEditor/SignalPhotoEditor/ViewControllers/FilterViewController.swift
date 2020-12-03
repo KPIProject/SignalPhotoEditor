@@ -24,6 +24,7 @@ final class FilterViewController: UIViewController {
     private let imagePicker = ImagePicker(type: .image)
     private let coreSignal = CoreSignalPhotoEditor.shared
     private var state: FilterViewController.State = .filter
+    private var currentFilter: Filter?
     
     private var isFilterActive: Bool = false {
         didSet {
@@ -39,8 +40,6 @@ final class FilterViewController: UIViewController {
             
         }
     }
-    
-    private var currentFilter: Filter?
     
     // MARK: - Lifecylce
     
@@ -102,7 +101,7 @@ final class FilterViewController: UIViewController {
         
         switch state {
         case .filter:
-                        
+            
             coreSignal.applyFiltersToCompressed { [weak self] filters in
                 self?.filterCollectionView.config(with: filters)
             }
@@ -233,6 +232,7 @@ extension FilterViewController {
     }
 }
 
+// MARK: - Regulation model
 
 extension FilterViewController {
     
