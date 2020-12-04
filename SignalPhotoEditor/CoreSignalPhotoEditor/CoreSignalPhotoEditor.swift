@@ -142,6 +142,20 @@ class CoreSignalPhotoEditor {
     }
     
     /**
+    Delete last change.
+     Returns edited image.
+     */
+    public func cancelLastFilter() -> UIImage? {
+        if imageStack.count > 1 {
+            imageStack.removeLast()
+            filteres.removeLast()
+            editedImageIndex -= 1
+            editedImage = imageStack[editedImageIndex]
+        }
+        return editedImage
+    }
+    
+    /**
      Remooves filteres from filteres array which are no longer needed.
      */
     private func removeOldFilters() {

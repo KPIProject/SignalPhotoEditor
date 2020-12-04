@@ -116,19 +116,12 @@ final class FilterViewController: UIViewController {
     
     @IBAction func doneAction(_ sender: UIButton) {
         
-        guard let currentFilter = currentFilter else {
-            return
-        }
-        
-        coreSignal.applyFilter(currentFilter) { [weak self] imageWithFilter in
-            self?.mainImageView.image = imageWithFilter
-        }
-        
         isFilterActive = false
     }
     
     @IBAction func cancelAction(_ sender: UIButton) {
         
+        mainImageView.image = coreSignal.cancelLastFilter()
         isFilterActive = false
     }
     
@@ -197,6 +190,14 @@ extension FilterViewController: FilterCollectionViewDelegate {
         sliderControllerView.config(firstSliderModel: filterCollectionModel.firstSliderModel,
                                     secondSliderModel: filterCollectionModel.secondSliderModel,
                                     thirdSliderModel: filterCollectionModel.thirdSliderModel)
+        
+        guard let currentFilter = currentFilter else {
+            return
+        }
+        
+        coreSignal.applyFilter(currentFilter) { [weak self] imageWithFilter in
+            self?.mainImageView.image = imageWithFilter
+        }
         
         isFilterActive = true
     }
