@@ -93,15 +93,16 @@ class CoreSignalPhotoEditor {
         }
     }
     
-    func applyFiltersToCompressed(completion: @escaping ([FilterModel]) -> Void) {
-        var filters = [FilterModel]()
+    func applyFiltersToCompressed(completion: @escaping ([FilterCollectionModel]) -> Void) {
+        var filters = [FilterCollectionModel]()
         
+        let sliderModel = SliderModel(name: "Intenity", sliderNumber: 1, defaultValue: 50, minimumValue: 0, maximumValue: 100)
+
         Filters.allCases.forEach { filter in
             self.applyFilterToCompressed(filter) { image in
-                
-                filters.append(FilterModel(image: image, name: filter.filterName))
+                filters.append(FilterCollectionModel(image: image, filter: filter, firstSliderModel: sliderModel))
                 if filters.count == Filters.allCases.count {
-                    completion(filters.sorted { $0.name < $1.name })
+                    completion(filters.sorted { $0.filter.filterName < $1.filter.filterName })
                 }
             }
         }
