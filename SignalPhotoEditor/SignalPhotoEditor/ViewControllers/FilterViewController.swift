@@ -103,12 +103,12 @@ final class FilterViewController: UIViewController {
         case .filter:
             
             coreSignal.applyFiltersToCompressed { [weak self] filters in
-                self?.filterCollectionView.config(with: filters)
+                self?.filterCollectionView.config(state: .filter, with: filters, original: self?.coreSignal.compressedImage)
             }
             
         case .regulation:
             
-            filterCollectionView.config(with: createRegulationsCollectionModels(), imageContentMode: .center)
+            filterCollectionView.config(state: .regulation, with: createRegulationsCollectionModels(), imageContentMode: .center, original: nil)
         }
     }
     

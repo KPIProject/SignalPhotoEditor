@@ -21,6 +21,8 @@ final class FilterCollectionView: UIView, NibLoadable {
     // MARK: - Private properties
 
     private var filterCollectionModels: [FilterCollectionModel] = []
+    private var originalImageCompressed : UIImage?
+    private var state: FilterCollectionView.State = .filter
         
     // MARK: - Lifecycle
 
@@ -36,7 +38,13 @@ final class FilterCollectionView: UIView, NibLoadable {
         setupView()
     }
     
-    public func config(with filterModel: [FilterCollectionModel], imageContentMode: UIView.ContentMode = .scaleAspectFill) {
+    public func config(state: FilterCollectionView.State ,with filterModel: [FilterCollectionModel], imageContentMode: UIView.ContentMode = .scaleAspectFill, original: UIImage?) {
+        
+        self.state = state
+        
+        if let original = original {
+            originalImageCompressed = original
+        }
         
         self.imageContentMode = imageContentMode
         filterCollectionModels = filterModel
@@ -60,7 +68,12 @@ final class FilterCollectionView: UIView, NibLoadable {
 extension FilterCollectionView: UICollectionViewDataSource, UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return filterCollectionModels.count
+        switch state {
+        case .filter:
+            return filterCollectionModels.count + 2
+        case .regulation:
+            return filterCollectionModels.count
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -69,16 +82,41 @@ extension FilterCollectionView: UICollectionViewDataSource, UICollectionViewDele
             return UICollectionViewCell()
         }
         
-        let filterCollectionModel = filterCollectionModels[indexPath.row]
-        filterCell.textLabel.text = filterCollectionModel.filter.filterName
-        filterCell.imageView.image = filterCollectionModel.image
-        filterCell.imageView.contentMode = imageContentMode
+        var filterCollectionModel: FilterCollectionModel
         
+        switch state {
+        case .filter:
+            switch indexPath.row {
+            case 0:
+                filterCell.textLabel.text = "Original"
+                filterCell.imageView.image = originalImageCompressed
+            case 1:
+                filterCell.textLabel.text = "Add LUT"
+                filterCell.imageView.image = UIImage(named: "Plus")
+            default:
+                filterCollectionModel = filterCollectionModels[indexPath.row - 2]
+                filterCell.textLabel.text = filterCollectionModel.filter.filterName
+                filterCell.imageView.image = filterCollectionModel.image
+            }
+        case .regulation:
+            filterCollectionModel = filterCollectionModels[indexPath.row]
+            filterCell.textLabel.text = filterCollectionModel.filter.filterName
+            filterCell.imageView.image = filterCollectionModel.image
+        }
+        
+        filterCell.imageView.contentMode = imageContentMode
         return filterCell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         delegate?.didTapOn(filterCollectionModel: filterCollectionModels[indexPath.row])
+    }
+}
+
+extension FilterCollectionView {
+    enum State {
+        case filter
+        case regulation
     }
 }
