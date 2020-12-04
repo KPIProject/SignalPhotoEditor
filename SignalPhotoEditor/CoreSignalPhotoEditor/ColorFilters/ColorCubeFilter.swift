@@ -20,16 +20,48 @@ struct ColorCubeFilter: Filter {
     func applyFilter(image: inout CIImage) {
         
         // TODO: - Other LUTs adding
-        let data = ColorCube.cubeData(lutImage: lutImage, dimension: 64, colorSpace: CGColorSpaceCreateDeviceRGB())
-                
-        let currentFilter = CIFilter.colorCube()
-        currentFilter.cubeDimension = dimension
-        guard let cubedata = data else { return }
-        currentFilter.cubeData = cubedata
-        currentFilter.inputImage = image
+        let data = ColorCube.cubeData(lutImage: lutImage,
+                                      dimension: Int(dimension),
+                                      colorSpace: CGColorSpace.init(name: CGColorSpace.sRGB) ?? CGColorSpaceCreateDeviceRGB())
         
-        applyIntensity(image: &image, filter: currentFilter)
+        let filter = CIFilter(
+            name: "CIColorCubeWithColorSpace",
+            parameters: [
+                "inputCubeDimension" : dimension,
+                "inputCubeData" : data ?? Data(),
+                "inputColorSpace" : CGColorSpace.init(name: CGColorSpace.sRGB) ?? CGColorSpaceCreateDeviceRGB(),
+            ]
+        )
+    
+        filter!.setValue(image, forKeyPath: kCIInputImageKey)
+        applyIntensity(image: &image, filter: filter!)
         
+    }
+    
+    func applyIntensity(image: inout CIImage, filter: CIFilter) {
+        
+        if let colorSpace = image.colorSpace {
+            filter.setValue(colorSpace, forKeyPath: "inputColorSpace")
+        }
+        
+        let background = image
+        let foreground = filter.outputImage!.applyingFilter(
+            "CIColorMatrix", parameters: [
+                "inputRVector": CIVector(x: 1, y: 0, z: 0, w: CGFloat(0)),
+                "inputGVector": CIVector(x: 0, y: 1, z: 0, w: CGFloat(0)),
+                "inputBVector": CIVector(x: 0, y: 0, z: 1, w: CGFloat(0)),
+                "inputAVector": CIVector(x: 0, y: 0, z: 0, w: CGFloat(unwrappedIntensity)),
+                "inputBiasVector": CIVector(x: 0, y: 0, z: 0, w: 0),
+            ])
+        
+        let composition = CIFilter(
+            name: "CISourceOverCompositing",
+            parameters: [
+                kCIInputImageKey : foreground,
+                kCIInputBackgroundImageKey : background
+            ])!
+        
+        image = composition.outputImage!
     }
     
 }
