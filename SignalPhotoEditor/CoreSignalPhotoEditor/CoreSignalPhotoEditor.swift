@@ -98,7 +98,7 @@ class CoreSignalPhotoEditor {
         }
     }
     
-    func applyFiltersToCompressed(completion: @escaping ([FilterCollectionModel]) -> Void) {
+    public func applyFiltersToCompressed(completion: @escaping ([FilterCollectionModel]) -> Void) {
         var filters = [FilterCollectionModel]()
         
         let sliderModel = SliderModel(name: "Intenity", sliderNumber: 1, defaultValue: 50, minimumValue: 0, maximumValue: 100)
@@ -109,6 +109,31 @@ class CoreSignalPhotoEditor {
                 if filters.count == Filters.allCases.count {
                     completion(filters.sorted { $0.filter.filterName < $1.filter.filterName })
                 }
+            }
+        }
+    }
+    
+    public func getLUT(complition: @escaping (UIImage) -> Void) {
+        guard var initialLUT = UIImage(named: "ClearLUT") else { return }
+
+        guard var ciImage = CIImage(image: initialLUT) else { return }
+
+        let context = CIContext()
+        
+        DispatchQueue.global(qos: .userInteractive).async { [self] in
+            
+            for filter in filteres {
+                filter.applyFilter(image: &ciImage)
+            }
+            
+            // attempt to get a CGImage from our CIImage
+            if let newCGImage = context.createCGImage(ciImage, from: ciImage.extent) {
+                // convert that to a UIImage
+                initialLUT = UIImage(cgImage: newCGImage)
+            }
+            
+            DispatchQueue.main.async {
+                complition(initialLUT)
             }
         }
     }

@@ -29,12 +29,26 @@
                                     <action selector="didPressDownloadButton:" destination="KxY-7v-5sb" eventType="touchUpInside" id="qa6-lD-5zx"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gpw-lz-q5m">
+                                <rect key="frame" x="124" y="543" width="166" height="28"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <color key="tintColor" systemColor="linkColor"/>
+                                <state key="normal" title="Download LUT" image="arrow.down.doc" catalog="system">
+                                    <color key="titleColor" systemColor="linkColor"/>
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" weight="medium"/>
+                                </state>
+                                <connections>
+                                    <action selector="didPressDownloadLUT:" destination="KxY-7v-5sb" eventType="touchUpInside" id="VPn-Cw-2d5"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="GXh-ca-Z3M"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="Szy-bC-H8Y" firstAttribute="centerY" secondItem="GXh-ca-Z3M" secondAttribute="centerY" id="2hW-ZC-rII"/>
+                            <constraint firstItem="GXh-ca-Z3M" firstAttribute="bottom" secondItem="gpw-lz-q5m" secondAttribute="bottom" constant="242" id="779-QS-8Wx"/>
                             <constraint firstItem="Szy-bC-H8Y" firstAttribute="centerX" secondItem="GXh-ca-Z3M" secondAttribute="centerX" id="HBe-3T-OLg"/>
+                            <constraint firstItem="gpw-lz-q5m" firstAttribute="centerX" secondItem="Szy-bC-H8Y" secondAttribute="centerX" id="XXv-Dw-leA"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Download" image="arrow.down.doc" catalog="system" id="FVb-sZ-wiH"/>

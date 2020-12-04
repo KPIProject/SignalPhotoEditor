@@ -24,5 +24,10 @@ class DownloadViewController: UIViewController {
         imageSaver.writeToPhotoAlbum(image: imageToSave)
     }
     
-
+    @IBAction func didPressDownloadLUT(_ sender: UIButton) {
+        coreSignal.getLUT { image in
+            self.imageSaver.writeToPhotoAlbum(image: image)
+        }
+    }
+    
 }
