@@ -36,24 +36,30 @@
 		5D19DCA8254F647B007445A5 /* PhotoEffectTransferFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D19DCA7254F647B007445A5 /* PhotoEffectTransferFilter.swift */; };
 		5D19DCAB254F64B9007445A5 /* VignetteEffectFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D19DCAA254F64B9007445A5 /* VignetteEffectFilter.swift */; };
 		5D671FDA2578FA35009DA0DF /* Filter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D671FD92578FA35009DA0DF /* Filter.swift */; };
-		5D6FB414255EE64C00300FC7 /* LUTsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D6FB413255EE64C00300FC7 /* LUTsViewController.swift */; };
 		5DF8E96E254D9BCC00190C46 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF8E96D254D9BCC00190C46 /* AppDelegate.swift */; };
-		5DF8E972254D9BCC00190C46 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF8E971254D9BCC00190C46 /* ViewController.swift */; };
 		5DF8E975254D9BCC00190C46 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5DF8E973254D9BCC00190C46 /* Main.storyboard */; };
 		5DF8E977254D9BCE00190C46 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5DF8E976254D9BCE00190C46 /* Assets.xcassets */; };
 		5DF8E97A254D9BCE00190C46 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5DF8E978254D9BCE00190C46 /* LaunchScreen.storyboard */; };
 		5DF8E989254DA34100190C46 /* Filters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF8E988254DA34100190C46 /* Filters.swift */; };
 		5DF8E98C254DAA5600190C46 /* CoreSignalPhotoEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF8E98B254DAA5600190C46 /* CoreSignalPhotoEditor.swift */; };
-		5F23E4F4256A9E3000EB2D9D /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F23E4F3256A9E3000EB2D9D /* MainViewController.swift */; };
 		5F23E4F7256AADA400EB2D9D /* FilterCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F23E4F6256AADA400EB2D9D /* FilterCollectionView.swift */; };
 		5F23E4FA256AADBC00EB2D9D /* FilterCollectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5F23E4F9256AADBC00EB2D9D /* FilterCollectionView.xib */; };
-		5F23E50C256AB0BB00EB2D9D /* FilterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F23E50B256AB0BB00EB2D9D /* FilterModel.swift */; };
+		5F23E50C256AB0BB00EB2D9D /* FilterCollectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F23E50B256AB0BB00EB2D9D /* FilterCollectionModel.swift */; };
 		5F23E512256AB92500EB2D9D /* FilterCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F23E510256AB92500EB2D9D /* FilterCollectionViewCell.swift */; };
 		5F23E513256AB92500EB2D9D /* FilterCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5F23E511256AB92500EB2D9D /* FilterCollectionViewCell.xib */; };
 		5F5A3FCA257029F200A7517E /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F5A3FC9257029F200A7517E /* FilterViewController.swift */; };
 		5F5A3FCF25702A3500A7517E /* CustomNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F5A3FCE25702A3500A7517E /* CustomNavigationController.swift */; };
 		5F5A3FD425702D4A00A7517E /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F5A3FD325702D4A00A7517E /* ImagePicker.swift */; };
 		5FB06A51254F68310037132B /* LUT.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB06A50254F68310037132B /* LUT.swift */; };
+		5FD20C462579773000034D12 /* FilterCollectionViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FD20C452579773000034D12 /* FilterCollectionViewDelegate.swift */; };
+		5FD20C61257977BD00034D12 /* NibLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FD20C60257977BD00034D12 /* NibLoadable.swift */; };
+		5FD20C66257978D000034D12 /* UIView+StackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FD20C65257978D000034D12 /* UIView+StackView.swift */; };
+		5FD20C6B2579792B00034D12 /* SliderСontrollerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FD20C6A2579792B00034D12 /* SliderСontrollerView.swift */; };
+		5FD20C6F2579793600034D12 /* SliderСontrollerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5FD20C6E2579793600034D12 /* SliderСontrollerView.xib */; };
+		5FD20C7525797B2500034D12 /* SliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FD20C7425797B2500034D12 /* SliderView.swift */; };
+		5FD20C7925797B2E00034D12 /* SliderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5FD20C7825797B2E00034D12 /* SliderView.xib */; };
+		5FD20C7C25797D7000034D12 /* SliderModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FD20C7B25797D7000034D12 /* SliderModel.swift */; };
+		5FD20C7F25797F6C00034D12 /* SliderViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FD20C7E25797F6C00034D12 /* SliderViewDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -86,26 +92,32 @@
 		5D19DCA7254F647B007445A5 /* PhotoEffectTransferFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoEffectTransferFilter.swift; sourceTree = "<group>"; };
 		5D19DCAA254F64B9007445A5 /* VignetteEffectFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VignetteEffectFilter.swift; sourceTree = "<group>"; };
 		5D671FD92578FA35009DA0DF /* Filter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Filter.swift; sourceTree = "<group>"; };
-		5D6FB413255EE64C00300FC7 /* LUTsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LUTsViewController.swift; sourceTree = "<group>"; };
 		5DF8E96A254D9BCC00190C46 /* SignalPhotoEditor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SignalPhotoEditor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5DF8E96D254D9BCC00190C46 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		5DF8E971254D9BCC00190C46 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		5DF8E974254D9BCC00190C46 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5DF8E976254D9BCE00190C46 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5DF8E979254D9BCE00190C46 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5DF8E97B254D9BCE00190C46 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5DF8E988254DA34100190C46 /* Filters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Filters.swift; sourceTree = "<group>"; };
 		5DF8E98B254DAA5600190C46 /* CoreSignalPhotoEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreSignalPhotoEditor.swift; sourceTree = "<group>"; };
-		5F23E4F3256A9E3000EB2D9D /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		5F23E4F6256AADA400EB2D9D /* FilterCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterCollectionView.swift; sourceTree = "<group>"; };
 		5F23E4F9256AADBC00EB2D9D /* FilterCollectionView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FilterCollectionView.xib; sourceTree = "<group>"; };
-		5F23E50B256AB0BB00EB2D9D /* FilterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterModel.swift; sourceTree = "<group>"; };
+		5F23E50B256AB0BB00EB2D9D /* FilterCollectionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterCollectionModel.swift; sourceTree = "<group>"; };
 		5F23E510256AB92500EB2D9D /* FilterCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterCollectionViewCell.swift; sourceTree = "<group>"; };
 		5F23E511256AB92500EB2D9D /* FilterCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FilterCollectionViewCell.xib; sourceTree = "<group>"; };
 		5F5A3FC9257029F200A7517E /* FilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterViewController.swift; sourceTree = "<group>"; };
 		5F5A3FCE25702A3500A7517E /* CustomNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationController.swift; sourceTree = "<group>"; };
 		5F5A3FD325702D4A00A7517E /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		5FB06A50254F68310037132B /* LUT.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LUT.swift; sourceTree = "<group>"; };
+		5FD20C452579773000034D12 /* FilterCollectionViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterCollectionViewDelegate.swift; sourceTree = "<group>"; };
+		5FD20C60257977BD00034D12 /* NibLoadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NibLoadable.swift; sourceTree = "<group>"; };
+		5FD20C65257978D000034D12 /* UIView+StackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+StackView.swift"; sourceTree = "<group>"; };
+		5FD20C6A2579792B00034D12 /* SliderСontrollerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SliderСontrollerView.swift"; sourceTree = "<group>"; };
+		5FD20C6E2579793600034D12 /* SliderСontrollerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = "SliderСontrollerView.xib"; sourceTree = "<group>"; };
+		5FD20C7425797B2500034D12 /* SliderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderView.swift; sourceTree = "<group>"; };
+		5FD20C7825797B2E00034D12 /* SliderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SliderView.xib; sourceTree = "<group>"; };
+		5FD20C7B25797D7000034D12 /* SliderModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderModel.swift; sourceTree = "<group>"; };
+		5FD20C7E25797F6C00034D12 /* SliderViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderViewDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -204,14 +216,13 @@
 		5DF8E983254D9D5800190C46 /* SignalPhotoEditor */ = {
 			isa = PBXGroup;
 			children = (
-				5F5A3FCE25702A3500A7517E /* CustomNavigationController.swift */,
-				5F5A3FC9257029F200A7517E /* FilterViewController.swift */,
-				5F5A3FD325702D4A00A7517E /* ImagePicker.swift */,
-				5F23E4FD256AADD900EB2D9D /* FilterCollectionView */,
+				5FD20C41257976C600034D12 /* Models */,
+				5FD20C40257976BB00034D12 /* ViewControllers */,
+				5FD20C43257976D900034D12 /* Views */,
+				5FD20C42257976CA00034D12 /* Common */,
 				5DF8E973254D9BCC00190C46 /* Main.storyboard */,
-				5DF8E976254D9BCE00190C46 /* Assets.xcassets */,
 				5DF8E978254D9BCE00190C46 /* LaunchScreen.storyboard */,
-				5F5A3FCC257029F900A7517E /* OLD */,
+				5DF8E976254D9BCE00190C46 /* Assets.xcassets */,
 			);
 			path = SignalPhotoEditor;
 			sourceTree = "<group>";
@@ -219,22 +230,12 @@
 		5F23E4FD256AADD900EB2D9D /* FilterCollectionView */ = {
 			isa = PBXGroup;
 			children = (
-				5F23E50B256AB0BB00EB2D9D /* FilterModel.swift */,
+				5FD20C452579773000034D12 /* FilterCollectionViewDelegate.swift */,
 				5F23E4F6256AADA400EB2D9D /* FilterCollectionView.swift */,
 				5F23E4F9256AADBC00EB2D9D /* FilterCollectionView.xib */,
 				5F84CD40256AD39900F08A9C /* FilterCollectionViewCell */,
 			);
 			path = FilterCollectionView;
-			sourceTree = "<group>";
-		};
-		5F5A3FCC257029F900A7517E /* OLD */ = {
-			isa = PBXGroup;
-			children = (
-				5DF8E971254D9BCC00190C46 /* ViewController.swift */,
-				5D6FB413255EE64C00300FC7 /* LUTsViewController.swift */,
-				5F23E4F3256A9E3000EB2D9D /* MainViewController.swift */,
-			);
-			path = OLD;
 			sourceTree = "<group>";
 		};
 		5F84CD40256AD39900F08A9C /* FilterCollectionViewCell */ = {
@@ -244,6 +245,71 @@
 				5F23E511256AB92500EB2D9D /* FilterCollectionViewCell.xib */,
 			);
 			path = FilterCollectionViewCell;
+			sourceTree = "<group>";
+		};
+		5FD20C40257976BB00034D12 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				5F5A3FCE25702A3500A7517E /* CustomNavigationController.swift */,
+				5F5A3FC9257029F200A7517E /* FilterViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		5FD20C41257976C600034D12 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				5F23E50B256AB0BB00EB2D9D /* FilterCollectionModel.swift */,
+				5FD20C7B25797D7000034D12 /* SliderModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		5FD20C42257976CA00034D12 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				5FD20C64257978B500034D12 /* Extensions */,
+				5F5A3FD325702D4A00A7517E /* ImagePicker.swift */,
+				5FD20C60257977BD00034D12 /* NibLoadable.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		5FD20C43257976D900034D12 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				5FD20C69257978F000034D12 /* SliderСontrollerView */,
+				5FD20C7325797B1300034D12 /* SliderView */,
+				5F23E4FD256AADD900EB2D9D /* FilterCollectionView */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		5FD20C64257978B500034D12 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				5FD20C65257978D000034D12 /* UIView+StackView.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		5FD20C69257978F000034D12 /* SliderСontrollerView */ = {
+			isa = PBXGroup;
+			children = (
+				5FD20C6A2579792B00034D12 /* SliderСontrollerView.swift */,
+				5FD20C6E2579793600034D12 /* SliderСontrollerView.xib */,
+			);
+			path = "SliderСontrollerView";
+			sourceTree = "<group>";
+		};
+		5FD20C7325797B1300034D12 /* SliderView */ = {
+			isa = PBXGroup;
+			children = (
+				5FD20C7E25797F6C00034D12 /* SliderViewDelegate.swift */,
+				5FD20C7425797B2500034D12 /* SliderView.swift */,
+				5FD20C7825797B2E00034D12 /* SliderView.xib */,
+			);
+			path = SliderView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -305,9 +371,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				5DF8E97A254D9BCE00190C46 /* LaunchScreen.storyboard in Resources */,
+				5FD20C6F2579793600034D12 /* SliderСontrollerView.xib in Resources */,
 				5F23E513256AB92500EB2D9D /* FilterCollectionViewCell.xib in Resources */,
 				5DF8E977254D9BCE00190C46 /* Assets.xcassets in Resources */,
 				5F23E4FA256AADBC00EB2D9D /* FilterCollectionView.xib in Resources */,
+				5FD20C7925797B2E00034D12 /* SliderView.xib in Resources */,
 				5DF8E975254D9BCC00190C46 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -319,32 +387,35 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5D6FB414255EE64C00300FC7 /* LUTsViewController.swift in Sources */,
-				5F23E4F4256A9E3000EB2D9D /* MainViewController.swift in Sources */,
 				5D11075B2577CA8500DBD7D9 /* VibranceRegulation.swift in Sources */,
 				5FB06A51254F68310037132B /* LUT.swift in Sources */,
 				5D19DC9C254F6348007445A5 /* PhotoEffectMonoFilter.swift in Sources */,
 				5D19DCA5254F63C6007445A5 /* PhotoEffectTonalFilter.swift in Sources */,
+				5FD20C6B2579792B00034D12 /* SliderСontrollerView.swift in Sources */,
 				5F23E4F7256AADA400EB2D9D /* FilterCollectionView.swift in Sources */,
 				5D671FDA2578FA35009DA0DF /* Filter.swift in Sources */,
 				5D1107502577BF1200DBD7D9 /* GammaAdjustRegulation.swift in Sources */,
 				5D19DC84254F5EA2007445A5 /* ColorMonochromeFilter.swift in Sources */,
 				5D19DC8A254F6121007445A5 /* FalseColorFilter.swift in Sources */,
-				5DF8E972254D9BCC00190C46 /* ViewController.swift in Sources */,
 				5D19DC9F254F636D007445A5 /* PhotoEffectNoirFilter.swift in Sources */,
 				5D19DC96254F62DD007445A5 /* PhotoEffectFadeFilter.swift in Sources */,
+				5FD20C7C25797D7000034D12 /* SliderModel.swift in Sources */,
 				5D19DC99254F6308007445A5 /* PhotoEffectInstantFilter.swift in Sources */,
 				5D11075E2577CDD500DBD7D9 /* WhitePointAdjustRegulation.swift in Sources */,
 				5D19DC93254F62A6007445A5 /* PhotoEffectChromeFilter.swift in Sources */,
+				5FD20C66257978D000034D12 /* UIView+StackView.swift in Sources */,
 				5F5A3FD425702D4A00A7517E /* ImagePicker.swift in Sources */,
 				5D19DC74254F2E8D007445A5 /* VignetteFilter.swift in Sources */,
 				5D11A697254DB5A200A50925 /* SepiaFilter.swift in Sources */,
+				5FD20C462579773000034D12 /* FilterCollectionViewDelegate.swift in Sources */,
 				5DF8E989254DA34100190C46 /* Filters.swift in Sources */,
 				5DF8E96E254D9BCC00190C46 /* AppDelegate.swift in Sources */,
 				5F5A3FCF25702A3500A7517E /* CustomNavigationController.swift in Sources */,
 				5D19DC7A254F4001007445A5 /* ColorCubeFilter.swift in Sources */,
+				5FD20C61257977BD00034D12 /* NibLoadable.swift in Sources */,
 				5D19DCA2254F639D007445A5 /* PhotoEffectProcessFilter.swift in Sources */,
 				5D11074D2577BDF300DBD7D9 /* ExposureAdjustRegulation.swift in Sources */,
+				5FD20C7F25797F6C00034D12 /* SliderViewDelegate.swift in Sources */,
 				5DF8E98C254DAA5600190C46 /* CoreSignalPhotoEditor.swift in Sources */,
 				5D1107532577C14000DBD7D9 /* HueAdjustRegulation.swift in Sources */,
 				5D19DC7D254F5C6F007445A5 /* ColorInvertFilter.swift in Sources */,
@@ -355,10 +426,11 @@
 				5D19DC90254F6272007445A5 /* MinimumComponentFilter.swift in Sources */,
 				5D11074A2577BB2C00DBD7D9 /* Regulation.swift in Sources */,
 				5D1107632577ECB200DBD7D9 /* Resize.swift in Sources */,
+				5FD20C7525797B2500034D12 /* SliderView.swift in Sources */,
 				5F5A3FCA257029F200A7517E /* FilterViewController.swift in Sources */,
 				5D19DCA8254F647B007445A5 /* PhotoEffectTransferFilter.swift in Sources */,
 				5F23E512256AB92500EB2D9D /* FilterCollectionViewCell.swift in Sources */,
-				5F23E50C256AB0BB00EB2D9D /* FilterModel.swift in Sources */,
+				5F23E50C256AB0BB00EB2D9D /* FilterCollectionModel.swift in Sources */,
 				5D19DCAB254F64B9007445A5 /* VignetteEffectFilter.swift in Sources */,
 				5D19DC8D254F623E007445A5 /* MaximumComponentFilter.swift in Sources */,
 			);

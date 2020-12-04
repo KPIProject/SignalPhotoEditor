@@ -8,12 +8,11 @@
 import UIKit
 
 protocol Filter {
+    
     var filterName: String { get }
     var intensity: Float? { get }
     func applyFilter(image: inout CIImage)
 }
-
-
 
 extension Filter {
     
@@ -22,6 +21,7 @@ extension Filter {
     }
     
     func applyIntensity(image: inout CIImage, filter: CIFilter) {
+        
         let background = image
         let foreground = filter.outputImage!.applyingFilter(
             "CIColorMatrix", parameters: [
