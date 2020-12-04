@@ -11,6 +11,7 @@ protocol Filter {
     
     var filterName: String { get }
     var intensity: Float? { get }
+    
     func applyFilter(image: inout CIImage)
 }
 

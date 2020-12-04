@@ -66,6 +66,6 @@ final class SliderView: UIView, NibLoadable {
         }
         
         currentValueLabel.text = "\(sliderModel.name) \(Int(sender.value))"
-        delegate?.sliderChangeValue(sliderModel.sliderNumber, sender.value)
+        delegate?.sliderChangeValue(sliderModel.sliderNumber, Int(sender.value))
     }
 }

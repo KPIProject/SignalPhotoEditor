@@ -26,6 +26,8 @@ final class FilterViewController: UIViewController {
     private var state: FilterViewController.State = .filter
     private var currentFilter: Filter?
     
+    private var newImage: UIImage?
+    
     private var isFilterActive: Bool = false {
         didSet {
             if oldValue != isFilterActive {
@@ -226,6 +228,7 @@ extension FilterViewController: FilterCollectionViewDelegate {
         
         coreSignal.applyFilter(currentFilter, tryFilter: true) { [weak self] imageWithFilter in
             self?.mainImageView.image = imageWithFilter
+            self?.newImage = imageWithFilter
         }
         
         isFilterActive = true
@@ -236,11 +239,47 @@ extension FilterViewController: FilterCollectionViewDelegate {
 
 extension FilterViewController: SliderViewDelegate {
     
-    func sliderChangeValue(_ sliderNumber: Int, _ newValue: Float) {
+    func sliderChangeValue(_ sliderNumber: Int, _ newValue: Int) {
         
-        print(sliderNumber)
+        let oldImage = coreSignal.sourceImage
+//        let newImage = mainImageView.image
         print(newValue)
+        let opacity = Double(newValue) * 0.01
+        print(opacity)
+        mainImageView.image = addImages(oldImage, newImage, opacity: opacity)
     }
+    
+    func addImages(_ image1: UIImage?, _ image2: UIImage?, opacity: Double) -> UIImage {
+        
+        guard let ciImage1 = CIImage(image: image1!),
+              let ciImage2 = CIImage(image: image2!) else {
+            return UIImage()
+        }
+
+        let background = ciImage1
+        let foreground = ciImage2.applyingFilter(
+            "CIColorMatrix", parameters: [
+                "inputRVector": CIVector(x: 1, y: 0, z: 0, w: CGFloat(0)),
+                "inputGVector": CIVector(x: 0, y: 1, z: 0, w: CGFloat(0)),
+                "inputBVector": CIVector(x: 0, y: 0, z: 1, w: CGFloat(0)),
+                "inputAVector": CIVector(x: 0, y: 0, z: 0, w: CGFloat(opacity)),
+                "inputBiasVector": CIVector(x: 0, y: 0, z: 0, w: 0),
+            ])
+        
+        let composition = CIFilter(
+            name: "CISourceOverCompositing",
+            parameters: [
+                kCIInputImageKey : foreground,
+                kCIInputBackgroundImageKey : background
+            ])!
+        
+        if let compositeImage = composition.outputImage{
+            return UIImage(ciImage: compositeImage)
+            // do something with the "merged" image
+        }
+        return UIImage()
+    }
+    
 }
 
 // MARK: - UIScrollViewDelegate

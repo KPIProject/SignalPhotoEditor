@@ -72,7 +72,7 @@ final class SliderСontrollerView: UIView, NibLoadable {
 
 extension SliderСontrollerView: SliderViewDelegate {
     
-    func sliderChangeValue(_ sliderNumber: Int, _ newValue: Float) {
-        delegate?.sliderChangeValue(sliderNumber, newValue)
+    func sliderChangeValue(_ sliderNumber: Int, _ newValue: Int) {
+        delegate?.sliderChangeValue(sliderNumber, Int(newValue))
     }
 }
