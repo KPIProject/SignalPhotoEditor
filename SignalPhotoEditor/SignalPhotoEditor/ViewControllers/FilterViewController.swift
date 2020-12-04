@@ -116,12 +116,20 @@ final class FilterViewController: UIViewController {
     
     @IBAction func doneAction(_ sender: UIButton) {
         
+        guard let currentFilter = currentFilter else {
+            return
+        }
+        
+        coreSignal.applyFilter(currentFilter) { [weak self] imageWithFilter in
+            self?.mainImageView.image = imageWithFilter
+        }
+        
         isFilterActive = false
     }
     
     @IBAction func cancelAction(_ sender: UIButton) {
         
-        mainImageView.image = coreSignal.cancelLastFilter()
+        mainImageView.image = coreSignal.editedImage
         isFilterActive = false
     }
     
@@ -195,7 +203,7 @@ extension FilterViewController: FilterCollectionViewDelegate {
             return
         }
         
-        coreSignal.applyFilter(currentFilter) { [weak self] imageWithFilter in
+        coreSignal.applyFilter(currentFilter, tryFilter: true) { [weak self] imageWithFilter in
             self?.mainImageView.image = imageWithFilter
         }
         

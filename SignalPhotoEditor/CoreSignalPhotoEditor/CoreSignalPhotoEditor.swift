@@ -41,13 +41,16 @@ class CoreSignalPhotoEditor {
     }
     #endif
     
-    public func applyFilter(_ filter: Filter, complition: @escaping (UIImage) -> Void) {
+    public func applyFilter(_ filter: Filter, tryFilter: Bool = false, complition: @escaping (UIImage) -> Void) {
         removeOldFilters()
                 
         guard var editedImage = editedImage else { return }
 
         guard var ciImage = CIImage(image: editedImage) else { return }
-        filteres.append(filter)
+        
+        if !tryFilter {
+            filteres.append(filter)
+        }
         
         let context = CIContext()
         
@@ -61,9 +64,11 @@ class CoreSignalPhotoEditor {
                 editedImage = UIImage(cgImage: newCGImage)
             }
             
-            imageStack.append(editedImage)
-            editedImageIndex += 1
-            self.editedImage = editedImage
+            if !tryFilter {
+                imageStack.append(editedImage)
+                editedImageIndex += 1
+                self.editedImage = editedImage
+            }
             
             DispatchQueue.main.async {
                 complition(editedImage)
