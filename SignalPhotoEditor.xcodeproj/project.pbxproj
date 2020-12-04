@@ -38,7 +38,6 @@
 		5D671FDA2578FA35009DA0DF /* Filter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D671FD92578FA35009DA0DF /* Filter.swift */; };
 		5D671FE1257A717B009DA0DF /* ImageSaver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D671FE0257A717B009DA0DF /* ImageSaver.swift */; };
 		5D671FE4257A729A009DA0DF /* DownloadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D671FE3257A729A009DA0DF /* DownloadViewController.swift */; };
-		5D6FB414255EE64C00300FC7 /* LUTsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D6FB413255EE64C00300FC7 /* LUTsViewController.swift */; };
 		5DF8E96E254D9BCC00190C46 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF8E96D254D9BCC00190C46 /* AppDelegate.swift */; };
 		5DF8E975254D9BCC00190C46 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5DF8E973254D9BCC00190C46 /* Main.storyboard */; };
 		5DF8E977254D9BCE00190C46 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5DF8E976254D9BCE00190C46 /* Assets.xcassets */; };
@@ -97,7 +96,6 @@
 		5D671FD92578FA35009DA0DF /* Filter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Filter.swift; sourceTree = "<group>"; };
 		5D671FE0257A717B009DA0DF /* ImageSaver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSaver.swift; sourceTree = "<group>"; };
 		5D671FE3257A729A009DA0DF /* DownloadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadViewController.swift; sourceTree = "<group>"; };
-		5D6FB413255EE64C00300FC7 /* LUTsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LUTsViewController.swift; sourceTree = "<group>"; };
 		5DF8E96A254D9BCC00190C46 /* SignalPhotoEditor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SignalPhotoEditor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5DF8E96D254D9BCC00190C46 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5DF8E974254D9BCC00190C46 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -177,15 +175,6 @@
 			path = ColorFilters;
 			sourceTree = "<group>";
 		};
-		5D671FE6257A72DD009DA0DF /* Managers */ = {
-			isa = PBXGroup;
-			children = (
-				5F5A3FD325702D4A00A7517E /* ImagePicker.swift */,
-				5D671FE0257A717B009DA0DF /* ImageSaver.swift */,
-			);
-			path = Managers;
-			sourceTree = "<group>";
-		};
 		5DF8E961254D9BCC00190C46 = {
 			isa = PBXGroup;
 			children = (
@@ -231,9 +220,6 @@
 		5DF8E983254D9D5800190C46 /* SignalPhotoEditor */ = {
 			isa = PBXGroup;
 			children = (
-
-				5D671FE3257A729A009DA0DF /* DownloadViewController.swift */,
-				5D671FE6257A72DD009DA0DF /* Managers */,
 				5FD20C41257976C600034D12 /* Models */,
 				5FD20C40257976BB00034D12 /* ViewControllers */,
 				5FD20C43257976D900034D12 /* Views */,
@@ -268,6 +254,7 @@
 		5FD20C40257976BB00034D12 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				5D671FE3257A729A009DA0DF /* DownloadViewController.swift */,
 				5F5A3FCE25702A3500A7517E /* CustomNavigationController.swift */,
 				5F5A3FC9257029F200A7517E /* FilterViewController.swift */,
 			);
@@ -288,6 +275,7 @@
 			children = (
 				5FD20C64257978B500034D12 /* Extensions */,
 				5F5A3FD325702D4A00A7517E /* ImagePicker.swift */,
+				5D671FE0257A717B009DA0DF /* ImageSaver.swift */,
 				5FD20C60257977BD00034D12 /* NibLoadable.swift */,
 			);
 			path = Common;

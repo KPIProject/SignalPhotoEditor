@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="meX-M2-5SO">
-    <device id="retina6_0" orientation="portrait" appearance="light"/>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="meX-M2-5SO">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -12,19 +12,22 @@
         <!--Download-->
         <scene sceneID="93P-Wb-zM7">
             <objects>
-                <viewController id="KxY-7v-5sb" sceneMemberID="viewController">
+                <viewController id="KxY-7v-5sb" customClass="DownloadViewController" customModule="SignalPhotoEditor" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="vQa-ZX-wf3">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Szy-bC-H8Y">
-                                <rect key="frame" x="136" y="388.66666666666669" width="118.33333333333331" height="28"/>
+                                <rect key="frame" x="148" y="414.5" width="118" height="28"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="23"/>
                                 <color key="tintColor" systemColor="linkColor"/>
                                 <state key="normal" title="Download" image="arrow.down.doc" catalog="system">
                                     <color key="titleColor" systemColor="linkColor"/>
                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" weight="medium"/>
                                 </state>
+                                <connections>
+                                    <action selector="didPressDownloadButton:" destination="KxY-7v-5sb" eventType="touchUpInside" id="qa6-lD-5zx"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="GXh-ca-Z3M"/>
@@ -45,17 +48,17 @@
             <objects>
                 <viewController storyboardIdentifier="FilterViewController" id="ZIb-xY-hkO" customClass="FilterViewController" customModule="SignalPhotoEditor" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="a2S-zV-mBG">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pGf-jv-uAN">
-                                <rect key="frame" x="0.0" y="761" width="390" height="73"/>
+                                <rect key="frame" x="0.0" y="813" width="414" height="73"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="xT9-8Z-kad">
-                                        <rect key="frame" x="16" y="0.0" width="358" height="73"/>
+                                        <rect key="frame" x="16" y="0.0" width="382" height="73"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hk9-qz-QHL">
-                                                <rect key="frame" x="0.0" y="0.0" width="179" height="73"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="191" height="73"/>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
                                                 <color key="tintColor" systemColor="labelColor"/>
                                                 <state key="normal">
@@ -67,7 +70,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QeJ-KJ-zkx">
-                                                <rect key="frame" x="179" y="0.0" width="179" height="73"/>
+                                                <rect key="frame" x="191" y="0.0" width="191" height="73"/>
                                                 <color key="tintColor" systemColor="labelColor"/>
                                                 <state key="normal">
                                                     <imageReference key="image" image="xmark" catalog="system" symbolScale="large"/>
@@ -90,10 +93,10 @@
                                 </constraints>
                             </view>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" maximumZoomScale="5" translatesAutoresizingMaskIntoConstraints="NO" id="9xd-vg-2Ga">
-                                <rect key="frame" x="0.0" y="88" width="390" height="393"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="445"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="2" translatesAutoresizingMaskIntoConstraints="NO" id="lSb-SH-dNu">
-                                        <rect key="frame" x="0.0" y="0.0" width="390" height="393"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="445"/>
                                     </imageView>
                                 </subviews>
                                 <constraints>
@@ -106,14 +109,14 @@
                                 </constraints>
                             </scrollView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="wnv-PK-b4y">
-                                <rect key="frame" x="0.0" y="491" width="390" height="270"/>
+                                <rect key="frame" x="0.0" y="543" width="414" height="270"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f6X-d3-w6f" customClass="SliderСontrollerView" customModule="SignalPhotoEditor" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="390" height="180"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="180"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mlj-wb-wVz" customClass="FilterCollectionView" customModule="SignalPhotoEditor" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="180" width="390" height="90"/>
+                                        <rect key="frame" x="0.0" y="180" width="414" height="90"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </view>
                                 </subviews>
@@ -178,7 +181,7 @@
                     <tabBarItem key="tabBarItem" title="Filter" image="camera.filters" catalog="system" id="3Si-XL-qfs"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="hJg-dK-wIW">
-                        <rect key="frame" x="0.0" y="44" width="390" height="44"/>
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -197,7 +200,7 @@
                     <tabBarItem key="tabBarItem" title="Regulation" image="slider.horizontal.below.rectangle" catalog="system" id="n2S-Es-S60"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="QND-Ko-KZb">
-                        <rect key="frame" x="0.0" y="44" width="390" height="44"/>
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
