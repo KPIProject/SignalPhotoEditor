@@ -29,6 +29,7 @@ class CoreSignalPhotoEditor {
     private var editedImageIndex: Int = 0
     private var filteres: [Filter?] = []
     private var imageStack: [UIImage] = []
+    private var buffer: (image: UIImage, filter: Filter)?
     
     private(set) var compressedImage: UIImage?
     
@@ -41,16 +42,16 @@ class CoreSignalPhotoEditor {
     }
     #endif
     
-    public func applyFilter(_ filter: Filter, tryFilter: Bool = false, complition: @escaping (UIImage) -> Void) {
-        removeOldFilters()
+    public func applyFilter(_ filter: Filter, complition: @escaping (UIImage) -> Void) {
+        
                 
         guard var editedImage = editedImage else { return }
 
         guard var ciImage = CIImage(image: editedImage) else { return }
         
-        if !tryFilter {
-            filteres.append(filter)
-        }
+//        if !tryFilter {
+//            filteres.append(filter)
+//        }
         
         let context = CIContext()
         
@@ -64,16 +65,26 @@ class CoreSignalPhotoEditor {
                 editedImage = UIImage(cgImage: newCGImage)
             }
             
-            if !tryFilter {
-                imageStack.append(editedImage)
-                editedImageIndex += 1
-                self.editedImage = editedImage
-            }
+//            if !tryFilter {
+//                imageStack.append(editedImage)
+//                editedImageIndex += 1
+//                self.editedImage = editedImage
+//            }
+            
+            buffer = (image: editedImage, filter: filter)
             
             DispatchQueue.main.async {
                 complition(editedImage)
             }
         }
+    }
+    
+    public func confirmFilter() {
+        removeOldFilters()
+        filteres.append(buffer?.filter)
+        imageStack.append((buffer?.image ?? editedImage) ?? UIImage())
+        editedImageIndex += 1
+        self.editedImage = buffer?.image
     }
     
     public func applyFilterToCompressed(_ filter: Filter, completion: @escaping (UIImage) -> Void) {
@@ -175,32 +186,30 @@ class CoreSignalPhotoEditor {
     /**
      Returns original image.
      */
-    public func restoreImage() -> UIImage? {
+    public func restoreImage(){
         guard let sourceImage = sourceImage else {
-            return nil
+            return
         }
-        
+        editedImageIndex += 1
         editedImage = sourceImage
         imageStack.append(sourceImage)
         filteres.append(nil)
-        
-        return sourceImage
     }
     
-    /**
-    Delete last change.
-     Returns edited image.
-     */
-    public func cancelLastFilter() -> UIImage? {
-        if imageStack.count > 1 {
-            imageStack.removeLast()
-            filteres.removeLast()
-            editedImageIndex -= 1
-            editedImage = imageStack[editedImageIndex]
-        }
-        return editedImage
-    }
-    
+//    /**
+//    Delete last change.
+//     Returns edited image.
+//     */
+//    public func cancelLastFilter() -> UIImage? {
+//        if imageStack.count > 1 {
+//            imageStack.removeLast()
+//            filteres.removeLast()
+//            editedImageIndex -= 1
+//            editedImage = imageStack[editedImageIndex]
+//        }
+//        return editedImage
+//    }
+//
     /**
      Remooves filteres from filteres array which are no longer needed.
      */
