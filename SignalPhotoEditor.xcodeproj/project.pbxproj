@@ -36,6 +36,8 @@
 		5D19DCA8254F647B007445A5 /* PhotoEffectTransferFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D19DCA7254F647B007445A5 /* PhotoEffectTransferFilter.swift */; };
 		5D19DCAB254F64B9007445A5 /* VignetteEffectFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D19DCAA254F64B9007445A5 /* VignetteEffectFilter.swift */; };
 		5D671FDA2578FA35009DA0DF /* Filter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D671FD92578FA35009DA0DF /* Filter.swift */; };
+		5D671FE1257A717B009DA0DF /* ImageSaver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D671FE0257A717B009DA0DF /* ImageSaver.swift */; };
+		5D671FE4257A729A009DA0DF /* DownloadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D671FE3257A729A009DA0DF /* DownloadViewController.swift */; };
 		5D6FB414255EE64C00300FC7 /* LUTsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D6FB413255EE64C00300FC7 /* LUTsViewController.swift */; };
 		5DF8E96E254D9BCC00190C46 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF8E96D254D9BCC00190C46 /* AppDelegate.swift */; };
 		5DF8E972254D9BCC00190C46 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF8E971254D9BCC00190C46 /* ViewController.swift */; };
@@ -86,6 +88,8 @@
 		5D19DCA7254F647B007445A5 /* PhotoEffectTransferFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoEffectTransferFilter.swift; sourceTree = "<group>"; };
 		5D19DCAA254F64B9007445A5 /* VignetteEffectFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VignetteEffectFilter.swift; sourceTree = "<group>"; };
 		5D671FD92578FA35009DA0DF /* Filter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Filter.swift; sourceTree = "<group>"; };
+		5D671FE0257A717B009DA0DF /* ImageSaver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSaver.swift; sourceTree = "<group>"; };
+		5D671FE3257A729A009DA0DF /* DownloadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadViewController.swift; sourceTree = "<group>"; };
 		5D6FB413255EE64C00300FC7 /* LUTsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LUTsViewController.swift; sourceTree = "<group>"; };
 		5DF8E96A254D9BCC00190C46 /* SignalPhotoEditor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SignalPhotoEditor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5DF8E96D254D9BCC00190C46 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -159,6 +163,15 @@
 			path = ColorFilters;
 			sourceTree = "<group>";
 		};
+		5D671FE6257A72DD009DA0DF /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				5F5A3FD325702D4A00A7517E /* ImagePicker.swift */,
+				5D671FE0257A717B009DA0DF /* ImageSaver.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
 		5DF8E961254D9BCC00190C46 = {
 			isa = PBXGroup;
 			children = (
@@ -206,7 +219,8 @@
 			children = (
 				5F5A3FCE25702A3500A7517E /* CustomNavigationController.swift */,
 				5F5A3FC9257029F200A7517E /* FilterViewController.swift */,
-				5F5A3FD325702D4A00A7517E /* ImagePicker.swift */,
+				5D671FE3257A729A009DA0DF /* DownloadViewController.swift */,
+				5D671FE6257A72DD009DA0DF /* Managers */,
 				5F23E4FD256AADD900EB2D9D /* FilterCollectionView */,
 				5DF8E973254D9BCC00190C46 /* Main.storyboard */,
 				5DF8E976254D9BCE00190C46 /* Assets.xcassets */,
@@ -337,6 +351,7 @@
 				5D11075E2577CDD500DBD7D9 /* WhitePointAdjustRegulation.swift in Sources */,
 				5D19DC93254F62A6007445A5 /* PhotoEffectChromeFilter.swift in Sources */,
 				5F5A3FD425702D4A00A7517E /* ImagePicker.swift in Sources */,
+				5D671FE4257A729A009DA0DF /* DownloadViewController.swift in Sources */,
 				5D19DC74254F2E8D007445A5 /* VignetteFilter.swift in Sources */,
 				5D11A697254DB5A200A50925 /* SepiaFilter.swift in Sources */,
 				5DF8E989254DA34100190C46 /* Filters.swift in Sources */,
@@ -357,6 +372,7 @@
 				5D1107632577ECB200DBD7D9 /* Resize.swift in Sources */,
 				5F5A3FCA257029F200A7517E /* FilterViewController.swift in Sources */,
 				5D19DCA8254F647B007445A5 /* PhotoEffectTransferFilter.swift in Sources */,
+				5D671FE1257A717B009DA0DF /* ImageSaver.swift in Sources */,
 				5F23E512256AB92500EB2D9D /* FilterCollectionViewCell.swift in Sources */,
 				5F23E50C256AB0BB00EB2D9D /* FilterModel.swift in Sources */,
 				5D19DCAB254F64B9007445A5 /* VignetteEffectFilter.swift in Sources */,

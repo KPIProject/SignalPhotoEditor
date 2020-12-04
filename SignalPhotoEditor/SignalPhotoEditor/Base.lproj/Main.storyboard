@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="meX-M2-5SO">
-    <device id="retina6_0" orientation="portrait" appearance="light"/>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="meX-M2-5SO">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
@@ -15,7 +15,7 @@
             <objects>
                 <navigationController id="za9-rE-DmS" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="2aM-Yn-y5d">
-                        <rect key="frame" x="0.0" y="44" width="390" height="44"/>
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -29,19 +29,22 @@
         <!--Download-->
         <scene sceneID="93P-Wb-zM7">
             <objects>
-                <viewController id="KxY-7v-5sb" sceneMemberID="viewController">
+                <viewController id="KxY-7v-5sb" customClass="DownloadViewController" customModule="SignalPhotoEditor" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="vQa-ZX-wf3">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Szy-bC-H8Y">
-                                <rect key="frame" x="136" y="388.66666666666669" width="118.33333333333331" height="28"/>
+                                <rect key="frame" x="148" y="414.5" width="118" height="28"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="23"/>
                                 <color key="tintColor" systemColor="linkColor"/>
                                 <state key="normal" title="Download" image="arrow.down.doc" catalog="system">
                                     <color key="titleColor" systemColor="linkColor"/>
                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" weight="medium"/>
                                 </state>
+                                <connections>
+                                    <action selector="didPressDownloadButton:" destination="KxY-7v-5sb" eventType="touchUpInside" id="61Z-bJ-HPO"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="GXh-ca-Z3M"/>
@@ -62,14 +65,14 @@
             <objects>
                 <viewController storyboardIdentifier="FilterViewController" id="ZIb-xY-hkO" customClass="FilterViewController" customModule="SignalPhotoEditor" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="a2S-zV-mBG">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" maximumZoomScale="5" translatesAutoresizingMaskIntoConstraints="NO" id="9xd-vg-2Ga">
-                                <rect key="frame" x="0.0" y="88" width="390" height="573"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="625"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="2" translatesAutoresizingMaskIntoConstraints="NO" id="lSb-SH-dNu">
-                                        <rect key="frame" x="0.0" y="0.0" width="390" height="573"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="625"/>
                                     </imageView>
                                 </subviews>
                                 <constraints>
@@ -82,10 +85,10 @@
                                 </constraints>
                             </scrollView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="wnv-PK-b4y">
-                                <rect key="frame" x="0.0" y="671" width="390" height="90"/>
+                                <rect key="frame" x="0.0" y="723" width="414" height="90"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mlj-wb-wVz" customClass="FilterCollectionView" customModule="SignalPhotoEditor" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="390" height="90"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="90"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="90" id="Grx-0Q-VLr"/>
@@ -144,14 +147,14 @@
             <objects>
                 <viewController storyboardIdentifier="MainViewController" id="UnS-bI-lLL" customClass="MainViewController" customModule="SignalPhotoEditor" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="p3f-es-xcK">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" maximumZoomScale="5" translatesAutoresizingMaskIntoConstraints="NO" id="ayi-V0-3a9">
-                                <rect key="frame" x="0.0" y="88" width="390" height="551"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="603"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="2" translatesAutoresizingMaskIntoConstraints="NO" id="q3x-1W-VjA">
-                                        <rect key="frame" x="0.0" y="0.0" width="390" height="551"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="603"/>
                                     </imageView>
                                 </subviews>
                                 <constraints>
@@ -164,7 +167,7 @@
                                 </constraints>
                             </scrollView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VqI-Mo-MsI" userLabel="TopView">
-                                <rect key="frame" x="0.0" y="44" width="390" height="44"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                                 <subviews>
                                     <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nhm-Uz-sg2">
                                         <rect key="frame" x="0.0" y="0.0" width="390" height="110"/>
@@ -175,7 +178,7 @@
                                         <blurEffect style="regular"/>
                                     </visualEffectView>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mNk-dR-ZDI">
-                                        <rect key="frame" x="16" y="0.0" width="358" height="44"/>
+                                        <rect key="frame" x="16" y="0.0" width="382" height="44"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F0s-En-gfv">
                                                 <rect key="frame" x="0.0" y="0.0" width="44" height="44"/>
@@ -188,11 +191,11 @@
                                                 </state>
                                             </button>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2nf-vw-ERr">
-                                                <rect key="frame" x="44" y="0.0" width="226" height="44"/>
+                                                <rect key="frame" x="44" y="0.0" width="250" height="44"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </view>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sAL-Oz-o15">
-                                                <rect key="frame" x="270" y="0.0" width="44" height="44"/>
+                                                <rect key="frame" x="294" y="0.0" width="44" height="44"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="44" id="qzL-4g-2x6"/>
                                                 </constraints>
@@ -206,7 +209,7 @@
                                                 <state key="normal" image="steps"/>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tb1-gb-hoj">
-                                                <rect key="frame" x="314" y="0.0" width="44" height="44"/>
+                                                <rect key="frame" x="338" y="0.0" width="44" height="44"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="44" id="yLn-Re-imy"/>
                                                 </constraints>
@@ -241,7 +244,7 @@
                                 </variation>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wzd-Vd-ozW" userLabel="BottomView">
-                                <rect key="frame" x="0.0" y="639" width="390" height="171"/>
+                                <rect key="frame" x="0.0" y="691" width="414" height="171"/>
                                 <subviews>
                                     <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oX5-Qa-sJ3">
                                         <rect key="frame" x="0.0" y="0.0" width="390" height="224"/>
@@ -253,31 +256,31 @@
                                         <blurEffect style="regular"/>
                                     </visualEffectView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pQp-ur-rCV" customClass="FilterCollectionView" customModule="SignalPhotoEditor" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="10" width="390" height="100"/>
+                                        <rect key="frame" x="0.0" y="10" width="414" height="100"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="100" id="pIn-4o-FWS"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="X1e-OY-6Ua" userLabel="Separator">
-                                        <rect key="frame" x="10" y="118" width="370" height="1"/>
+                                        <rect key="frame" x="10" y="118" width="394" height="1"/>
                                         <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="1" id="g0P-fd-3Rx"/>
                                         </constraints>
                                     </view>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Vxn-YG-gay">
-                                        <rect key="frame" x="0.0" y="127" width="390" height="44"/>
+                                        <rect key="frame" x="0.0" y="127" width="414" height="44"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="p3y-EQ-7L6">
-                                                <rect key="frame" x="0.0" y="0.0" width="124.66666666666667" height="44"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="132.5" height="44"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vGe-sg-Evx">
-                                                        <rect key="frame" x="0.0" y="2.3333333333333321" width="124.66666666666667" height="17.666666666666668"/>
+                                                        <rect key="frame" x="0.0" y="2" width="132.5" height="18"/>
                                                         <imageReference key="image" image="camera.filters" catalog="system" symbolScale="small" renderingMode="original"/>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Filter" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rYF-fD-6Nf">
-                                                        <rect key="frame" x="0.0" y="22" width="124.66666666666667" height="22"/>
+                                                        <rect key="frame" x="0.0" y="22" width="132.5" height="22"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -285,14 +288,14 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="JvW-nx-Sws">
-                                                <rect key="frame" x="132.66666666666666" y="0.0" width="124.66666666666666" height="44"/>
+                                                <rect key="frame" x="140.5" y="0.0" width="133" height="44"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="eDa-Xa-lhP">
-                                                        <rect key="frame" x="0.0" y="1.9999999999999982" width="124.66666666666667" height="18"/>
+                                                        <rect key="frame" x="0.0" y="1.5" width="133" height="18.5"/>
                                                         <imageReference key="image" image="slider.horizontal.3" catalog="system" renderingMode="original"/>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Regulation" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="es5-pc-8Hb">
-                                                        <rect key="frame" x="0.0" y="22" width="124.66666666666667" height="22"/>
+                                                        <rect key="frame" x="0.0" y="22" width="133" height="22"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -300,14 +303,14 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="GPa-Io-hR7">
-                                                <rect key="frame" x="265.33333333333331" y="0.0" width="124.66666666666669" height="44"/>
+                                                <rect key="frame" x="281.5" y="0.0" width="132.5" height="44"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="HYd-Kn-gRY">
-                                                        <rect key="frame" x="0.0" y="-3.5527136788005009e-15" width="124.66666666666667" height="21.666666666666671"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="132.5" height="22"/>
                                                         <imageReference key="image" image="square.and.arrow.down" catalog="system" renderingMode="original"/>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Download" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Z7-Uu-mbb">
-                                                        <rect key="frame" x="0.0" y="22" width="124.66666666666667" height="22"/>
+                                                        <rect key="frame" x="0.0" y="22" width="132.5" height="22"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -373,17 +376,17 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="SignalPhotoEditor" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mountain" translatesAutoresizingMaskIntoConstraints="NO" id="sQo-zD-4Hh">
-                                <rect key="frame" x="0.0" y="113.00000000000001" width="390" height="219.33333333333337"/>
+                                <rect key="frame" x="0.0" y="113" width="414" height="233"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="sQo-zD-4Hh" secondAttribute="height" multiplier="16:9" id="lmp-xl-Ozg"/>
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bWn-f6-5RW">
-                                <rect key="frame" x="97.666666666666686" y="382.33333333333331" width="195" height="50"/>
+                                <rect key="frame" x="103.5" y="396" width="207" height="50"/>
                                 <color key="backgroundColor" systemColor="systemIndigoColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="xLm-E5-HYw"/>
@@ -397,7 +400,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dDz-bH-hcO">
-                                <rect key="frame" x="97.666666666666686" y="457.33333333333331" width="195" height="50"/>
+                                <rect key="frame" x="103.5" y="471" width="207" height="50"/>
                                 <color key="backgroundColor" systemColor="systemIndigoColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="Juc-yI-6JU"/>
@@ -411,7 +414,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9ED-TB-sed">
-                                <rect key="frame" x="97.666666666666686" y="532.33333333333337" width="195" height="50"/>
+                                <rect key="frame" x="103.5" y="546" width="207" height="50"/>
                                 <color key="backgroundColor" systemColor="systemIndigoColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="euD-Pi-9wS"/>
@@ -425,7 +428,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HwT-YH-R34">
-                                <rect key="frame" x="97.666666666666686" y="607.33333333333337" width="195" height="50"/>
+                                <rect key="frame" x="103.5" y="621" width="207" height="50"/>
                                 <color key="backgroundColor" systemColor="systemIndigoColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="BMF-lm-Ioc"/>
@@ -462,7 +465,7 @@
                     <navigationItem key="navigationItem" id="tZR-Uc-do8">
                         <barButtonItem key="leftBarButtonItem" width="30" style="plain" id="6hg-Jc-X5y">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="SeN-q4-wkc">
-                                <rect key="frame" x="16" y="0.0" width="44" height="44"/>
+                                <rect key="frame" x="20" y="0.0" width="44" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal">
                                     <imageReference key="image" image="photo.on.rectangle.angled" catalog="system" symbolScale="medium"/>
@@ -491,17 +494,17 @@
             <objects>
                 <viewController storyboardIdentifier="LUTsViewController" id="Q0O-QJ-Tva" customClass="LUTsViewController" customModule="SignalPhotoEditor" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="IVO-UU-M9m">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ClearLUT" translatesAutoresizingMaskIntoConstraints="NO" id="1pe-qq-F22" userLabel="Image View1">
-                                <rect key="frame" x="3.6666666666666572" y="44" width="383" height="383"/>
+                                <rect key="frame" x="2.5" y="44" width="409" height="409"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="1pe-qq-F22" secondAttribute="height" multiplier="1:1" id="Kbp-bb-6d7"/>
                                 </constraints>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tMF-Mk-q7M" userLabel="Image View2">
-                                <rect key="frame" x="3.6666666666666572" y="427" width="383" height="383"/>
+                                <rect key="frame" x="2.5" y="453" width="409" height="409"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="tMF-Mk-q7M" secondAttribute="height" multiplier="1:1" id="SYt-uZ-jbL"/>
                                 </constraints>
@@ -535,7 +538,7 @@
                     <tabBarItem key="tabBarItem" title="Filter" image="camera.filters" catalog="system" id="3Si-XL-qfs"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="hJg-dK-wIW">
-                        <rect key="frame" x="0.0" y="44" width="390" height="44"/>
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -554,7 +557,7 @@
                     <tabBarItem key="tabBarItem" title="Regulation" image="slider.horizontal.below.rectangle" catalog="system" id="n2S-Es-S60"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="QND-Ko-KZb">
-                        <rect key="frame" x="0.0" y="44" width="390" height="44"/>
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
