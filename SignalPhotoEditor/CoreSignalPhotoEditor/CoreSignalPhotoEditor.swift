@@ -27,7 +27,7 @@ class CoreSignalPhotoEditor {
     public var editedImage: UIImage?
     /// Current displayed image index in stack
     private var editedImageIndex: Int = 0
-    private var filteres: [Filter] = [] // ???
+    private var filteres: [Filter?] = []
     private var imageStack: [UIImage] = []
     
     private(set) var compressedImage: UIImage?
@@ -114,16 +114,24 @@ class CoreSignalPhotoEditor {
     }
     
     public func getLUT(complition: @escaping (UIImage) -> Void) {
-        guard var initialLUT = UIImage(named: "ClearLUT") else { return }
-
-        guard var ciImage = CIImage(image: initialLUT) else { return }
-
+        
+        guard var initialLUT = UIImage(named: "ClearLUT"),
+              var ciImage = CIImage(image: initialLUT) else {
+            return
+        }
+        
         let context = CIContext()
         
         DispatchQueue.global(qos: .userInteractive).async { [self] in
             
             for filter in filteres {
-                filter.applyFilter(image: &ciImage)
+                if let filterNotNil = filter {
+                    filterNotNil.applyFilter(image: &ciImage)
+                } else {
+                    if let clearLUTCIImage = CIImage(image: initialLUT) {
+                        ciImage = clearLUTCIImage
+                    }
+                }
             }
             
             // attempt to get a CGImage from our CIImage
@@ -168,6 +176,14 @@ class CoreSignalPhotoEditor {
      Returns original image.
      */
     public func restoreImage() -> UIImage? {
+        guard let sourceImage = sourceImage else {
+            return nil
+        }
+        
+        editedImage = sourceImage
+        imageStack.append(sourceImage)
+        filteres.append(nil)
+        
         return sourceImage
     }
     
