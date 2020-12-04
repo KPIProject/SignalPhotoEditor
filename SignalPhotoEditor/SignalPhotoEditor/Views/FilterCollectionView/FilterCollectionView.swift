@@ -109,12 +109,25 @@ extension FilterCollectionView: UICollectionViewDataSource, UICollectionViewDele
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        switch state {
+        case .filter:
+            switch indexPath.row {
+            case 0:
+                delegate?.didTapOnOrigin()
+            case 1:
+                delegate?.didTapOnAddLUT()
+            default:
+                delegate?.didTapOn(filterCollectionModel: filterCollectionModels[indexPath.row - 2])
+            }
+        case .regulation:
+            delegate?.didTapOn(filterCollectionModel: filterCollectionModels[indexPath.row])
+        }
         
-        delegate?.didTapOn(filterCollectionModel: filterCollectionModels[indexPath.row])
     }
 }
 
 extension FilterCollectionView {
+    
     enum State {
         case filter
         case regulation

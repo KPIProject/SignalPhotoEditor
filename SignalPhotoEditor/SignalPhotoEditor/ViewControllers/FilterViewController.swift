@@ -191,6 +191,25 @@ final class FilterViewController: UIViewController {
 
 extension FilterViewController: FilterCollectionViewDelegate {
     
+    func didTapOnOrigin() {
+        mainImageView.image = coreSignal.restoreImage()
+    }
+    
+    func didTapOnAddLUT() {
+        
+        imagePicker.setType(type: .image).show(in: self) { [weak self] result in
+            switch result {
+            
+            case let .success(image: image):
+                self?.coreSignal.applyFilter(Filters.colorCube(name: "LUT", lutImage: image).getFilter(), complition: { editedImage in
+                    self?.mainImageView.image = editedImage
+                })
+            default:
+                break
+            }
+        }
+    }
+    
     func didTapOn(filterCollectionModel: FilterCollectionModel) {
         
         currentFilter = filterCollectionModel.filter
