@@ -64,6 +64,7 @@ final class FilterViewController: UIViewController {
         
         mainImageView.image = coreSignal.editedImage
         setupCollectionView()
+        setupBarButtonItemsState()
     }
     
     // MARK: - Setup functions
@@ -119,6 +120,12 @@ final class FilterViewController: UIViewController {
         }
     }
     
+    private func setupBarButtonItemsState() {
+        
+        navigationItem.rightBarButtonItems?.last?.isEnabled = coreSignal.isEditedImageFirst ? false : true
+        navigationItem.rightBarButtonItems?.first?.isEnabled = coreSignal.isEditedImageLast ? false : true
+    }
+    
     // MARK: - IBActions
     
     @IBAction func doneAction(_ sender: UIButton) {
@@ -143,7 +150,8 @@ final class FilterViewController: UIViewController {
         } else {
             coreSignal.restoreImage()
         }
-                        
+        
+        setupBarButtonItemsState()
         isFilterActive = false
     }
     
@@ -172,18 +180,17 @@ final class FilterViewController: UIViewController {
     
     @objc
     private func cancelLast() {
-        
         mainImageView.image = coreSignal.cancelLastFilter()
+        setupBarButtonItemsState()
     }
     
     @objc
     private func applyBack() {
-        
         mainImageView.image = coreSignal.applyBackFilter()
+        setupBarButtonItemsState()
     }
     
     private func toogleBottomView() {
-        
         guard let tabBar = tabBarController?.tabBar else {
             return
         }
