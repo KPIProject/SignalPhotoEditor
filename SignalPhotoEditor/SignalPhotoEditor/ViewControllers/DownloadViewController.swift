@@ -18,13 +18,18 @@ class DownloadViewController: UIViewController {
     }
     
     @IBAction func didPressDownloadButton(_ sender: UIButton) {
+        
         guard let imageToSave = coreSignal.editedImage else {
             return
         }
+        
+        Loader.show()
         imageSaver.writeToPhotoAlbum(image: imageToSave)
     }
     
     @IBAction func didPressDownloadLUT(_ sender: UIButton) {
+        
+        Loader.show()
         coreSignal.getLUT { image in
             self.imageSaver.writeToPhotoAlbum(image: image)
         }
