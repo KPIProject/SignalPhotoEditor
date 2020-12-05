@@ -144,14 +144,14 @@ final class FilterViewController: UIViewController {
                     self?.overlayImageView.image = nil
                     self?.overlayImageView.isHidden = true
                     Loader.hide()
+                    self?.setupBarButtonItemsState()
                 }
             }
             
         } else {
             coreSignal.restoreImage()
+            setupBarButtonItemsState()
         }
-        
-        setupBarButtonItemsState()
         isFilterActive = false
     }
     
