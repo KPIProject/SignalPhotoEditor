@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		19F116CFCE81BACC7CEE44B7 /* Pods_SignalPhotoEditor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 682B13302339EB675103CA67 /* Pods_SignalPhotoEditor.framework */; };
 		5D1107462577B87B00DBD7D9 /* ColorControlsRegulation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D1107452577B87B00DBD7D9 /* ColorControlsRegulation.swift */; };
 		5D11074A2577BB2C00DBD7D9 /* Regulation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D1107492577BB2C00DBD7D9 /* Regulation.swift */; };
 		5D11074D2577BDF300DBD7D9 /* ExposureAdjustRegulation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D11074C2577BDF300DBD7D9 /* ExposureAdjustRegulation.swift */; };
@@ -49,6 +50,7 @@
 		5F23E50C256AB0BB00EB2D9D /* FilterCollectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F23E50B256AB0BB00EB2D9D /* FilterCollectionModel.swift */; };
 		5F23E512256AB92500EB2D9D /* FilterCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F23E510256AB92500EB2D9D /* FilterCollectionViewCell.swift */; };
 		5F23E513256AB92500EB2D9D /* FilterCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5F23E511256AB92500EB2D9D /* FilterCollectionViewCell.xib */; };
+		5F4ECDCB257BA4C6007B1D18 /* Loader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F4ECDCA257BA4C6007B1D18 /* Loader.swift */; };
 		5F5A3FCA257029F200A7517E /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F5A3FC9257029F200A7517E /* FilterViewController.swift */; };
 		5F5A3FCF25702A3500A7517E /* CustomNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F5A3FCE25702A3500A7517E /* CustomNavigationController.swift */; };
 		5F5A3FD425702D4A00A7517E /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F5A3FD325702D4A00A7517E /* ImagePicker.swift */; };
@@ -65,6 +67,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1532C22FCBCF2A99AF05A566 /* Pods-SignalPhotoEditor.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SignalPhotoEditor.release.xcconfig"; path = "Target Support Files/Pods-SignalPhotoEditor/Pods-SignalPhotoEditor.release.xcconfig"; sourceTree = "<group>"; };
 		5D1107452577B87B00DBD7D9 /* ColorControlsRegulation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorControlsRegulation.swift; sourceTree = "<group>"; };
 		5D1107492577BB2C00DBD7D9 /* Regulation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Regulation.swift; sourceTree = "<group>"; };
 		5D11074C2577BDF300DBD7D9 /* ExposureAdjustRegulation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExposureAdjustRegulation.swift; sourceTree = "<group>"; };
@@ -109,6 +112,7 @@
 		5F23E50B256AB0BB00EB2D9D /* FilterCollectionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterCollectionModel.swift; sourceTree = "<group>"; };
 		5F23E510256AB92500EB2D9D /* FilterCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterCollectionViewCell.swift; sourceTree = "<group>"; };
 		5F23E511256AB92500EB2D9D /* FilterCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FilterCollectionViewCell.xib; sourceTree = "<group>"; };
+		5F4ECDCA257BA4C6007B1D18 /* Loader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loader.swift; sourceTree = "<group>"; };
 		5F5A3FC9257029F200A7517E /* FilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterViewController.swift; sourceTree = "<group>"; };
 		5F5A3FCE25702A3500A7517E /* CustomNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationController.swift; sourceTree = "<group>"; };
 		5F5A3FD325702D4A00A7517E /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
@@ -122,6 +126,8 @@
 		5FD20C7825797B2E00034D12 /* SliderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SliderView.xib; sourceTree = "<group>"; };
 		5FD20C7B25797D7000034D12 /* SliderModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderModel.swift; sourceTree = "<group>"; };
 		5FD20C7E25797F6C00034D12 /* SliderViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderViewDelegate.swift; sourceTree = "<group>"; };
+		682B13302339EB675103CA67 /* Pods_SignalPhotoEditor.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SignalPhotoEditor.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BEFDDBEDB5085A2AEC26304F /* Pods-SignalPhotoEditor.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SignalPhotoEditor.debug.xcconfig"; path = "Target Support Files/Pods-SignalPhotoEditor/Pods-SignalPhotoEditor.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,12 +135,23 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				19F116CFCE81BACC7CEE44B7 /* Pods_SignalPhotoEditor.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		45A7BBCAEEA28B2D1E3D2DAE /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				BEFDDBEDB5085A2AEC26304F /* Pods-SignalPhotoEditor.debug.xcconfig */,
+				1532C22FCBCF2A99AF05A566 /* Pods-SignalPhotoEditor.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		5D1107442577B75100DBD7D9 /* ColorRegulation */ = {
 			isa = PBXGroup;
 			children = (
@@ -180,6 +197,8 @@
 			children = (
 				5DF8E96C254D9BCC00190C46 /* SignalPhotoEditor */,
 				5DF8E96B254D9BCC00190C46 /* Products */,
+				45A7BBCAEEA28B2D1E3D2DAE /* Pods */,
+				C880844747E331BBD8279CBC /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -242,6 +261,14 @@
 			path = FilterCollectionView;
 			sourceTree = "<group>";
 		};
+		5F4ECDC9257BA4B4007B1D18 /* Loader */ = {
+			isa = PBXGroup;
+			children = (
+				5F4ECDCA257BA4C6007B1D18 /* Loader.swift */,
+			);
+			path = Loader;
+			sourceTree = "<group>";
+		};
 		5F84CD40256AD39900F08A9C /* FilterCollectionViewCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -274,6 +301,7 @@
 			isa = PBXGroup;
 			children = (
 				5FD20C64257978B500034D12 /* Extensions */,
+				5F4ECDC9257BA4B4007B1D18 /* Loader */,
 				5F5A3FD325702D4A00A7517E /* ImagePicker.swift */,
 				5D671FE0257A717B009DA0DF /* ImageSaver.swift */,
 				5FD20C60257977BD00034D12 /* NibLoadable.swift */,
@@ -318,6 +346,14 @@
 			path = SliderView;
 			sourceTree = "<group>";
 		};
+		C880844747E331BBD8279CBC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				682B13302339EB675103CA67 /* Pods_SignalPhotoEditor.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -325,9 +361,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5DF8E97E254D9BCE00190C46 /* Build configuration list for PBXNativeTarget "SignalPhotoEditor" */;
 			buildPhases = (
+				08B67417ED93F3478DCB0E46 /* [CP] Check Pods Manifest.lock */,
 				5DF8E966254D9BCC00190C46 /* Sources */,
 				5DF8E967254D9BCC00190C46 /* Frameworks */,
 				5DF8E968254D9BCC00190C46 /* Resources */,
+				B5335D31498321CEF21FE903 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -388,6 +426,48 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		08B67417ED93F3478DCB0E46 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SignalPhotoEditor-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B5335D31498321CEF21FE903 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SignalPhotoEditor/Pods-SignalPhotoEditor-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SignalPhotoEditor/Pods-SignalPhotoEditor-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SignalPhotoEditor/Pods-SignalPhotoEditor-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		5DF8E966254D9BCC00190C46 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -433,6 +513,7 @@
 				5D19DC90254F6272007445A5 /* MinimumComponentFilter.swift in Sources */,
 				5D11074A2577BB2C00DBD7D9 /* Regulation.swift in Sources */,
 				5D1107632577ECB200DBD7D9 /* Resize.swift in Sources */,
+				5F4ECDCB257BA4C6007B1D18 /* Loader.swift in Sources */,
 				5FD20C7525797B2500034D12 /* SliderView.swift in Sources */,
 				5F5A3FCA257029F200A7517E /* FilterViewController.swift in Sources */,
 				5D19DCA8254F647B007445A5 /* PhotoEffectTransferFilter.swift in Sources */,
@@ -584,6 +665,7 @@
 		};
 		5DF8E97F254D9BCE00190C46 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BEFDDBEDB5085A2AEC26304F /* Pods-SignalPhotoEditor.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -607,6 +689,7 @@
 		};
 		5DF8E980254D9BCE00190C46 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1532C22FCBCF2A99AF05A566 /* Pods-SignalPhotoEditor.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

@@ -9,7 +9,7 @@ import Foundation
 
 struct SliderModel {
     
-    var name: String
+    var name: String?
     var sliderNumber: Int
     var defaultValue: Float
     var minimumValue: Float

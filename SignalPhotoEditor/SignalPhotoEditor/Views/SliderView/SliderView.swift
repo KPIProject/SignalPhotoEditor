@@ -13,8 +13,6 @@ final class SliderView: UIView, NibLoadable {
     
     @IBOutlet weak var mainSlider: UISlider!
     @IBOutlet weak var currentValueLabel: UILabel!
-    @IBOutlet weak var minimumLabel: UILabel!
-    @IBOutlet weak var maximumLabel: UILabel!
     
     // MARK: - Private properties
     
@@ -23,22 +21,17 @@ final class SliderView: UIView, NibLoadable {
     // MARK: - Public properties
     
     public weak var delegate: SliderViewDelegate?
-        
+    
     // MARK: - Lifecycle
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        setupView()
+        setupFromNib()
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        
-        setupView()
-    }
-    
-    private func setupView() {
         
         setupFromNib()
     }
@@ -48,13 +41,15 @@ final class SliderView: UIView, NibLoadable {
         sliderModel = model
         
         mainSlider.minimumValue = model.minimumValue
-        minimumLabel.text = "\(Int(model.minimumValue))"
-        
         mainSlider.maximumValue = model.maximumValue
-        maximumLabel.text = "\(Int(model.maximumValue))"
-
+        
         mainSlider.value = model.defaultValue
-        currentValueLabel.text = "\(model.name) \(model.defaultValue)"
+        
+        if let sliderName = model.name {
+            currentValueLabel.text = "\(sliderName) \(model.defaultValue)"
+        } else {
+            currentValueLabel.text = "\(model.defaultValue)"
+        }
     }
     
     // MARK: - IBActions
@@ -65,7 +60,12 @@ final class SliderView: UIView, NibLoadable {
             return
         }
         
-        currentValueLabel.text = "\(sliderModel.name) \(Int(sender.value))"
-        delegate?.sliderChangeValue(sliderModel.sliderNumber, sender.value)
+        if let sliderName = sliderModel.name {
+            currentValueLabel.text = "\(sliderName) \(Int(sender.value))"
+        } else {
+            currentValueLabel.text = "\(Int(sender.value))"
+        }
+        
+        delegate?.slider(sliderModel, didChangeValue: Int(sender.value))
     }
 }

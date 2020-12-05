@@ -12,6 +12,8 @@ final class FilterViewController: UIViewController {
     // MARK: - IBOutlets
     
     @IBOutlet weak var mainImageView: UIImageView!
+    @IBOutlet weak var overlayImageView: UIImageView!
+    
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var bottomStackView: UIStackView!
     
@@ -25,7 +27,7 @@ final class FilterViewController: UIViewController {
     private let coreSignal = CoreSignalPhotoEditor.shared
     private var state: FilterViewController.State = .filter
     private var currentFilter: Filter?
-    
+        
     private var isFilterActive: Bool = false {
         didSet {
             if oldValue != isFilterActive {
@@ -34,6 +36,7 @@ final class FilterViewController: UIViewController {
                 if isFilterActive {
                     sliderControllerView.showInStackView(animated: true)
                 } else {
+                    filterCollectionView.deselect()
                     sliderControllerView.hideInStackView(animated: true)
                 }
             }
@@ -54,6 +57,7 @@ final class FilterViewController: UIViewController {
         
         sliderControllerView.hideInStackView(animated: false)
         scrollView.delegate = self
+        overlayImageView.isHidden = true
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -103,12 +107,15 @@ final class FilterViewController: UIViewController {
         case .filter:
             
             coreSignal.applyFiltersToCompressed { [weak self] filters in
-                self?.filterCollectionView.config(state: .filter, with: filters, original: self?.coreSignal.compressedImage)
+                self?.filterCollectionView.config(with: filters,
+                                                  filterState: .filter,
+                                                  originalImage: self?.coreSignal.compressedImage)
             }
             
         case .regulation:
             
-            filterCollectionView.config(state: .regulation, with: createRegulationsCollectionModels(), imageContentMode: .center, original: nil)
+            filterCollectionView.config(with: Regulations.filterCollectionModels,
+                                        filterState: .regulation)
         }
     }
     
@@ -116,20 +123,24 @@ final class FilterViewController: UIViewController {
     
     @IBAction func doneAction(_ sender: UIButton) {
         
-        guard let currentFilter = currentFilter else {
-            return
+        if currentFilter != nil {
+            coreSignal.confirmFilter()
+        } else {
+            coreSignal.restoreImage()
         }
         
-        coreSignal.applyFilter(currentFilter) { [weak self] imageWithFilter in
-            self?.mainImageView.image = imageWithFilter
-        }
+        mainImageView.image = coreSignal.editedImage
+        
+        overlayImageView.image = nil
+        overlayImageView.isHidden = true
         
         isFilterActive = false
     }
     
     @IBAction func cancelAction(_ sender: UIButton) {
         
-        mainImageView.image = coreSignal.editedImage
+        overlayImageView.image = nil
+        overlayImageView.isHidden = true
         isFilterActive = false
     }
     
@@ -192,18 +203,22 @@ final class FilterViewController: UIViewController {
 extension FilterViewController: FilterCollectionViewDelegate {
     
     func didTapOnOrigin() {
-        mainImageView.image = coreSignal.restoreImage()
+        mainImageView.image = coreSignal.sourceImage
+        currentFilter = nil
+        isFilterActive = true
     }
     
     func didTapOnAddLUT() {
         
         imagePicker.setType(type: .image).show(in: self) { [weak self] result in
+            
             switch result {
             
             case let .success(image: image):
-                self?.coreSignal.applyFilter(Filters.colorCube(name: "LUT", lutImage: image).getFilter(), complition: { editedImage in
-                    self?.mainImageView.image = editedImage
-                })
+                self?.coreSignal.applyFilter(Filters.colorCube(name: "LUT", lutImage: image).getFilter()) { editedImage in
+                    self?.overlayImageView.image = editedImage
+                    self?.overlayImageView.isHidden = false
+                }
             default:
                 break
             }
@@ -222,8 +237,16 @@ extension FilterViewController: FilterCollectionViewDelegate {
             return
         }
         
-        coreSignal.applyFilter(currentFilter, tryFilter: true) { [weak self] imageWithFilter in
-            self?.mainImageView.image = imageWithFilter
+        view.isUserInteractionEnabled = false
+        Loader.show()
+        
+        coreSignal.applyFilter(currentFilter) { [weak self] imageWithFilter in
+            
+            self?.overlayImageView.image = imageWithFilter
+            self?.overlayImageView.isHidden = false
+            
+            self?.view.isUserInteractionEnabled = true
+            Loader.hide()
         }
         
         isFilterActive = true
@@ -234,10 +257,11 @@ extension FilterViewController: FilterCollectionViewDelegate {
 
 extension FilterViewController: SliderViewDelegate {
     
-    func sliderChangeValue(_ sliderNumber: Int, _ newValue: Float) {
+    
+    func slider(_ sliderModel: SliderModel, didChangeValue newValue: Int) {
         
-        print(sliderNumber)
-        print(newValue)
+        let opacity = Double(newValue) / Double(sliderModel.maximumValue)
+        overlayImageView.alpha = CGFloat(opacity)
     }
 }
 
@@ -257,109 +281,5 @@ extension FilterViewController {
     enum State {
         case filter
         case regulation
-    }
-}
-
-// MARK: - Regulation model
-
-extension FilterViewController {
-    
-    func createRegulationsCollectionModels() -> [FilterCollectionModel] {
-        
-        return [
-            // inputBrightness [-1...1]
-            FilterCollectionModel(image: UIImage(named: "Brightness")!,
-                                  filter: Regulations.brightness(value: 0).getFilter(),
-                                  firstSliderModel: SliderModel(name: "",
-                                                                sliderNumber: 1,
-                                                                defaultValue: 0,
-                                                                minimumValue: -100,
-                                                                maximumValue: 100)),
-            // inputSaturation [0...1]
-            FilterCollectionModel(image: UIImage(named: "Saturation")!,
-                                  filter: Regulations.saturation(value: -20).getFilter(),
-                                  firstSliderModel: SliderModel(name: "",
-                                                                sliderNumber: 1,
-                                                                defaultValue: 0,
-                                                                minimumValue: 0,
-                                                                maximumValue: 100)),
-            // inputContrast [0...1]
-            FilterCollectionModel(image: UIImage(named: "Contrast")!,
-                                  filter: Regulations.contrast(value: 3).getFilter(),
-                                  firstSliderModel: SliderModel(name: "",
-                                                                sliderNumber: 1,
-                                                                defaultValue: 0,
-                                                                minimumValue: 0,
-                                                                maximumValue: 100)),
-            // inputEV[-2...2]
-            FilterCollectionModel(image: UIImage(named: "Exposure")!,
-                                  filter: Regulations.exposure(value: 0.5).getFilter(),
-                                  firstSliderModel: SliderModel(name: "EV",
-                                                                sliderNumber: 1,
-                                                                defaultValue: 0,
-                                                                minimumValue: -200,
-                                                                maximumValue: 200)),
-            // inputPower[0...6]
-            FilterCollectionModel(image: UIImage(named: "Gamma")!,
-                                  filter: Regulations.gammaAdjust(value: 0.1).getFilter(),
-                                  firstSliderModel: SliderModel(name: "",
-                                                                sliderNumber: 1,
-                                                                defaultValue: 0,
-                                                                minimumValue: 0,
-                                                                maximumValue: 60)),
-            // inputAngle[-180...180]
-            FilterCollectionModel(image: UIImage(named: "Hue")!,
-                                  filter: Regulations.hueAdjust(value: Float(260 * Double.pi / 180)).getFilter(),
-                                  firstSliderModel: SliderModel(name: "",
-                                                                sliderNumber: 1,
-                                                                defaultValue: 0,
-                                                                minimumValue: -180,
-                                                                maximumValue: 180)),
-            // inputTemperatute[-4000..0.+9000]
-            FilterCollectionModel(image: UIImage(named: "Temperature")!,
-                                  filter: Regulations.temperature(value: -4000).getFilter(),
-                                  firstSliderModel: SliderModel(name: "",
-                                                                sliderNumber: 1,
-                                                                defaultValue: 0,
-                                                                minimumValue: -4000,
-                                                                maximumValue: 9000)),
-            // inputTint[-100...100]
-            FilterCollectionModel(image: UIImage(named: "Tint")!,
-                                  filter: Regulations.tint(value: 100).getFilter(),
-                                  firstSliderModel: SliderModel(name: "",
-                                                                sliderNumber: 1,
-                                                                defaultValue: 0,
-                                                                minimumValue: -100,
-                                                                maximumValue: 100)),
-            // inputAmount [0...1]
-            FilterCollectionModel(image: UIImage(named: "Vibrance")!,
-                                  filter: Regulations.vibrance(value: 1).getFilter(),
-                                  firstSliderModel: SliderModel(name: "",
-                                                                sliderNumber: 1,
-                                                                defaultValue: 0,
-                                                                minimumValue: 0,
-                                                                maximumValue: 100)),
-            // intensity [-1...1], inputColor [CIColor]
-            FilterCollectionModel(image: UIImage(named: "WhitePoint")!,
-                                  filter: Regulations.whitePointAdjust(color: .yellow, intensity: 0.5).getFilter(),
-                                  firstSliderModel: SliderModel(name: "",
-                                                                sliderNumber: 1,
-                                                                defaultValue: 0,
-                                                                minimumValue: -100,
-                                                                maximumValue: 100)),
-            // intensity [0...1], radius[1...100 ? ]
-            FilterCollectionModel(image: UIImage(named: "Vignette")!,
-                                  filter: Regulations.vignette(radius: 1, intensity: 1).getFilter(),
-                                  firstSliderModel: SliderModel(name: "",
-                                                                sliderNumber: 1,
-                                                                defaultValue: 0,
-                                                                minimumValue: 0,
-                                                                maximumValue: 100),
-                                  secondSliderModel: SliderModel(name: "",
-                                                                 sliderNumber: 1,
-                                                                 defaultValue: 0,
-                                                                 minimumValue: 1,
-                                                                 maximumValue: 100))
-        ]
     }
 }

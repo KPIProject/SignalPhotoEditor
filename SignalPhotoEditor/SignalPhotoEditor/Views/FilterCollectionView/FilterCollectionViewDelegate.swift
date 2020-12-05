@@ -9,7 +9,7 @@ import Foundation
 
 protocol FilterCollectionViewDelegate: class {
     
-    func didTapOn(filterCollectionModel: FilterCollectionModel)
     func didTapOnOrigin()
     func didTapOnAddLUT()
+    func didTapOn(filterCollectionModel: FilterCollectionModel)
 }
