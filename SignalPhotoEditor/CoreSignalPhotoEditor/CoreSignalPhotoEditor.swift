@@ -44,14 +44,10 @@ class CoreSignalPhotoEditor {
     
     public func applyFilter(_ filter: Filter, complition: @escaping (UIImage) -> Void) {
         
-                
-        guard var editedImage = editedImage else { return }
-
-        guard var ciImage = CIImage(image: editedImage) else { return }
-        
-//        if !tryFilter {
-//            filteres.append(filter)
-//        }
+        guard var editedImage = editedImage,
+              var ciImage = CIImage(image: editedImage) else {
+            return
+        }
         
         let context = CIContext()
         
@@ -64,12 +60,6 @@ class CoreSignalPhotoEditor {
                 // convert that to a UIImage
                 editedImage = UIImage(cgImage: newCGImage)
             }
-            
-//            if !tryFilter {
-//                imageStack.append(editedImage)
-//                editedImageIndex += 1
-//                self.editedImage = editedImage
-//            }
             
             buffer = (image: editedImage, filter: filter)
             
@@ -110,9 +100,10 @@ class CoreSignalPhotoEditor {
     }
     
     public func applyFiltersToCompressed(completion: @escaping ([FilterCollectionModel]) -> Void) {
+        
         var filters = [FilterCollectionModel]()
         
-        let sliderModel = SliderModel(name: "Intenity", sliderNumber: 1, defaultValue: 100, minimumValue: 0, maximumValue: 100)
+        let sliderModel = SliderModel(name: nil, sliderNumber: 1, defaultValue: 100, minimumValue: 0, maximumValue: 100)
 
         Filters.allCases.forEach { filter in
             self.applyFilterToCompressed(filter) { image in
@@ -124,7 +115,7 @@ class CoreSignalPhotoEditor {
         }
     }
     
-    public func getLUT(complition: @escaping (UIImage) -> Void) {
+    public func getLUT(completion: @escaping (UIImage) -> Void) {
         
         guard var initialLUT = UIImage(named: "ClearLUT"),
               var ciImage = CIImage(image: initialLUT) else {
@@ -152,7 +143,7 @@ class CoreSignalPhotoEditor {
             }
             
             DispatchQueue.main.async {
-                complition(initialLUT)
+                completion(initialLUT)
             }
         }
     }
@@ -205,6 +196,4 @@ class CoreSignalPhotoEditor {
             filteres.removeSubrange(editedImageIndex..<imageStack.count)
         }
     }
-    
-    
 }

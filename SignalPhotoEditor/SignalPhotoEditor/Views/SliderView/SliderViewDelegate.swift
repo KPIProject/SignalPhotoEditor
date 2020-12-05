@@ -9,5 +9,5 @@ import Foundation
 
 protocol SliderViewDelegate: class {
     
-    func sliderChangeValue(_ sliderNumber: Int, _ newValue: Int)
+    func slider(_ sliderModel: SliderModel, didChangeValue newValue: Int)
 }

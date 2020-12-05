@@ -106,12 +106,15 @@ final class FilterViewController: UIViewController {
         case .filter:
             
             coreSignal.applyFiltersToCompressed { [weak self] filters in
-                self?.filterCollectionView.config(state: .filter, with: filters, originalImage: self?.coreSignal.compressedImage)
+                self?.filterCollectionView.config(with: filters,
+                                                  filterState: .filter,
+                                                  originalImage: self?.coreSignal.compressedImage)
             }
             
         case .regulation:
             
-            filterCollectionView.config(state: .regulation, with: Regulations.filterCollectionModels, imageContentMode: .center)
+            filterCollectionView.config(with: Regulations.filterCollectionModels,
+                                        filterState: .regulation)
         }
     }
     
@@ -124,6 +127,7 @@ final class FilterViewController: UIViewController {
         } else {
             coreSignal.restoreImage()
         }
+        
         mainImageView.image = coreSignal.editedImage
         
         overlayImageView.image = nil
@@ -210,11 +214,10 @@ extension FilterViewController: FilterCollectionViewDelegate {
             switch result {
             
             case let .success(image: image):
-                self?.coreSignal.applyFilter(Filters.colorCube(name: "LUT", lutImage: image).getFilter(), complition: { editedImage in
+                self?.coreSignal.applyFilter(Filters.colorCube(name: "LUT", lutImage: image).getFilter()) { editedImage in
                     self?.overlayImageView.image = editedImage
                     self?.overlayImageView.isHidden = false
-
-                })
+                }
             default:
                 break
             }
@@ -246,9 +249,10 @@ extension FilterViewController: FilterCollectionViewDelegate {
 
 extension FilterViewController: SliderViewDelegate {
     
-    func sliderChangeValue(_ sliderNumber: Int, _ newValue: Int) {
-
-        let opacity = Double(newValue) * 0.01
+    
+    func slider(_ sliderModel: SliderModel, didChangeValue newValue: Int) {
+        
+        let opacity = Double(newValue) / Double(sliderModel.maximumValue)
         overlayImageView.alpha = CGFloat(opacity)
     }
 }
