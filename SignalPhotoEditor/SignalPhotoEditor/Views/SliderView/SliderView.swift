@@ -46,9 +46,9 @@ final class SliderView: UIView, NibLoadable {
         mainSlider.value = model.defaultValue
         
         if let sliderName = model.name {
-            currentValueLabel.text = "\(sliderName) \(model.defaultValue)"
+            currentValueLabel.text = "\(sliderName) \(Int(model.defaultValue))"
         } else {
-            currentValueLabel.text = "\(model.defaultValue)"
+            currentValueLabel.text = "\(Int(model.defaultValue))"
         }
     }
     
