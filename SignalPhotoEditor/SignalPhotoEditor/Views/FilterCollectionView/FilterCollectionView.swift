@@ -22,6 +22,8 @@ final class FilterCollectionView: UIView, NibLoadable {
     private var filterCollectionModels: [FilterCollectionModel] = []
     private var originalImageCompressed : UIImage?
     private var state: FilterViewController.State = .filter
+        
+    private var selectedIndexPath: IndexPath?
     
     // MARK: - Lifecycle
     
@@ -60,6 +62,17 @@ final class FilterCollectionView: UIView, NibLoadable {
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.contentInset = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
+    }
+    
+    public func deselect() {
+        
+        guard let selectedIndexPath = selectedIndexPath,
+              let filterCell = collectionView.cellForItem(at: selectedIndexPath) as? FilterCollectionViewCell else {
+            return
+        }
+        
+        filterCell.textLabel.font = UIFont.systemFont(ofSize: 12, weight: .regular)
+        self.selectedIndexPath = nil
     }
 }
 
@@ -114,7 +127,22 @@ extension FilterCollectionView: UICollectionViewDataSource, UICollectionViewDele
         return filterCell
     }
     
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        
+        guard indexPath == selectedIndexPath,
+              let filterCell = cell as? FilterCollectionViewCell else {
+            return
+        }
+        
+        filterCell.textLabel.font = UIFont.systemFont(ofSize: 14, weight: .bold)
+    }
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        if let filterCell = collectionView.cellForItem(at: indexPath) as? FilterCollectionViewCell {
+            selectedIndexPath = indexPath
+            filterCell.textLabel.font = UIFont.systemFont(ofSize: 14, weight: .bold)
+        }
         
         switch state {
         case .filter:
@@ -129,5 +157,13 @@ extension FilterCollectionView: UICollectionViewDataSource, UICollectionViewDele
         case .regulation:
             delegate?.didTapOn(filterCollectionModel: filterCollectionModels[indexPath.row])
         }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+        
+        guard let filterCell = collectionView.cellForItem(at: indexPath) as? FilterCollectionViewCell else {
+            return
+        }
+        filterCell.textLabel.font = UIFont.systemFont(ofSize: 12, weight: .regular)
     }
 }

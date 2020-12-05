@@ -36,6 +36,7 @@ final class FilterViewController: UIViewController {
                 if isFilterActive {
                     sliderControllerView.showInStackView(animated: true)
                 } else {
+                    filterCollectionView.deselect()
                     sliderControllerView.hideInStackView(animated: true)
                 }
             }
@@ -236,9 +237,16 @@ extension FilterViewController: FilterCollectionViewDelegate {
             return
         }
         
+        view.isUserInteractionEnabled = false
+        Loader.show()
+        
         coreSignal.applyFilter(currentFilter) { [weak self] imageWithFilter in
+            
             self?.overlayImageView.image = imageWithFilter
             self?.overlayImageView.isHidden = false
+            
+            self?.view.isUserInteractionEnabled = true
+            Loader.hide()
         }
         
         isFilterActive = true
