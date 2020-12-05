@@ -112,7 +112,7 @@ class CoreSignalPhotoEditor {
     public func applyFiltersToCompressed(completion: @escaping ([FilterCollectionModel]) -> Void) {
         var filters = [FilterCollectionModel]()
         
-        let sliderModel = SliderModel(name: "Intenity", sliderNumber: 1, defaultValue: 50, minimumValue: 0, maximumValue: 100)
+        let sliderModel = SliderModel(name: "Intenity", sliderNumber: 1, defaultValue: 100, minimumValue: 0, maximumValue: 100)
 
         Filters.allCases.forEach { filter in
             self.applyFilterToCompressed(filter) { image in
@@ -196,20 +196,6 @@ class CoreSignalPhotoEditor {
         filteres.append(nil)
     }
     
-//    /**
-//    Delete last change.
-//     Returns edited image.
-//     */
-//    public func cancelLastFilter() -> UIImage? {
-//        if imageStack.count > 1 {
-//            imageStack.removeLast()
-//            filteres.removeLast()
-//            editedImageIndex -= 1
-//            editedImage = imageStack[editedImageIndex]
-//        }
-//        return editedImage
-//    }
-//
     /**
      Remooves filteres from filteres array which are no longer needed.
      */
@@ -219,5 +205,6 @@ class CoreSignalPhotoEditor {
             filteres.removeSubrange(editedImageIndex..<imageStack.count)
         }
     }
+    
     
 }

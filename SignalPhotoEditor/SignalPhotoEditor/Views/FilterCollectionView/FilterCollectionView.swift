@@ -8,24 +8,23 @@
 import UIKit
 
 final class FilterCollectionView: UIView, NibLoadable {
-
+    
     // MARK: - IBOutlets
     
     @IBOutlet weak var collectionView: UICollectionView!
     
     // MARK: - Public properties
-
-    public var imageContentMode: UIView.ContentMode = .scaleAspectFill
+    
     public weak var delegate: FilterCollectionViewDelegate?
     
     // MARK: - Private properties
-
+    
     private var filterCollectionModels: [FilterCollectionModel] = []
     private var originalImageCompressed : UIImage?
-    private var state: FilterCollectionView.State = .filter
-        
+    private var state: FilterViewController.State = .filter
+    
     // MARK: - Lifecycle
-
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -38,19 +37,20 @@ final class FilterCollectionView: UIView, NibLoadable {
         setupView()
     }
     
-    public func config(state: FilterCollectionView.State ,with filterModel: [FilterCollectionModel], imageContentMode: UIView.ContentMode = .scaleAspectFill, original: UIImage?) {
+    public func config(with filterModel: [FilterCollectionModel],
+                       filterState: FilterViewController.State,
+                       originalImage: UIImage? = nil) {
         
-        self.state = state
+        state = filterState
+        filterCollectionModels = filterModel
         
-        if let original = original {
+        if let original = originalImage {
             originalImageCompressed = original
         }
         
-        self.imageContentMode = imageContentMode
-        filterCollectionModels = filterModel
         collectionView.reloadData()
     }
-
+    
     private func setupView() {
         
         setupFromNib()
@@ -68,6 +68,7 @@ final class FilterCollectionView: UIView, NibLoadable {
 extension FilterCollectionView: UICollectionViewDataSource, UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        
         switch state {
         case .filter:
             return filterCollectionModels.count + 2
@@ -86,6 +87,7 @@ extension FilterCollectionView: UICollectionViewDataSource, UICollectionViewDele
         
         switch state {
         case .filter:
+            
             switch indexPath.row {
             case 0:
                 filterCell.textLabel.text = "Original"
@@ -98,17 +100,22 @@ extension FilterCollectionView: UICollectionViewDataSource, UICollectionViewDele
                 filterCell.textLabel.text = filterCollectionModel.filter.filterName
                 filterCell.imageView.image = filterCollectionModel.image
             }
+            
+            filterCell.imageView.contentMode = .scaleAspectFill
+            
         case .regulation:
+            
             filterCollectionModel = filterCollectionModels[indexPath.row]
             filterCell.textLabel.text = filterCollectionModel.filter.filterName
             filterCell.imageView.image = filterCollectionModel.image
+            filterCell.imageView.contentMode = .center
         }
         
-        filterCell.imageView.contentMode = imageContentMode
         return filterCell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
         switch state {
         case .filter:
             switch indexPath.row {
@@ -122,14 +129,5 @@ extension FilterCollectionView: UICollectionViewDataSource, UICollectionViewDele
         case .regulation:
             delegate?.didTapOn(filterCollectionModel: filterCollectionModels[indexPath.row])
         }
-        
-    }
-}
-
-extension FilterCollectionView {
-    
-    enum State {
-        case filter
-        case regulation
     }
 }
