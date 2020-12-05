@@ -14,7 +14,7 @@ import UIKit
 struct HueAdjustRegulation: Filter {
     var intensity: Float?
     
-    var filterName: String = "Hue Adjust"
+    var filterName: String = "Hue"
     
     var inputAngle: Float = 0.0
 

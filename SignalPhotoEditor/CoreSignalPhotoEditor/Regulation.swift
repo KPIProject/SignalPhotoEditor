@@ -119,11 +119,11 @@ enum Regulations {
     func getFilter() -> Filter {
         switch self {
         case let .saturation(value):
-            return ColorControlsRegulation(inputSaturation: value)
+            return SaturationRegulation(inputSaturation: value)
         case let .brightness(value):
-            return ColorControlsRegulation(inputBrightness: value)
+            return BrightnessRegulation(inputBrightness: value)
         case let .contrast(value):
-            return ColorControlsRegulation(inputContrast: value)
+            return ContrastRegulation(inputContrast: value)
         case let .exposure(value):
             return ExposureAdjustRegulation(inputEV: value)
         case let .gammaAdjust(value):
@@ -131,9 +131,9 @@ enum Regulations {
         case let .hueAdjust(value):
             return HueAdjustRegulation(inputAngle: value)
         case let .temperature(value):
-            return TemperatureAndTintRegulation(inputTemperatute: value)
+            return TemperatureRegulation(inputTemperatute: value)
         case let .tint(value):
-            return TemperatureAndTintRegulation(inputTint: value)
+            return TintRegulation(inputTint: value)
         case let .vibrance(value):
             return VibranceRegulation(inputAmount: value)
         case let .whitePointAdjust(color, intensity):
