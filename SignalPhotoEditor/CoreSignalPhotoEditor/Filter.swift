@@ -10,7 +10,7 @@ import UIKit
 protocol Filter {
     
     var filterName: String { get }
-    var intensity: Float? { get }
+    var intensity: Float? { get set }
     
     func applyFilter(image: inout CIImage)
 }

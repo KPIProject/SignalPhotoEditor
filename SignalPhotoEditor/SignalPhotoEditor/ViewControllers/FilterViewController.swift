@@ -27,7 +27,7 @@ final class FilterViewController: UIViewController {
     private let coreSignal = CoreSignalPhotoEditor.shared
     private var state: FilterViewController.State = .filter
     private var currentFilter: Filter?
-    private var currentIntensity: CGFloat?
+    private var currentIntensity: Float?
     
     private var isFilterActive: Bool = false {
         didSet {
@@ -124,20 +124,26 @@ final class FilterViewController: UIViewController {
     @IBAction func doneAction(_ sender: UIButton) {
         
         if currentFilter != nil {
-            coreSignal.confirmFilter()
+            view.isUserInteractionEnabled = false
+            Loader.show()
+            
+            if var fliter = currentFilter {
+                fliter.intensity = currentIntensity
+                coreSignal.applyFilter(fliter) { [weak self] _ in
+                    self?.coreSignal.confirmFilter()
+                    self?.mainImageView.image = self?.coreSignal.editedImage
+                    self?.view.isUserInteractionEnabled = true
+                    
+                    self?.overlayImageView.image = nil
+                    self?.overlayImageView.isHidden = true
+                    Loader.hide()
+                }
+            }
+            
         } else {
             coreSignal.restoreImage()
         }
-        
-        mainImageView.image = coreSignal.editedImage
-        
-        overlayImageView.image = nil
-        overlayImageView.isHidden = true
-        
-        
-        Loader.show()
-//        coreSignal.applyFilter(currentFilter, complition: <#T##(UIImage) -> Void#>)
-        
+                        
         isFilterActive = false
     }
     
@@ -278,7 +284,7 @@ extension FilterViewController: SliderViewDelegate {
     func slider(_ sliderModel: SliderModel, didChangeValue newValue: Int) {
         
         let opacity = Double(newValue) / Double(sliderModel.maximumValue)
-        currentIntensity = CGFloat(opacity)
+        currentIntensity = Float(opacity)
         overlayImageView.alpha = CGFloat(opacity)
     }
 }
