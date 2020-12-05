@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -148,7 +148,6 @@
 				BEFDDBEDB5085A2AEC26304F /* Pods-SignalPhotoEditor.debug.xcconfig */,
 				1532C22FCBCF2A99AF05A566 /* Pods-SignalPhotoEditor.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
