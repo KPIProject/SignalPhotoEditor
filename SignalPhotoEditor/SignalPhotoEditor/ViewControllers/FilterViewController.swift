@@ -27,7 +27,8 @@ final class FilterViewController: UIViewController {
     private let coreSignal = CoreSignalPhotoEditor.shared
     private var state: FilterViewController.State = .filter
     private var currentFilter: Filter?
-        
+    private var currentIntensity: CGFloat?
+    
     private var isFilterActive: Bool = false {
         didSet {
             if oldValue != isFilterActive {
@@ -40,7 +41,6 @@ final class FilterViewController: UIViewController {
                     sliderControllerView.hideInStackView(animated: true)
                 }
             }
-            
         }
     }
     
@@ -134,6 +134,10 @@ final class FilterViewController: UIViewController {
         overlayImageView.image = nil
         overlayImageView.isHidden = true
         
+        
+        Loader.show()
+//        coreSignal.applyFilter(currentFilter, complition: <#T##(UIImage) -> Void#>)
+        
         isFilterActive = false
     }
     
@@ -147,7 +151,7 @@ final class FilterViewController: UIViewController {
     @objc
     private func selectImage() {
         
-        imagePicker.setType(type: .image).show(in: self) { [weak self] result in
+        imagePicker.setType(type: .image, from: .all).show(in: self) { [weak self] result in
             switch result {
             
             case let .success(image: image):
@@ -210,15 +214,24 @@ extension FilterViewController: FilterCollectionViewDelegate {
     
     func didTapOnAddLUT() {
         
-        imagePicker.setType(type: .image).show(in: self) { [weak self] result in
+        imagePicker.setType(type: .image, from: .photoAlbum).show(in: self) { [weak self] result in
+            
+            guard let self = self else {
+                return
+            }
             
             switch result {
             
             case let .success(image: image):
-                self?.coreSignal.applyFilter(Filters.colorCube(name: "LUT", lutImage: image).getFilter()) { editedImage in
-                    self?.overlayImageView.image = editedImage
-                    self?.overlayImageView.isHidden = false
-                }
+                
+                let lutFilter = Filters.colorCube(name: "LUT", lutImage: image).getFilter()
+                self.sliderControllerView.config(firstSliderModel: SliderModel.defaultSlider)
+                
+                self.currentFilter = lutFilter
+                
+                self.applyFilter(lutFilter)
+            case .cancel:
+                self.filterCollectionView.deselect()
             default:
                 break
             }
@@ -227,7 +240,7 @@ extension FilterViewController: FilterCollectionViewDelegate {
     
     func didTapOn(filterCollectionModel: FilterCollectionModel) {
         
-        currentFilter = filterCollectionModel.filter
+        self.currentFilter = filterCollectionModel.filter
         
         sliderControllerView.config(firstSliderModel: filterCollectionModel.firstSliderModel,
                                     secondSliderModel: filterCollectionModel.secondSliderModel,
@@ -237,19 +250,23 @@ extension FilterViewController: FilterCollectionViewDelegate {
             return
         }
         
+        applyFilter(currentFilter)
+    }
+    
+    private func applyFilter(_ filter: Filter) {
         view.isUserInteractionEnabled = false
         Loader.show()
         
-        coreSignal.applyFilter(currentFilter) { [weak self] imageWithFilter in
+        coreSignal.applyFilter(filter) { [weak self] imageWithFilter in
             
             self?.overlayImageView.image = imageWithFilter
             self?.overlayImageView.isHidden = false
+            self?.currentIntensity = 1.0
             
             self?.view.isUserInteractionEnabled = true
+            self?.isFilterActive = true
             Loader.hide()
         }
-        
-        isFilterActive = true
     }
 }
 
@@ -261,6 +278,7 @@ extension FilterViewController: SliderViewDelegate {
     func slider(_ sliderModel: SliderModel, didChangeValue newValue: Int) {
         
         let opacity = Double(newValue) / Double(sliderModel.maximumValue)
+        currentIntensity = CGFloat(opacity)
         overlayImageView.alpha = CGFloat(opacity)
     }
 }
