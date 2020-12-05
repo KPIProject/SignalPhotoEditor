@@ -25,6 +25,12 @@ final class ImagePicker: NSObject {
         }
     }
     
+    enum FromType {
+        case camera
+        case photoAlbum
+        case all
+    }
+    
     enum Result {
         
         case success(image: UIImage)
@@ -38,16 +44,20 @@ final class ImagePicker: NSObject {
     fileprivate var completion: Completion?
     fileprivate var allowsEditing: Bool = true
     fileprivate var type: PickerType = .image
+    fileprivate var from: FromType = .all
+
     
-    init(type: PickerType = .image) {
+    init(type: PickerType = .image, from: FromType = .all) {
         super.init()
         
         self.type = type
+        self.from = from
     }
     
-    func setType(type: PickerType) -> ImagePicker {
+    func setType(type: PickerType, from: FromType) -> ImagePicker {
         
         self.type = type
+        self.from = from
         
         return self
     }
@@ -58,8 +68,11 @@ final class ImagePicker: NSObject {
         
         let alertController = UIAlertController(title: title, message: nil, preferredStyle: .actionSheet)
         
+                
         if UIImagePickerController.isSourceTypeAvailable(.camera) {
-            alertController.addAction(UIAlertAction(title: "Take a picture", style: .default) { [weak self] _ in
+            
+
+            let takePhotoAction = UIAlertAction(title: "Take a picture", style: .default) { [weak self] _ in
                 
                 let status = AVCaptureDevice.authorizationStatus(for: AVMediaType.video)
                 
@@ -69,10 +82,17 @@ final class ImagePicker: NSObject {
                 }
                 
                 self?.presentImagePicker(in: controller, source: .camera)
-            })
+            }
+            
+            switch from {
+            case .all, .camera:
+                alertController.addAction(takePhotoAction)
+            default:
+                break
+            }
         }
         
-        alertController.addAction(UIAlertAction(title: "From the device", style: .default) { [weak self] _ in
+        let fromDeviceAction = UIAlertAction(title: "From the device", style: .default) { [weak self] _ in
             
             let status = PHPhotoLibrary.authorizationStatus()
             
@@ -82,8 +102,16 @@ final class ImagePicker: NSObject {
             }
             
             self?.presentImagePicker(in: controller, source: .photoLibrary)
-        })
+        }
         
+        switch from {
+        case .all, .photoAlbum:
+            
+            alertController.addAction(fromDeviceAction)
+        case .camera:
+            break
+        }
+                
         alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel) { _ in
             self.completion?(.cancel)
             self.completion = nil

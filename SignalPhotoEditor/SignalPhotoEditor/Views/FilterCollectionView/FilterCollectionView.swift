@@ -106,7 +106,7 @@ extension FilterCollectionView: UICollectionViewDataSource, UICollectionViewDele
                 filterCell.textLabel.text = "Original"
                 filterCell.imageView.image = originalImageCompressed
             case 1:
-                filterCell.textLabel.text = "Add LUT"
+                filterCell.textLabel.text = "LUT"
                 filterCell.imageView.image = UIImage(named: "addLut")
             default:
                 filterCollectionModel = filterCollectionModels[indexPath.row - 2]
