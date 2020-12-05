@@ -35,9 +35,9 @@ class CoreSignalPhotoEditor {
     public var editedImage: UIImage?
     /// Current displayed image index in stack
     private var editedImageIndex: Int = 0
-    private var filteres: [Filter?] = []
+    private var filteres: [GlobalFilter?] = []
     private var imageStack: [UIImage] = []
-    private var buffer: (image: UIImage, filter: Filter)?
+    private var buffer: (image: UIImage, filter: GlobalFilter)?
     
     private(set) var compressedImage: UIImage?
     
@@ -50,7 +50,46 @@ class CoreSignalPhotoEditor {
     }
     #endif
     
-    public func applyFilter(_ filter: Filter, complition: @escaping (UIImage) -> Void) {
+    public func generateImages(for filter: GlobalFilter,
+                               complition: @escaping ((positiveImage: UIImage, negativeImage: UIImage?)) -> Void) {
+        guard let editedImage = editedImage,
+              var ciImagePositive = CIImage(image: editedImage),
+              var ciImageNegative = CIImage(image: editedImage) else {
+            return
+        }
+        
+        let context = CIContext()
+
+        DispatchQueue.global(qos: .userInteractive).async {
+            var copyFilter = filter
+            
+            copyFilter.value = filter.maximumValue
+            copyFilter.applyFilter(image: &ciImagePositive)
+            
+            guard let positiveCGImage = context.createCGImage(ciImagePositive, from: ciImagePositive.extent) else {
+                return
+            }
+            
+            if filter.minimumValue == 0 {
+                
+                DispatchQueue.main.async {
+                    complition((positiveImage: UIImage(cgImage: positiveCGImage), negativeImage: nil))
+                }
+            } else {
+                
+                copyFilter.value = filter.minimumValue
+                copyFilter.applyFilter(image: &ciImageNegative)
+                if let negativeCGImage = context.createCGImage(ciImageNegative, from: ciImageNegative.extent) {
+                    
+                    DispatchQueue.main.async {
+                        complition((positiveImage: UIImage(cgImage: positiveCGImage), negativeImage: UIImage(cgImage: negativeCGImage)))
+                    }
+                }
+            }
+        }
+    }
+    
+    public func applyFilter(_ filter: GlobalFilter, complition: @escaping (UIImage) -> Void) {
         
         guard var editedImage = editedImage,
               var ciImage = CIImage(image: editedImage) else {
@@ -107,15 +146,15 @@ class CoreSignalPhotoEditor {
         }
     }
     
-    public func applyFiltersToCompressed(completion: @escaping ([FilterCollectionModel]) -> Void) {
+    public func applyFiltersToCompressed(completion: @escaping ([FilterModel]) -> Void) {
         
-        var filters = [FilterCollectionModel]()
+        var filters = [FilterModel]()
         
-        let sliderModel = SliderModel(name: nil, sliderNumber: 1, defaultValue: 100, minimumValue: 0, maximumValue: 100)
-
         Filters.allCases.forEach { filter in
             self.applyFilterToCompressed(filter) { image in
-                filters.append(FilterCollectionModel(image: image, filter: filter, firstSliderModel: sliderModel))
+                let model = FilterModel(image: image,
+                                        filter: filter)
+                filters.append(model)
                 if filters.count == Filters.allCases.count {
                     completion(filters.sorted { $0.filter.filterName < $1.filter.filterName })
                 }

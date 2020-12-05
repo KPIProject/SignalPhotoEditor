@@ -10,13 +10,12 @@ import UIKit
 struct PhotoEffectTonalFilter: Filter {
     
     var filterName: String = "Tonal"
-    var intensity: Float? = 1.0
+    var value: Float = 1.0
     
     func applyFilter(image: inout CIImage) {
         
         let currentFilter = CIFilter.photoEffectTonal()
         currentFilter.inputImage = image
         applyIntensity(image: &image, filter: currentFilter)
-
     }
 }

@@ -10,12 +10,11 @@ import UIKit
 struct FalseColorFilter: Filter {
     
     var filterName: String = "False Color"
-    
-    var intensity: Float? = 1.0
+    var value: Float = 1.0
     
     var color0: CIColor
     var color1: CIColor
-            
+    
     func applyFilter(image: inout CIImage) {
         
         let currentFilter = CIFilter.falseColor()
@@ -23,8 +22,5 @@ struct FalseColorFilter: Filter {
         currentFilter.color1 = color1
         
         applyIntensity(image: &image, filter: currentFilter)
-        
     }
 }
-
-

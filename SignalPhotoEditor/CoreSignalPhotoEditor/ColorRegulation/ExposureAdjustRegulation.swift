@@ -7,19 +7,20 @@
 
 import UIKit
 
-struct ExposureAdjustRegulation: Filter {
-    var intensity: Float?
+struct ExposureAdjustRegulation: Regulation {
     
     var filterName: String = "Exposure"
     
-    var inputEV: Float = 0.5
-
+    var value: Float = 0
+    var minimumValue: Float = -2
+    var maximumValue: Float = 2
+    
     func applyFilter(image: inout CIImage) {
         
         let currentFilter = CIFilter.exposureAdjust()
         currentFilter.inputImage = image
-        currentFilter.ev = inputEV
-
+        currentFilter.ev = value
+        
         // get a CIImage from our filter or exit if that fails
         guard let outputImage = currentFilter.outputImage else { return }
         

@@ -37,20 +37,20 @@ import UIKit
 //    }
 //}
 
-struct SaturationRegulation: Filter {
-    
-    var intensity: Float?
+struct SaturationRegulation: Regulation {
     
     var filterName: String = "Saturation"
     
-    var inputSaturation: Float = 1.0
+    var value: Float = 0.0
+    var minimumValue: Float = -1.0
+    var maximumValue: Float = 1.0
     
     func applyFilter(image: inout CIImage) {
         
         let currentFilter = CIFilter.colorControls()
         currentFilter.inputImage = image
-        currentFilter.saturation = inputSaturation
-
+        currentFilter.saturation = value
+        
         // get a CIImage from our filter or exit if that fails
         guard let outputImage = currentFilter.outputImage else { return }
         
@@ -58,20 +58,22 @@ struct SaturationRegulation: Filter {
     }
 }
 
-struct BrightnessRegulation: Filter {
-    
-    var intensity: Float?
+struct BrightnessRegulation: Regulation {
     
     var filterName: String = "Brightness"
     
+    var value: Float = 0.0
+    var minimumValue: Float = 0.0
+    var maximumValue: Float = 1.0
+    
     var inputBrightness: Float = 1.0
-        
+    
     func applyFilter(image: inout CIImage) {
         
         let currentFilter = CIFilter.colorControls()
         currentFilter.inputImage = image
         currentFilter.brightness = inputBrightness
-
+        
         // get a CIImage from our filter or exit if that fails
         guard let outputImage = currentFilter.outputImage else { return }
         
@@ -79,20 +81,20 @@ struct BrightnessRegulation: Filter {
     }
 }
 
-struct ContrastRegulation: Filter {
-    
-    var intensity: Float?
+struct ContrastRegulation: Regulation {
     
     var filterName: String = "Contrast"
     
-    var inputContrast: Float = 1.0
+    var value: Float = 0.0
+    var minimumValue: Float = -1.0
+    var maximumValue: Float = 1.0
     
     func applyFilter(image: inout CIImage) {
         
         let currentFilter = CIFilter.colorControls()
         currentFilter.inputImage = image
-        currentFilter.contrast = inputContrast
-
+        currentFilter.contrast = value
+        
         // get a CIImage from our filter or exit if that fails
         guard let outputImage = currentFilter.outputImage else { return }
         

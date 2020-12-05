@@ -7,10 +7,7 @@
 //
 
 import Foundation
-
 import UIKit
-public typealias Image = UIImage
-
 
 public enum ColorCube {
     
@@ -48,7 +45,7 @@ public enum ColorCube {
     
     // Imported from Objective-C code.
     // TODO: Improve more swifty.
-    public static func cubeData(lutImage: Image, dimension: Int, colorSpace: CGColorSpace) -> Data? {
+    public static func cubeData(lutImage: UIImage, dimension: Int, colorSpace: CGColorSpace) -> Data? {
         
         guard let cgImage = lutImage.cgImage else {
             return nil

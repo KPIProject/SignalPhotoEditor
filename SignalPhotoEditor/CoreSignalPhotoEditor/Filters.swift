@@ -27,7 +27,7 @@ enum Filters {
     case photoEffectTonal
     case photoEffectTransfer
     // With input Image
-    case colorMap(inputGradient: UIImage)
+//    case colorMap(inputGradient: UIImage)
     case colorCube(name: String, lutImage: UIImage)
     
     static var allCases: [Filter] = [
@@ -50,41 +50,46 @@ enum Filters {
     func getFilter(intensity: Float = 1) -> Filter {
         switch self {
         case .sepia:
-            return SepiaFilter(intensity: intensity)
+            return SepiaFilter(value: intensity)
         //        case let .vignetteEffect(radius:  radius, center: (x: x, y: y)):
         //            return VignetteEffectFilter(intensity: intensity, radius: radius, center: (x: x, y: y))
         case .colorInvert:
             return ColorInvertFilter()
-        case let .colorMap(inputGradient: image):
-            return ColorMapFilter(inputGradient: image)
+//        case let .colorMap(inputGradient: image):
+//            return ColorMapFilter(inputGradient: image)
         case let .colorMonochrome(inputColor: color):
-            return ColorMonochromeFilter(intensity: intensity, inputColor: color)
+            return ColorMonochromeFilter(value: intensity, inputColor: color)
         case let .colorPosterize(level: level):
             return ColorPosterizeFilter(level: level)
         case let .falseColor(color0: color0, color1: color1):
-            return FalseColorFilter(intensity: intensity, color0: color0, color1: color1)
+            return FalseColorFilter(value: intensity, color0: color0, color1: color1)
         case .maximumComponent:
-            return MaximumComponentFilter(intensity: intensity)
+            return MaximumComponentFilter(value: intensity)
         case .minimumComponent:
-            return MinimumComponentFilter(intensity: intensity)
+            return MinimumComponentFilter(value: intensity)
         case .photoEffectChrome:
-            return PhotoEffectChromeFilter(intensity: intensity)
+            return PhotoEffectChromeFilter(value: intensity)
         case .photoEffectFade:
-            return PhotoEffectFadeFilter(intensity: intensity)
+            return PhotoEffectFadeFilter(value: intensity)
         case .photoEffectInstant:
-            return PhotoEffectInstantFilter(intensity: intensity)
+            return PhotoEffectInstantFilter(value: intensity)
         case .photoEffectMono:
-            return PhotoEffectMonoFilter(intensity: intensity)
+            return PhotoEffectMonoFilter(value: intensity)
         case .photoEffectNoir:
-            return PhotoEffectNoirFilter(intensity: intensity)
+            return PhotoEffectNoirFilter(value: intensity)
         case .photoEffectProcess:
-            return PhotoEffectProcessFilter(intensity: intensity)
+            return PhotoEffectProcessFilter(value: intensity)
         case .photoEffectTonal:
-            return PhotoEffectTonalFilter(intensity: intensity)
+            return PhotoEffectTonalFilter(value: intensity)
         case .photoEffectTransfer:
-            return PhotoEffectTransferFilter(intensity: intensity)
+            return PhotoEffectTransferFilter(value: intensity)
         case let .colorCube(name, lutImage):
-            return ColorCubeFilter(filterName: name, lutImage: lutImage, intensity: intensity)
+            return ColorCubeFilter(filterName: name, value: intensity, lutImage: lutImage)
         }
     }
+    
+//    static var allFilters: [FilterModel] = [
+//        FilterModel(image: <#T##UIImage#>, displayName: <#T##String#>, filtersFirst: <#T##(positiveFilter: Filter?, negativeFilter: Filter?)#>)
+//    ]
+
 }

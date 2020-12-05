@@ -9,8 +9,7 @@ import UIKit
 
 struct ColorInvertFilter: Filter {
     
-    var intensity: Float? = 1.0
-    
+    var value: Float = 1.0
     var filterName: String = "Invert"
     
     func applyFilter(image: inout CIImage) {
@@ -19,8 +18,5 @@ struct ColorInvertFilter: Filter {
         currentFilter.inputImage = image
         
         applyIntensity(image: &image, filter: currentFilter)
-        
     }
-    
 }
-

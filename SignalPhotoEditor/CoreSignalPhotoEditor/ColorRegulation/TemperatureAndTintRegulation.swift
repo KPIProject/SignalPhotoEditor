@@ -34,20 +34,21 @@ import UIKit
 //    }
 //}
 
-struct TemperatureRegulation: Filter {
-    var intensity: Float?
+struct TemperatureRegulation: Regulation {
     
     var filterName: String = "Temperature"
     
-    var inputTemperatute: Float = 0.0
-        
+    var value: Float = 0.0
+    var minimumValue: Float = 8000
+    var maximumValue: Float = -4000
+    
     func applyFilter(image: inout CIImage) {
         
         let currentFilter = CIFilter.temperatureAndTint()
         currentFilter.inputImage = image
-        currentFilter.targetNeutral = CIVector(x: CGFloat(6500 + inputTemperatute), y: 0)
-       
-
+        currentFilter.targetNeutral = CIVector(x: CGFloat(6500 + value), y: 0)
+        
+        
         // get a CIImage from our filter or exit if that fails
         guard let outputImage = currentFilter.outputImage else { return }
         
@@ -55,20 +56,21 @@ struct TemperatureRegulation: Filter {
     }
 }
 
-struct TintRegulation: Filter {
-    var intensity: Float?
+struct TintRegulation: Regulation {
     
     var filterName: String = "Tint"
-        
-    var inputTint: Float = 0.0
+    
+    var value: Float = 0.0
+    var minimumValue: Float = -100
+    var maximumValue: Float = 100
     
     func applyFilter(image: inout CIImage) {
         
         let currentFilter = CIFilter.temperatureAndTint()
         currentFilter.inputImage = image
-        currentFilter.targetNeutral = CIVector(x: 6500, y: CGFloat(inputTint))
-       
-
+        currentFilter.targetNeutral = CIVector(x: 6500, y: CGFloat(value))
+        
+        
         // get a CIImage from our filter or exit if that fails
         guard let outputImage = currentFilter.outputImage else { return }
         

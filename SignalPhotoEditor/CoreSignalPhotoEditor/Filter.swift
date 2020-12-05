@@ -7,18 +7,29 @@
 
 import UIKit
 
-protocol Filter {
+protocol GlobalFilter {
     
     var filterName: String { get }
-    var intensity: Float? { get set }
+    
+    var value: Float { get set }
+    var minimumValue: Float { get }
+    var maximumValue: Float { get }
     
     func applyFilter(image: inout CIImage)
 }
 
+protocol Regulation: GlobalFilter { }
+
+protocol Filter: GlobalFilter { }
+
 extension Filter {
     
-    var unwrappedIntensity: Float {
-        return intensity ?? 1
+    var minimumValue: Float {
+        return 0.0
+    }
+    
+    var maximumValue: Float {
+        return 1.0
     }
     
     func applyIntensity(image: inout CIImage, filter: CIFilter) {
@@ -29,7 +40,7 @@ extension Filter {
                 "inputRVector": CIVector(x: 1, y: 0, z: 0, w: CGFloat(0)),
                 "inputGVector": CIVector(x: 0, y: 1, z: 0, w: CGFloat(0)),
                 "inputBVector": CIVector(x: 0, y: 0, z: 1, w: CGFloat(0)),
-                "inputAVector": CIVector(x: 0, y: 0, z: 0, w: CGFloat(unwrappedIntensity)),
+                "inputAVector": CIVector(x: 0, y: 0, z: 0, w: CGFloat(value)),
                 "inputBiasVector": CIVector(x: 0, y: 0, z: 0, w: 0),
             ])
         

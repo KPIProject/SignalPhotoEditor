@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		19F116CFCE81BACC7CEE44B7 /* Pods_SignalPhotoEditor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 682B13302339EB675103CA67 /* Pods_SignalPhotoEditor.framework */; };
 		5D1107462577B87B00DBD7D9 /* ColorControlsRegulation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D1107452577B87B00DBD7D9 /* ColorControlsRegulation.swift */; };
-		5D11074A2577BB2C00DBD7D9 /* Regulation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D1107492577BB2C00DBD7D9 /* Regulation.swift */; };
+		5D11074A2577BB2C00DBD7D9 /* Regulations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D1107492577BB2C00DBD7D9 /* Regulations.swift */; };
 		5D11074D2577BDF300DBD7D9 /* ExposureAdjustRegulation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D11074C2577BDF300DBD7D9 /* ExposureAdjustRegulation.swift */; };
 		5D1107502577BF1200DBD7D9 /* GammaAdjustRegulation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D11074F2577BF1200DBD7D9 /* GammaAdjustRegulation.swift */; };
 		5D1107532577C14000DBD7D9 /* HueAdjustRegulation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D1107522577C14000DBD7D9 /* HueAdjustRegulation.swift */; };
@@ -69,7 +69,7 @@
 /* Begin PBXFileReference section */
 		1532C22FCBCF2A99AF05A566 /* Pods-SignalPhotoEditor.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SignalPhotoEditor.release.xcconfig"; path = "Target Support Files/Pods-SignalPhotoEditor/Pods-SignalPhotoEditor.release.xcconfig"; sourceTree = "<group>"; };
 		5D1107452577B87B00DBD7D9 /* ColorControlsRegulation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorControlsRegulation.swift; sourceTree = "<group>"; };
-		5D1107492577BB2C00DBD7D9 /* Regulation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Regulation.swift; sourceTree = "<group>"; };
+		5D1107492577BB2C00DBD7D9 /* Regulations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Regulations.swift; sourceTree = "<group>"; };
 		5D11074C2577BDF300DBD7D9 /* ExposureAdjustRegulation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExposureAdjustRegulation.swift; sourceTree = "<group>"; };
 		5D11074F2577BF1200DBD7D9 /* GammaAdjustRegulation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GammaAdjustRegulation.swift; sourceTree = "<group>"; };
 		5D1107522577C14000DBD7D9 /* HueAdjustRegulation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HueAdjustRegulation.swift; sourceTree = "<group>"; };
@@ -226,11 +226,11 @@
 				5DF8E98B254DAA5600190C46 /* CoreSignalPhotoEditor.swift */,
 				5D671FD92578FA35009DA0DF /* Filter.swift */,
 				5DF8E988254DA34100190C46 /* Filters.swift */,
-				5D1107492577BB2C00DBD7D9 /* Regulation.swift */,
+				5D1107492577BB2C00DBD7D9 /* Regulations.swift */,
 				5D1107622577ECB200DBD7D9 /* Resize.swift */,
 				5FB06A50254F68310037132B /* LUT.swift */,
-				5D1107442577B75100DBD7D9 /* ColorRegulation */,
 				5D19DC78254F3D27007445A5 /* ColorFilters */,
+				5D1107442577B75100DBD7D9 /* ColorRegulation */,
 			);
 			path = CoreSignalPhotoEditor;
 			sourceTree = "<group>";
@@ -510,7 +510,7 @@
 				5D19DC87254F6075007445A5 /* ColorPosterizeFilter.swift in Sources */,
 				5D19DC80254F5D66007445A5 /* ColorMapFilter.swift in Sources */,
 				5D19DC90254F6272007445A5 /* MinimumComponentFilter.swift in Sources */,
-				5D11074A2577BB2C00DBD7D9 /* Regulation.swift in Sources */,
+				5D11074A2577BB2C00DBD7D9 /* Regulations.swift in Sources */,
 				5D1107632577ECB200DBD7D9 /* Resize.swift in Sources */,
 				5F4ECDCB257BA4C6007B1D18 /* Loader.swift in Sources */,
 				5FD20C7525797B2500034D12 /* SliderView.swift in Sources */,

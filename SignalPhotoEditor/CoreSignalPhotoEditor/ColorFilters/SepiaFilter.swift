@@ -11,19 +11,17 @@ struct SepiaFilter: Filter {
     
     var filterName: String = "Sepia"
     
-    var intensity: Float?
-        
+    var value: Float = 1
+    
     func applyFilter(image: inout CIImage) {
         
         let currentFilter = CIFilter.sepiaTone()
         currentFilter.inputImage = image
-        currentFilter.intensity = unwrappedIntensity
+        currentFilter.intensity = value ?? 1
         
         // get a CIImage from our filter or exit if that fails
         guard let outputImage = currentFilter.outputImage else { return }
         
         image = outputImage
-        
     }
-    
 }
