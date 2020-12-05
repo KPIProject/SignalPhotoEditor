@@ -10,7 +10,7 @@ import UIKit
 struct ExposureAdjustRegulation: Filter {
     var intensity: Float?
     
-    var filterName: String = "Exposure Adjust"
+    var filterName: String = "Exposure"
     
     var inputEV: Float = 0.5
 

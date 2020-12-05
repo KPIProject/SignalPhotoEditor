@@ -23,6 +23,14 @@ class CoreSignalPhotoEditor {
         }
     }
     
+    public var isEditedImageLast: Bool {
+        return imageStack.count == editedImageIndex + 1
+    }
+    
+    public var isEditedImageFirst: Bool {
+        return editedImageIndex == 0
+    }
+    
     /// Current displayed image
     public var editedImage: UIImage?
     /// Current displayed image index in stack
