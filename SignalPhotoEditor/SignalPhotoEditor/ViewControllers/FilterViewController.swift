@@ -12,7 +12,6 @@ final class FilterViewController: UIViewController {
     // MARK: - IBOutlets
     
     @IBOutlet weak var mainImageView: UIImageView!
-    @IBOutlet weak var overlayImageView: UIImageView!
     
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var bottomStackView: UIStackView!
@@ -27,21 +26,14 @@ final class FilterViewController: UIViewController {
     private let coreSignal = CoreSignalPhotoEditor.shared
     private var state: FilterViewController.State = .filter
     private var currentFilter: GlobalFilter?
-    private var currentIntensity: Float?
+//    private var currentIntensity: Float?
     
-    private var currentFilterImages: (positiveImage: UIImage?, negativeImage: UIImage?)?
+//    private var currentFilterImages: (positiveImage: UIImage?, negativeImage: UIImage?)?
     
     private var isFilterActive: Bool = false {
         didSet {
             if oldValue != isFilterActive {
-                toogleBottomView()
-                
-                if isFilterActive {
-                    sliderControllerView.showInStackView(animated: true)
-                } else {
-                    filterCollectionView.deselect()
-                    sliderControllerView.hideInStackView(animated: true)
-                }
+                toogleFilter()
             }
         }
     }
@@ -59,7 +51,6 @@ final class FilterViewController: UIViewController {
         
         sliderControllerView.hideInStackView(animated: false)
         scrollView.delegate = self
-        overlayImageView.isHidden = true
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -133,39 +124,18 @@ final class FilterViewController: UIViewController {
     @IBAction func doneAction(_ sender: UIButton) {
         
         if currentFilter != nil {
-            view.isUserInteractionEnabled = false
-            Loader.show()
-            
-            if var fliter = currentFilter {
-                fliter.value = currentIntensity ?? 0
-                coreSignal.applyFilter(fliter) { [weak self] _ in
-                    self?.coreSignal.confirmFilter()
-                    self?.mainImageView.image = self?.coreSignal.editedImage
-                    self?.view.isUserInteractionEnabled = true
-                    
-                    self?.overlayImageView.image = nil
-                    self?.overlayImageView.isHidden = true
-                    Loader.hide()
-                    self?.setupBarButtonItemsState()
-                }
-            }
-            
+            coreSignal.confirmFilter()
         } else {
             coreSignal.restoreImage()
-            setupBarButtonItemsState()
         }
         
-        mainImageView.alpha = 1
-
+        setupBarButtonItemsState()
         isFilterActive = false
     }
     
     @IBAction func cancelAction(_ sender: UIButton) {
         
-        overlayImageView.image = nil
-        overlayImageView.isHidden = true
-        
-        mainImageView.alpha = 1
+        mainImageView.image = coreSignal.editedImage
         isFilterActive = false
     }
     
@@ -187,17 +157,20 @@ final class FilterViewController: UIViewController {
     
     @objc
     private func cancelLast() {
+        
         mainImageView.image = coreSignal.cancelLastFilter()
         setupBarButtonItemsState()
     }
     
     @objc
     private func applyBack() {
+        
         mainImageView.image = coreSignal.applyBackFilter()
         setupBarButtonItemsState()
     }
     
     private func toogleBottomView() {
+        
         guard let tabBar = tabBarController?.tabBar else {
             return
         }
@@ -220,6 +193,19 @@ final class FilterViewController: UIViewController {
             }
         }
     }
+    
+    private func toogleFilter() {
+        toogleBottomView()
+        
+        if isFilterActive {
+            if currentFilter != nil {
+                sliderControllerView.showInStackView(animated: true)
+            }
+        } else {
+            filterCollectionView.deselect()
+            sliderControllerView.hideInStackView(animated: true)
+        }
+    }
 }
 
 // MARK: - FilterCollectionViewDelegate
@@ -227,6 +213,7 @@ final class FilterViewController: UIViewController {
 extension FilterViewController: FilterCollectionViewDelegate {
     
     func didTapOnOrigin() {
+        
         mainImageView.image = coreSignal.sourceImage
         currentFilter = nil
         isFilterActive = true
@@ -261,7 +248,6 @@ extension FilterViewController: FilterCollectionViewDelegate {
         
         currentFilter = filterModel.filter
         sliderControllerView.config(firstSliderModel: filterModel.slider)
-        currentIntensity = filterModel.filter.value
         
         guard let filter = currentFilter else {
             return
@@ -271,32 +257,20 @@ extension FilterViewController: FilterCollectionViewDelegate {
     }
     
     private func applyFilter(_ filter: GlobalFilter) {
+        
         view.isUserInteractionEnabled = false
         Loader.show()
         
-        coreSignal.generateImages(for: filter) { [weak self] images in
-            self?.currentFilterImages = images
+        coreSignal.applyFilter(filter) { [weak self] image in
             
-            if filter is Filter {
-                self?.overlayImageView.image = images.positiveImage
+            if filter.value != 0 {
+                self?.mainImageView.image = image
             }
-            self?.overlayImageView.isHidden = false
-
+            
             self?.isFilterActive = true
             self?.view.isUserInteractionEnabled = true
             Loader.hide()
         }
-        
-//        coreSignal.applyFilter(filter) { [weak self] imageWithFilter in
-//
-//            self?.overlayImageView.image = imageWithFilter
-//            self?.overlayImageView.isHidden = false
-//            self?.currentIntensity = 1.0
-//
-//            self?.view.isUserInteractionEnabled = true
-//            self?.isFilterActive = true
-//            Loader.hide()
-//        }
     }
 }
 
@@ -304,64 +278,21 @@ extension FilterViewController: FilterCollectionViewDelegate {
 
 extension FilterViewController: SliderViewDelegate {
     
-    
     func slider(_ sliderModel: SliderModel, didChangeValue newValue: Int) {
         
         let opacity = abs(Double(newValue) / Double(sliderModel.maximumValue))
 
-        if newValue >= 0 {
+        if var newFilter = currentFilter {
             
-//            overlayImageView.image = currentFilterImages?.positiveImage
-            currentIntensity = Float(opacity) * (currentFilter?.maximumValue ?? 0)
-        } else {
+            var extremeValue = Float(opacity)
+            extremeValue *= newValue >= 0 ? (currentFilter?.maximumValue ?? 0) : (currentFilter?.minimumValue ?? 0)
+            newFilter.value = extremeValue
             
-//            overlayImageView.image = currentFilterImages?.negativeImage
-            currentIntensity = Float(opacity) * (currentFilter?.minimumValue ?? 0)
+            coreSignal.applyFilter(newFilter, complition: { [weak self] image in
+                self?.mainImageView.image = image
+            })
         }
-        var newFilter = currentFilter
-        newFilter?.value = currentIntensity ?? 0
-        
-        coreSignal.applyFilter(newFilter!) { newImage in
-            print("applying")
-            self.overlayImageView.image = newImage
-        }
-        print("opacity", opacity)
-//        mainImageView.alpha = 1 - CGFloat(opacity)
-        overlayImageView.alpha = 1.0
     }
-    
-    func addImages(_ image1: UIImage?, _ image2: UIImage?, opacity: Double) -> UIImage {
-        
-        guard let ciImage1 = CIImage(image: image1!),
-              let ciImage2 = CIImage(image: image2!) else {
-            return UIImage()
-        }
-        
-        let background = ciImage1
-        let foreground = ciImage2.applyingFilter(
-            "CIColorMatrix", parameters: [
-                "inputRVector": CIVector(x: 1, y: 0, z: 0, w: CGFloat(0)),
-                "inputGVector": CIVector(x: 0, y: 1, z: 0, w: CGFloat(0)),
-                "inputBVector": CIVector(x: 0, y: 0, z: 1, w: CGFloat(0)),
-                "inputAVector": CIVector(x: 0, y: 0, z: 0, w: CGFloat(opacity)),
-                "inputBiasVector": CIVector(x: 0, y: 0, z: 0, w: 0),
-            ])
-        
-        let composition = CIFilter(
-            name: "CISourceOverCompositing",
-            parameters: [
-                kCIInputImageKey : foreground,
-                kCIInputBackgroundImageKey : background
-            ])!
-        
-        if let compositeImage = composition.outputImage{
-            return UIImage(ciImage: compositeImage)
-            // do something with the "merged" image
-        }
-        return UIImage()
-    }
-    
-
 }
 
 // MARK: - UIScrollViewDelegate

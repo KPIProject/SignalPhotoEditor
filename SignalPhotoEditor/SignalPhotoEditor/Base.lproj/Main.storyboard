@@ -112,23 +112,14 @@
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="2" translatesAutoresizingMaskIntoConstraints="NO" id="lSb-SH-dNu">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="444"/>
                                     </imageView>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4e3-AL-zC7">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="444"/>
-                                    </imageView>
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="lSb-SH-dNu" secondAttribute="trailing" id="3eQ-yC-3Mm"/>
                                     <constraint firstItem="lSb-SH-dNu" firstAttribute="top" secondItem="9xd-vg-2Ga" secondAttribute="top" id="6ji-yz-NkI"/>
-                                    <constraint firstItem="4e3-AL-zC7" firstAttribute="leading" secondItem="9xd-vg-2Ga" secondAttribute="leading" id="9Be-yz-WnR"/>
                                     <constraint firstItem="lSb-SH-dNu" firstAttribute="width" secondItem="9xd-vg-2Ga" secondAttribute="width" id="Ewv-9t-13P"/>
-                                    <constraint firstItem="4e3-AL-zC7" firstAttribute="width" secondItem="9xd-vg-2Ga" secondAttribute="width" id="OYP-o1-lG5"/>
                                     <constraint firstItem="lSb-SH-dNu" firstAttribute="leading" secondItem="9xd-vg-2Ga" secondAttribute="leading" id="Qom-70-kaU"/>
-                                    <constraint firstItem="4e3-AL-zC7" firstAttribute="height" secondItem="9xd-vg-2Ga" secondAttribute="height" id="Xmf-MU-lYM"/>
                                     <constraint firstAttribute="bottom" secondItem="lSb-SH-dNu" secondAttribute="bottom" id="e5x-U1-ssg"/>
                                     <constraint firstItem="lSb-SH-dNu" firstAttribute="height" secondItem="9xd-vg-2Ga" secondAttribute="height" id="eis-zp-xLu"/>
-                                    <constraint firstAttribute="trailing" secondItem="4e3-AL-zC7" secondAttribute="trailing" id="oEh-QT-tWd"/>
-                                    <constraint firstAttribute="bottom" secondItem="4e3-AL-zC7" secondAttribute="bottom" id="qLL-M2-yYu"/>
-                                    <constraint firstItem="4e3-AL-zC7" firstAttribute="top" secondItem="9xd-vg-2Ga" secondAttribute="top" id="s3x-EK-8aZ"/>
                                 </constraints>
                             </scrollView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="wnv-PK-b4y">
@@ -169,7 +160,6 @@
                         <outlet property="bottomView" destination="pGf-jv-uAN" id="ISJ-Xw-98O"/>
                         <outlet property="filterCollectionView" destination="mlj-wb-wVz" id="sxv-GV-HvV"/>
                         <outlet property="mainImageView" destination="lSb-SH-dNu" id="4po-uX-Hp1"/>
-                        <outlet property="overlayImageView" destination="4e3-AL-zC7" id="e14-K4-iMl"/>
                         <outlet property="scrollView" destination="9xd-vg-2Ga" id="4Xf-Vc-bBE"/>
                         <outlet property="sliderControllerView" destination="f6X-d3-w6f" id="KzE-Ff-Juz"/>
                     </connections>

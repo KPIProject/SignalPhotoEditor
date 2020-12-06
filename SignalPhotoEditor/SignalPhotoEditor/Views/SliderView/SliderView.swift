@@ -62,6 +62,8 @@ final class SliderView: UIView, NibLoadable {
             return
         }
         
+        currentValue = Int(sender.value)
+        
         guard let sliderModel = sliderModel else {
             return
         }

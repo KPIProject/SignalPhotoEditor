@@ -98,6 +98,11 @@ class CoreSignalPhotoEditor {
         
         let context = CIContext()
         
+//        let cicontext = CIContext(options: [
+//            .useSoftwareRenderer : false,
+//            .highQualityDownsample : true,
+//        ])
+//
         DispatchQueue.global(qos: .userInteractive).async { [self] in
             
             filter.applyFilter(image: &ciImage)
@@ -122,6 +127,36 @@ class CoreSignalPhotoEditor {
         imageStack.append((buffer?.image ?? editedImage) ?? UIImage())
         editedImageIndex += 1
         self.editedImage = buffer?.image
+    }
+    
+    public func addImagesAndSave(_ image1: UIImage?, _ image2: UIImage?, opacity: Double) -> UIImage {
+        
+        guard let ciImage1 = CIImage(image: image1!),
+              let ciImage2 = CIImage(image: image2!) else {
+            return UIImage()
+        }
+        
+        let background = ciImage1
+        let foreground = ciImage2.applyingFilter(
+            "CIColorMatrix", parameters: [
+                "inputRVector": CIVector(x: 1, y: 0, z: 0, w: CGFloat(0)),
+                "inputGVector": CIVector(x: 0, y: 1, z: 0, w: CGFloat(0)),
+                "inputBVector": CIVector(x: 0, y: 0, z: 1, w: CGFloat(0)),
+                "inputAVector": CIVector(x: 0, y: 0, z: 0, w: CGFloat(opacity)),
+                "inputBiasVector": CIVector(x: 0, y: 0, z: 0, w: 0),
+            ])
+        
+        let composition = CIFilter(
+            name: "CISourceOverCompositing",
+            parameters: [
+                kCIInputImageKey : foreground,
+                kCIInputBackgroundImageKey : background
+            ])!
+        
+        if let compositeImage = composition.outputImage{
+            return UIImage(ciImage: compositeImage)
+        }
+        return UIImage()
     }
     
     public func applyFilterToCompressed(_ filter: Filter, completion: @escaping (UIImage) -> Void) {
