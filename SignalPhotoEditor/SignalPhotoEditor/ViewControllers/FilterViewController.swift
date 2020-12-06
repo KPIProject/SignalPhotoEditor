@@ -17,6 +17,7 @@ final class FilterViewController: UIViewController {
     @IBOutlet weak var bottomStackView: UIStackView!
     
     @IBOutlet weak var bottomView: UIView!
+    @IBOutlet weak var bottomViewBottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var sliderControllerView: SliderСontrollerView!
     @IBOutlet weak var filterCollectionView: FilterCollectionView!
     
@@ -26,9 +27,6 @@ final class FilterViewController: UIViewController {
     private let coreSignal = CoreSignalPhotoEditor.shared
     private var state: FilterViewController.State = .filter
     private var currentFilter: GlobalFilter?
-//    private var currentIntensity: Float?
-    
-//    private var currentFilterImages: (positiveImage: UIImage?, negativeImage: UIImage?)?
     
     private var isFilterActive: Bool = false {
         didSet {
@@ -60,6 +58,9 @@ final class FilterViewController: UIViewController {
         setupBarButtonItemsState()
     }
     
+    override func viewDidLayoutSubviews() {
+        bottomViewBottomConstraint.constant = UIApplication.shared.windows.first?.safeAreaInsets.bottom ?? 0
+    }
     // MARK: - Setup functions
     
     private func setupState() {
@@ -142,14 +143,23 @@ final class FilterViewController: UIViewController {
     @objc
     private func selectImage() {
         
+        view.isUserInteractionEnabled = false
+        Loader.show()
+        
         imagePicker.setType(type: .image, from: .all).show(in: self) { [weak self] result in
             switch result {
             
             case let .success(image: image):
-                self?.coreSignal.sourceImage = image
+                self?.coreSignal.config(with: image)
                 self?.mainImageView.image = image
                 self?.setupCollectionView()
+                
+                self?.view.isUserInteractionEnabled = true
+                Loader.hide()
+            
             default:
+                Loader.hide()
+
                 break
             }
         }

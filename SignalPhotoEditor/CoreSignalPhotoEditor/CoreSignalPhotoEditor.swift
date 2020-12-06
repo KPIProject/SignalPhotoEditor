@@ -270,12 +270,25 @@ class CoreSignalPhotoEditor {
     }
     
     /**
-     Remooves filteres from filteres array which are no longer needed.
+     Removes filteres from filteres array which are no longer needed.
      */
     private func removeOldFilters() {
         if imageStack.count != editedImageIndex + 1 {
             imageStack.removeSubrange(editedImageIndex + 1..<imageStack.count)
             filteres.removeSubrange(editedImageIndex..<imageStack.count)
         }
+    }
+    
+    /**
+     Removes all changes.
+     */
+    public func config(with image: UIImage) {
+        
+        sourceImage = image
+        editedImage = image
+        imageStack = [image]
+        editedImageIndex = 0
+        filteres = []
+        compressedImage = resizeImage(to: CGSize(width: 120, height: 120))
     }
 }
