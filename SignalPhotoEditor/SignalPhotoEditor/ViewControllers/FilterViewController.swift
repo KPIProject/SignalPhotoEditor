@@ -12,6 +12,7 @@ final class FilterViewController: UIViewController {
     // MARK: - IBOutlets
     
     @IBOutlet weak var mainImageView: UIImageView!
+    @IBOutlet weak var addPhotoButton: UIButton!
     
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var bottomStackView: UIStackView!
@@ -48,6 +49,12 @@ final class FilterViewController: UIViewController {
         sliderControllerView.delegate = self
         
         sliderControllerView.hideInStackView(animated: false)
+        
+        if coreSignal.editedImage == nil {
+            filterCollectionView.hideInStackView(animated: false)
+            addPhotoButton.isHidden = false
+        }
+        
         scrollView.delegate = self
     }
     
@@ -142,11 +149,14 @@ final class FilterViewController: UIViewController {
         isFilterActive = false
     }
     
+    @IBAction func addPhotoAction(_ sender: UIButton) {
+        selectImage()
+    }
+    
     @objc
     private func selectImage() {
         
         view.isUserInteractionEnabled = false
-        Loader.show()
         
         imagePicker.setType(type: .image, from: .all).show(in: self) { [weak self] result in
             switch result {
@@ -154,12 +164,16 @@ final class FilterViewController: UIViewController {
                 
                 self?.coreSignal.config(with: image)
                 self?.mainImageView.image = image
+                self?.filterCollectionView.showInStackView(animated: true)
+                self?.addPhotoButton.isHidden = true
+
                 self?.setupCollectionView()
                 
                 self?.view.isUserInteractionEnabled = true
                 Loader.hide()
                 
             default:
+                self?.view.isUserInteractionEnabled = true
                 Loader.hide()
             }
         }

@@ -47,10 +47,10 @@ final class CoreSignalPhotoEditor {
     
     #if DEBUG
     private init() {
-        sourceImage = UIImage(named: "mountain")!
-        editedImage = UIImage(named: "mountain")!
-        imageStack = [UIImage(named: "mountain")!]
-        compressedImage = resizeImage(to: CGSize(width: 120, height: 120))
+//        sourceImage = UIImage(named: "mountain")!
+//        editedImage = UIImage(named: "mountain")!
+//        imageStack = [UIImage(named: "mountain")!]
+//        compressedImage = resizeImage(to: CGSize(width: 120, height: 120))
     }
     #endif
     

@@ -62,6 +62,8 @@ final class ImagePicker: NSObject {
     }
     
     func show(in controller: UIViewController, title: String? = nil, allowsEditing: Bool = true, completion: @escaping Completion) {
+        
+
         self.completion = completion
         self.allowsEditing = allowsEditing
         
@@ -129,6 +131,8 @@ final class ImagePicker: NSObject {
         imagePicker.navigationBar.backgroundColor = .white
         imagePicker.navigationBar.isTranslucent = false
         
+        Loader.show()
+
         controller.present(imagePicker, animated: true, completion: nil)
     }
 }
@@ -139,6 +143,7 @@ extension ImagePicker: UIImagePickerControllerDelegate, UINavigationControllerDe
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
         
+
         let uuidStr = UUID().uuidString
         
         switch type {

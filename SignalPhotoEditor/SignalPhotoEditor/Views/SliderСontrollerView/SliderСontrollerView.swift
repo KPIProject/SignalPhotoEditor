@@ -38,9 +38,7 @@ final class SliderСontrollerView: UIView, NibLoadable {
         
         setupFromNib()
         
-        firstSliderView.delegate = self
-        secondSliderView.delegate = self
-        thirdSliderView.delegate = self
+        [firstSliderView, secondSliderView, thirdSliderView].forEach { $0?.delegate = self }
         
         secondSliderView.hideInStackView(animated: false)
         thirdSliderView.hideInStackView(animated: false)

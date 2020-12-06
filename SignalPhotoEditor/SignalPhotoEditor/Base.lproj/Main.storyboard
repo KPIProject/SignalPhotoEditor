@@ -151,6 +151,17 @@
                                     <constraint firstItem="lSb-SH-dNu" firstAttribute="height" secondItem="9xd-vg-2Ga" secondAttribute="height" id="eis-zp-xLu"/>
                                 </constraints>
                             </scrollView>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uyb-OH-6hw">
+                                <rect key="frame" x="132" y="375.5" width="150" height="150"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="150" id="X0Z-Kt-wUP"/>
+                                    <constraint firstAttribute="width" constant="150" id="sV7-3u-INe"/>
+                                </constraints>
+                                <state key="normal" image="plusImage"/>
+                                <connections>
+                                    <action selector="addPhotoAction:" destination="ZIb-xY-hkO" eventType="touchUpInside" id="xAk-yN-aUx"/>
+                                </connections>
+                            </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="wnv-PK-b4y">
                                 <rect key="frame" x="0.0" y="542" width="414" height="271"/>
                                 <subviews>
@@ -169,10 +180,12 @@
                         <viewLayoutGuide key="safeArea" id="tBp-pY-gMt"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="Uyb-OH-6hw" firstAttribute="centerY" secondItem="tBp-pY-gMt" secondAttribute="centerY" id="1fD-tX-SuO"/>
                             <constraint firstItem="9xd-vg-2Ga" firstAttribute="leading" secondItem="tBp-pY-gMt" secondAttribute="leading" id="DZS-4v-ecm"/>
                             <constraint firstItem="pGf-jv-uAN" firstAttribute="leading" secondItem="a2S-zV-mBG" secondAttribute="leading" id="VHV-mg-Urf"/>
                             <constraint firstItem="wnv-PK-b4y" firstAttribute="top" secondItem="9xd-vg-2Ga" secondAttribute="bottom" constant="10" id="VZi-wL-LBB"/>
                             <constraint firstAttribute="trailing" secondItem="pGf-jv-uAN" secondAttribute="trailing" id="ehp-fv-mtY"/>
+                            <constraint firstItem="Uyb-OH-6hw" firstAttribute="centerX" secondItem="tBp-pY-gMt" secondAttribute="centerX" id="jOU-XI-v9N"/>
                             <constraint firstItem="tBp-pY-gMt" firstAttribute="bottom" secondItem="wnv-PK-b4y" secondAttribute="bottom" id="jkQ-Uu-DyD"/>
                             <constraint firstItem="tBp-pY-gMt" firstAttribute="trailing" secondItem="wnv-PK-b4y" secondAttribute="trailing" id="kIl-Ku-VxI"/>
                             <constraint firstAttribute="bottom" secondItem="pGf-jv-uAN" secondAttribute="bottom" id="lhq-VY-upo"/>
@@ -185,6 +198,7 @@
                     <tabBarItem key="tabBarItem" title="Item" id="KFx-tA-zRq"/>
                     <navigationItem key="navigationItem" id="bOR-AZ-Xgu"/>
                     <connections>
+                        <outlet property="addPhotoButton" destination="Uyb-OH-6hw" id="u1p-Fy-xcM"/>
                         <outlet property="bottomStackView" destination="wnv-PK-b4y" id="GsZ-xI-G7Z"/>
                         <outlet property="bottomView" destination="pGf-jv-uAN" id="ISJ-Xw-98O"/>
                         <outlet property="bottomViewBottomConstraint" destination="Jgq-Zm-36G" id="bYE-As-awb"/>
@@ -273,6 +287,7 @@
         <image name="downloadUnSelected" width="20" height="25"/>
         <image name="filterSelected" width="25" height="24"/>
         <image name="filterUnSelected" width="25" height="24"/>
+        <image name="plusImage" width="120" height="120"/>
         <image name="regulationSelected" width="25" height="25"/>
         <image name="regulationUnSelected" width="25" height="25"/>
         <image name="xmark" catalog="system" width="128" height="113"/>
