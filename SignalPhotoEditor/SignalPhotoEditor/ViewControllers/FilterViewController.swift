@@ -59,8 +59,10 @@ final class FilterViewController: UIViewController {
     }
     
     override func viewDidLayoutSubviews() {
+        
         bottomViewBottomConstraint.constant = UIApplication.shared.windows.first?.safeAreaInsets.bottom ?? 0
     }
+    
     // MARK: - Setup functions
     
     private func setupState() {
@@ -148,19 +150,17 @@ final class FilterViewController: UIViewController {
         
         imagePicker.setType(type: .image, from: .all).show(in: self) { [weak self] result in
             switch result {
-            
             case let .success(image: image):
+                
                 self?.coreSignal.config(with: image)
                 self?.mainImageView.image = image
                 self?.setupCollectionView()
                 
                 self?.view.isUserInteractionEnabled = true
                 Loader.hide()
-            
+                
             default:
                 Loader.hide()
-
-                break
             }
         }
     }
@@ -205,6 +205,7 @@ final class FilterViewController: UIViewController {
     }
     
     private func toogleFilter() {
+        
         toogleBottomView()
         
         if isFilterActive {
@@ -243,7 +244,7 @@ extension FilterViewController: FilterCollectionViewDelegate {
                 
                 let lutFilter = Filters.colorCube(name: "LUT", lutImage: image).getFilter()
                 self.currentFilter = lutFilter
-
+                
                 self.sliderControllerView.config(firstSliderModel: SliderModel.positiveSliderMax)
                 self.applyFilter(lutFilter)
             case .cancel:
@@ -291,7 +292,7 @@ extension FilterViewController: SliderViewDelegate {
     func slider(_ sliderModel: SliderModel, didChangeValue newValue: Int) {
         
         let opacity = abs(Double(newValue) / Double(sliderModel.maximumValue))
-
+        
         if var newFilter = currentFilter {
             
             var extremeValue = Float(opacity)

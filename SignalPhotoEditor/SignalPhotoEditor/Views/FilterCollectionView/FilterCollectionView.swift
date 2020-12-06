@@ -22,7 +22,7 @@ final class FilterCollectionView: UIView, NibLoadable {
     private var filterModels: [FilterModel] = []
     private var originalImageCompressed : UIImage?
     private var state: FilterViewController.State = .filter
-        
+    
     private var selectedIndexPath: IndexPath?
     
     // MARK: - Lifecycle
@@ -164,6 +164,7 @@ extension FilterCollectionView: UICollectionViewDataSource, UICollectionViewDele
         guard let filterCell = collectionView.cellForItem(at: indexPath) as? FilterCollectionViewCell else {
             return
         }
+        
         filterCell.textLabel.font = UIFont.systemFont(ofSize: 12, weight: .regular)
     }
 }

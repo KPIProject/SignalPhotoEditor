@@ -8,7 +8,7 @@
 import UIKit
 
 final class SliderСontrollerView: UIView, NibLoadable {
-
+    
     // MARK: - IBOutlets
     
     // First sliderView is at the bottom of the stack
@@ -27,7 +27,7 @@ final class SliderСontrollerView: UIView, NibLoadable {
         
         setupView()
     }
-
+    
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         

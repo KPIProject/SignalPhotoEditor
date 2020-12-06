@@ -17,7 +17,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UITabBar.appearance().shadowImage = UIImage()
         UITabBar.appearance().backgroundImage = UIImage()
         UITabBar.appearance().backgroundColor = .systemBackground
-
         
         UINavigationBar.appearance().shadowImage = UIImage()
         UINavigationBar.appearance().backgroundColor = .white

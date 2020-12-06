@@ -20,9 +20,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Szy-bC-H8Y">
                                 <rect key="frame" x="0.0" y="351.5" width="414" height="77"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="24"/>
-                                <color key="tintColor" systemColor="systemBlueColor"/>
+                                <color key="tintColor" red="0.13725490196078433" green="0.28235294117647058" blue="0.792156862745098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title=" Image Download" image="arrow.down.doc" catalog="system">
-                                    <color key="titleColor" systemColor="systemBlueColor"/>
+                                    <color key="titleColor" red="0.13725490196078433" green="0.28235294117647058" blue="0.792156862745098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large" weight="semibold"/>
                                 </state>
                                 <connections>
@@ -38,9 +38,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gpw-lz-q5m">
                                 <rect key="frame" x="0.0" y="736" width="414" height="77"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="24"/>
-                                <color key="tintColor" systemColor="systemBlueColor"/>
+                                <color key="tintColor" red="0.13725490196078433" green="0.28235294117647058" blue="0.792156862745098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title=" LUT Download">
-                                    <color key="titleColor" systemColor="systemBlueColor"/>
+                                    <color key="titleColor" red="0.13725490196078433" green="0.28235294117647058" blue="0.792156862745098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <imageReference key="image" image="arrow.down.doc" catalog="system" renderingMode="template"/>
                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large" weight="semibold"/>
                                 </state>
@@ -74,7 +74,7 @@
                             <constraint firstItem="Oom-Te-zsb" firstAttribute="top" secondItem="Szy-bC-H8Y" secondAttribute="bottom" id="zHu-od-xTB"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Download" image="arrow.down.doc" catalog="system" id="FVb-sZ-wiH"/>
+                    <tabBarItem key="tabBarItem" title="Download" image="downloadUnSelected" selectedImage="downloadSelected" id="FVb-sZ-wiH"/>
                     <connections>
                         <outlet property="downloadImageButton" destination="Szy-bC-H8Y" id="Q9B-Mx-Nbl"/>
                         <outlet property="downloadLUTButton" destination="gpw-lz-q5m" id="fc1-r6-zMv"/>
@@ -223,7 +223,9 @@
         <scene sceneID="cZW-Ag-DK7">
             <objects>
                 <navigationController storyboardIdentifier="CustomNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="sWh-wL-xS2" customClass="CustomNavigationController" customModule="SignalPhotoEditor" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Filter" image="camera.filters" catalog="system" id="3Si-XL-qfs"/>
+                    <tabBarItem key="tabBarItem" title="Filter" image="filterUnSelected" selectedImage="filterSelected" id="3Si-XL-qfs">
+                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="0.0"/>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="hJg-dK-wIW">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -243,7 +245,7 @@
         <scene sceneID="VLV-zB-hzX">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="MXv-X5-dNu" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Regulation" image="slider.horizontal.below.rectangle" catalog="system" id="n2S-Es-S60"/>
+                    <tabBarItem key="tabBarItem" title="Regulation" image="regulationUnSelected" selectedImage="regulationSelected" id="n2S-Es-S60"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="QND-Ko-KZb">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -261,23 +263,24 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="ji6-gx-yYz"/>
+        <segue reference="Jj8-IA-CXT"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="2" width="720" height="1280"/>
         <image name="arrow.down.doc" catalog="system" width="115" height="128"/>
-        <image name="camera.filters" catalog="system" width="128" height="116"/>
         <image name="checkmark" catalog="system" width="128" height="114"/>
-        <image name="slider.horizontal.below.rectangle" catalog="system" width="128" height="115"/>
+        <image name="downloadSelected" width="20" height="25"/>
+        <image name="downloadUnSelected" width="20" height="25"/>
+        <image name="filterSelected" width="25" height="24"/>
+        <image name="filterUnSelected" width="25" height="24"/>
+        <image name="regulationSelected" width="25" height="25"/>
+        <image name="regulationUnSelected" width="25" height="25"/>
         <image name="xmark" catalog="system" width="128" height="113"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemBlueColor">
-            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

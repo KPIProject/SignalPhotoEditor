@@ -8,7 +8,7 @@
 import UIKit
 
 final class DownloadViewController: UIViewController {
-
+    
     // MARK: - IBOutlets
     
     @IBOutlet weak var editedImageView: UIImageView!
@@ -17,14 +17,15 @@ final class DownloadViewController: UIViewController {
     @IBOutlet weak var downloadLUTButton: UIButton!
     
     // MARK: - Private properties
-
+    
     private let coreSignal = CoreSignalPhotoEditor.shared
     private let imageSaver = ImageSaver()
-        
+    
     // MARK: - Lifecycle
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         imageSaver.completion = { [weak self] isSuceess in
             
             let title = isSuceess ? "Saved" : "Error"
@@ -33,21 +34,21 @@ final class DownloadViewController: UIViewController {
             alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
             self?.present(alert, animated: true)
         }
-
+        
         view.isUserInteractionEnabled = false
         Loader.show()
     }
     
     override func viewWillAppear(_ animated: Bool) {
-    
+        
         view.isUserInteractionEnabled = false
         Loader.show()
         
         editedImageView.image = coreSignal.editedImage
         
         coreSignal.getLUT { [weak self] image in
-            self?.lutImageView.image = image
             
+            self?.lutImageView.image = image
             self?.view.isUserInteractionEnabled = true
             Loader.hide()
         }
@@ -68,7 +69,6 @@ final class DownloadViewController: UIViewController {
     @IBAction func didPressDownloadLUT(_ sender: UIButton) {
         
         Loader.show()
-        
         if let image = lutImageView.image {
             imageSaver.writeToPhotoAlbum(image: image)
         }
