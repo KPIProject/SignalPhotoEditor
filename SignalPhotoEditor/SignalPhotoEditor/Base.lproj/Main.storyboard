@@ -66,13 +66,24 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pGf-jv-uAN">
-                                <rect key="frame" x="0.0" y="813" width="414" height="73"/>
+                                <rect key="frame" x="0.0" y="813" width="414" height="83"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="xT9-8Z-kad">
-                                        <rect key="frame" x="16" y="0.0" width="382" height="73"/>
+                                        <rect key="frame" x="16" y="0.0" width="382" height="83"/>
                                         <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QeJ-KJ-zkx">
+                                                <rect key="frame" x="0.0" y="0.0" width="191" height="83"/>
+                                                <color key="tintColor" systemColor="labelColor"/>
+                                                <state key="normal">
+                                                    <imageReference key="image" image="xmark" catalog="system" symbolScale="large"/>
+                                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" weight="semibold"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="cancelAction:" destination="ZIb-xY-hkO" eventType="touchUpInside" id="7jF-kV-xft"/>
+                                                </connections>
+                                            </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hk9-qz-QHL">
-                                                <rect key="frame" x="0.0" y="0.0" width="191" height="73"/>
+                                                <rect key="frame" x="191" y="0.0" width="191" height="83"/>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
                                                 <color key="tintColor" systemColor="labelColor"/>
                                                 <state key="normal">
@@ -81,17 +92,6 @@
                                                 </state>
                                                 <connections>
                                                     <action selector="doneAction:" destination="ZIb-xY-hkO" eventType="touchUpInside" id="7Cq-oa-qeQ"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QeJ-KJ-zkx">
-                                                <rect key="frame" x="191" y="0.0" width="191" height="73"/>
-                                                <color key="tintColor" systemColor="labelColor"/>
-                                                <state key="normal">
-                                                    <imageReference key="image" image="xmark" catalog="system" symbolScale="large"/>
-                                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" weight="semibold"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="cancelAction:" destination="ZIb-xY-hkO" eventType="touchUpInside" id="7jF-kV-xft"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -146,7 +146,7 @@
                             <constraint firstAttribute="trailing" secondItem="pGf-jv-uAN" secondAttribute="trailing" id="ehp-fv-mtY"/>
                             <constraint firstItem="tBp-pY-gMt" firstAttribute="bottom" secondItem="wnv-PK-b4y" secondAttribute="bottom" id="jkQ-Uu-DyD"/>
                             <constraint firstItem="tBp-pY-gMt" firstAttribute="trailing" secondItem="wnv-PK-b4y" secondAttribute="trailing" id="kIl-Ku-VxI"/>
-                            <constraint firstAttribute="bottom" secondItem="pGf-jv-uAN" secondAttribute="bottom" constant="10" id="lhq-VY-upo"/>
+                            <constraint firstAttribute="bottom" secondItem="pGf-jv-uAN" secondAttribute="bottom" id="lhq-VY-upo"/>
                             <constraint firstItem="pGf-jv-uAN" firstAttribute="top" secondItem="wnv-PK-b4y" secondAttribute="bottom" id="pjv-RW-R69"/>
                             <constraint firstItem="wnv-PK-b4y" firstAttribute="leading" secondItem="tBp-pY-gMt" secondAttribute="leading" id="pxo-Cf-gl0"/>
                             <constraint firstItem="9xd-vg-2Ga" firstAttribute="top" secondItem="tBp-pY-gMt" secondAttribute="top" id="wVt-Sd-IMr"/>
@@ -198,6 +198,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="hJg-dK-wIW">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -217,6 +218,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="QND-Ko-KZb">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -229,7 +231,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="ji6-gx-yYz"/>
+        <segue reference="Jj8-IA-CXT"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="2" width="720" height="1280"/>
