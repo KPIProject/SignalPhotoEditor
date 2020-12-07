@@ -95,6 +95,8 @@ final class ImagePicker: NSObject {
         
         let fromDeviceAction = UIAlertAction(title: "From the device", style: .default) { [weak self] _ in
             
+            Loader.show()
+
             let status = PHPhotoLibrary.authorizationStatus()
             
             guard status != .restricted && status != .denied  else {
@@ -131,8 +133,6 @@ final class ImagePicker: NSObject {
         imagePicker.navigationBar.backgroundColor = .white
         imagePicker.navigationBar.isTranslucent = false
         
-        Loader.show()
-
         controller.present(imagePicker, animated: true, completion: nil)
     }
 }
