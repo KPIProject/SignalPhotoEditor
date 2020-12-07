@@ -23,13 +23,19 @@ final class CoreSignalPhotoEditor {
             if let image = sourceImage {
                 editedImage = image
                 imageStack = [image]
+                filteres = []
+                editedImageIndex = 0
                 compressedImage = resizeImage(to: CGSize(width: 120, height: 120))
             }
         }
     }
     
     public var isEditedImageLast: Bool {
-        return imageStack.count == editedImageIndex + 1
+        if imageStack.isEmpty {
+            return true
+        } else {
+            return imageStack.count == editedImageIndex + 1
+        }
     }
     
     public var isEditedImageFirst: Bool {
@@ -58,12 +64,6 @@ final class CoreSignalPhotoEditor {
     public func config(with image: UIImage) {
         
         sourceImage = image
-        editedImage = image
-        imageStack = [image]
-        editedImageIndex = 0
-        filteres = []
-        compressedImage = resizeImage(to: CGSize(width: 120, height: 120))
-        removeOldFilters()
     }
     
     public func applyFilter(_ filter: GlobalFilter, complition: @escaping (UIImage) -> Void) {

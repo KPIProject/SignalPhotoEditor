@@ -133,9 +133,10 @@ final class FilterViewController: UIViewController {
     }
     
     private func setupBarButtonItemsState() {
-        
-        navigationItem.rightBarButtonItems?.last?.isEnabled = coreSignal.isEditedImageFirst ? false : true
-        navigationItem.rightBarButtonItems?.first?.isEnabled = coreSignal.isEditedImageLast ? false : true
+        print(coreSignal.isEditedImageFirst)
+        print(coreSignal.isEditedImageLast)
+        navigationItem.rightBarButtonItems?.last?.isEnabled = !coreSignal.isEditedImageFirst
+        navigationItem.rightBarButtonItems?.first?.isEnabled = !coreSignal.isEditedImageLast
     }
     
     // MARK: - IBActions
