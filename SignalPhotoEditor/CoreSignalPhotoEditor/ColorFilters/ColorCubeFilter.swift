@@ -49,7 +49,7 @@ struct ColorCubeFilter: Filter {
                 "inputRVector": CIVector(x: 1, y: 0, z: 0, w: CGFloat(0)),
                 "inputGVector": CIVector(x: 0, y: 1, z: 0, w: CGFloat(0)),
                 "inputBVector": CIVector(x: 0, y: 0, z: 1, w: CGFloat(0)),
-                "inputAVector": CIVector(x: 0, y: 0, z: 0, w: CGFloat(value ?? 1)),
+                "inputAVector": CIVector(x: 0, y: 0, z: 0, w: CGFloat(value)),
                 "inputBiasVector": CIVector(x: 0, y: 0, z: 0, w: 0),
             ])
         

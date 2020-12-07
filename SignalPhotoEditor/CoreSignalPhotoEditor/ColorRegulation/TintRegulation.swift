@@ -1,28 +1,26 @@
 //
-//  VibranceRegulation.swift
+//  TintRegulation.swift
 //  SignalPhotoEditor
 //
-//  Created by Anastasia Holovash on 02.12.2020.
+//  Created by Denys Danyliuk on 07.12.2020.
 //
 
 import UIKit
 
-/**
- Adjusts the saturation of an image while keeping pleasing skin tones.
- */
-struct VibranceRegulation: Regulation {
+struct TintRegulation: Regulation {
     
-    var filterName: String = "Vibrance"
+    var filterName: String = "Tint"
     
     var value: Float = 0.0
-    var minimumValue: Float = 0.0
-    var maximumValue: Float = 1.0
+    var minimumValue: Float = -100
+    var maximumValue: Float = 100
     
     func applyFilter(image: inout CIImage) {
         
-        let currentFilter = CIFilter.vibrance()
+        let currentFilter = CIFilter.temperatureAndTint()
         currentFilter.inputImage = image
-        currentFilter.amount = value
+        currentFilter.targetNeutral = CIVector(x: 6500, y: CGFloat(value))
+        
         
         // get a CIImage from our filter or exit if that fails
         guard let outputImage = currentFilter.outputImage else {
@@ -32,4 +30,3 @@ struct VibranceRegulation: Regulation {
         image = outputImage
     }
 }
-

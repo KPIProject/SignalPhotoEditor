@@ -16,6 +16,7 @@ struct PhotoEffectNoirFilter: Filter {
         
         let currentFilter = CIFilter.photoEffectNoir()
         currentFilter.inputImage = image
+        
         applyIntensity(image: &image, filter: currentFilter)
     }
 }

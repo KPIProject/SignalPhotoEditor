@@ -16,6 +16,7 @@ struct PhotoEffectMonoFilter: Filter {
         
         let currentFilter = CIFilter.photoEffectMono()
         currentFilter.inputImage = image
+        
         applyIntensity(image: &image, filter: currentFilter)
     }
 }

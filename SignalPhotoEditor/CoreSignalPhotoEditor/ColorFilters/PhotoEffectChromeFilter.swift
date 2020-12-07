@@ -16,7 +16,7 @@ struct PhotoEffectChromeFilter: Filter {
         
         let currentFilter = CIFilter.photoEffectChrome()
         currentFilter.inputImage = image
-        applyIntensity(image: &image, filter: currentFilter)
         
+        applyIntensity(image: &image, filter: currentFilter)
     }
 }

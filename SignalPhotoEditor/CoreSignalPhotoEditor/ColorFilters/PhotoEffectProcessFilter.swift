@@ -16,6 +16,7 @@ struct PhotoEffectProcessFilter: Filter {
         
         let currentFilter = CIFilter.photoEffectProcess()
         currentFilter.inputImage = image
+        
         applyIntensity(image: &image, filter: currentFilter)
     }
 }

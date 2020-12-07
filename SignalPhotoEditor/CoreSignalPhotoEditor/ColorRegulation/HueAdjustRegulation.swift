@@ -24,9 +24,11 @@ struct HueAdjustRegulation: Regulation {
         let currentFilter = CIFilter.hueAdjust()
         currentFilter.inputImage = image
         currentFilter.angle = value
-
+        
         // get a CIImage from our filter or exit if that fails
-        guard let outputImage = currentFilter.outputImage else { return }
+        guard let outputImage = currentFilter.outputImage else {
+            return
+        }
         
         image = outputImage
     }

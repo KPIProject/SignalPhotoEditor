@@ -22,7 +22,9 @@ struct ExposureAdjustRegulation: Regulation {
         currentFilter.ev = value
         
         // get a CIImage from our filter or exit if that fails
-        guard let outputImage = currentFilter.outputImage else { return }
+        guard let outputImage = currentFilter.outputImage else {
+            return
+        }
         
         image = outputImage
     }

@@ -16,6 +16,7 @@ struct PhotoEffectFadeFilter: Filter {
         
         let currentFilter = CIFilter.photoEffectFade()
         currentFilter.inputImage = image
+        
         applyIntensity(image: &image, filter: currentFilter)
     }
 }

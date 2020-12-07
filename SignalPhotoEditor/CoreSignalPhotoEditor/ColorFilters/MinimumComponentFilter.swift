@@ -16,6 +16,7 @@ struct MinimumComponentFilter: Filter {
         
         let currentFilter = CIFilter.minimumComponent()
         currentFilter.inputImage = image
+        
         applyIntensity(image: &image, filter: currentFilter)
     }
 }

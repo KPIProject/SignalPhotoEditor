@@ -61,6 +61,15 @@ final class FilterViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         
         mainImageView.image = coreSignal.editedImage
+        
+        if coreSignal.editedImage == nil {
+            filterCollectionView.hideInStackView(animated: false)
+            addPhotoButton.isHidden = false
+        } else {
+            filterCollectionView.showInStackView(animated: false)
+            addPhotoButton.isHidden = true
+        }
+        
         setupCollectionView()
         setupBarButtonItemsState()
     }
@@ -263,8 +272,9 @@ extension FilterViewController: FilterCollectionViewDelegate {
                 self.applyFilter(lutFilter)
             case .cancel:
                 self.filterCollectionView.deselect()
+                Loader.hide()
             default:
-                break
+                Loader.hide()
             }
         }
     }
@@ -283,9 +293,9 @@ extension FilterViewController: FilterCollectionViewDelegate {
     
     private func applyFilter(_ filter: GlobalFilter) {
         
-        view.isUserInteractionEnabled = false
-        Loader.show()
-        
+//        view.isUserInteractionEnabled = false
+//        Loader.show()
+//
         coreSignal.applyFilter(filter) { [weak self] image in
             
             if filter.value != 0 {
@@ -293,8 +303,8 @@ extension FilterViewController: FilterCollectionViewDelegate {
             }
             
             self?.isFilterActive = true
-            self?.view.isUserInteractionEnabled = true
-            Loader.hide()
+//            self?.view.isUserInteractionEnabled = true
+//            Loader.hide()
         }
     }
 }

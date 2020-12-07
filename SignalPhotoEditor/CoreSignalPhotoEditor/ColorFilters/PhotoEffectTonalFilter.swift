@@ -16,6 +16,7 @@ struct PhotoEffectTonalFilter: Filter {
         
         let currentFilter = CIFilter.photoEffectTonal()
         currentFilter.inputImage = image
+        
         applyIntensity(image: &image, filter: currentFilter)
     }
 }

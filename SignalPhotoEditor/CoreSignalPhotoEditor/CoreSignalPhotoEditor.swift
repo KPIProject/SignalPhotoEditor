@@ -44,15 +44,11 @@ final class CoreSignalPhotoEditor {
     private var imageStack: [UIImage] = []
     private var buffer: (image: UIImage, filter: GlobalFilter)?
     private(set) var compressedImage: UIImage?
+    private let context = CIContext()
+
+    // MARK: - Lifecycle
     
-    #if DEBUG
-    private init() {
-//        sourceImage = UIImage(named: "mountain")!
-//        editedImage = UIImage(named: "mountain")!
-//        imageStack = [UIImage(named: "mountain")!]
-//        compressedImage = resizeImage(to: CGSize(width: 120, height: 120))
-    }
-    #endif
+    private init() { }
     
     // MARK: - Public functions
     
@@ -67,6 +63,7 @@ final class CoreSignalPhotoEditor {
         editedImageIndex = 0
         filteres = []
         compressedImage = resizeImage(to: CGSize(width: 120, height: 120))
+        removeOldFilters()
     }
     
     public func applyFilter(_ filter: GlobalFilter, complition: @escaping (UIImage) -> Void) {
@@ -75,8 +72,6 @@ final class CoreSignalPhotoEditor {
               var ciImage = CIImage(image: editedImage) else {
             return
         }
-        
-        let context = CIContext()
         
         DispatchQueue.global(qos: .userInteractive).async { [self] in
             
@@ -97,6 +92,7 @@ final class CoreSignalPhotoEditor {
     }
     
     public func confirmFilter() {
+        
         removeOldFilters()
         filteres.append(buffer?.filter)
         imageStack.append((buffer?.image ?? editedImage) ?? UIImage())
@@ -132,9 +128,7 @@ final class CoreSignalPhotoEditor {
               var ciImage = CIImage(image: initialLUT) else {
             return
         }
-        
-        let context = CIContext()
-        
+                
         DispatchQueue.global(qos: .userInteractive).async { [self] in
             
             for filter in filteres {
