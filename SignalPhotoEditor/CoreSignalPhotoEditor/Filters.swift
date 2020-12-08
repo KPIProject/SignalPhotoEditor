@@ -45,6 +45,12 @@ enum Filters {
         Filters.colorInvert.getFilter(),
         Filters.colorPosterize().getFilter(),
         Filters.colorCube(name: "Persian", lutImage: UIImage(named: "Persian") ?? UIImage()).getFilter(),
+        Filters.colorCube(name: "Autumn", lutImage: UIImage(named: "Autumn") ?? UIImage()).getFilter(),
+        Filters.colorCube(name: "Cake", lutImage: UIImage(named: "Cake") ?? UIImage()).getFilter(),
+        Filters.colorCube(name: "Coffee", lutImage: UIImage(named: "Coffee") ?? UIImage()).getFilter(),
+        Filters.colorCube(name: "Field", lutImage: UIImage(named: "Field") ?? UIImage()).getFilter(),
+        Filters.colorCube(name: "Flamingo", lutImage: UIImage(named: "Flamingo") ?? UIImage()).getFilter(),
+        Filters.colorCube(name: "Jungle", lutImage: UIImage(named: "Jungle") ?? UIImage()).getFilter(),
     ]
     
     func getFilter(intensity: Float = 1) -> Filter {
@@ -87,9 +93,5 @@ enum Filters {
             return ColorCubeFilter(filterName: name, value: intensity, lutImage: lutImage)
         }
     }
-    
-//    static var allFilters: [FilterModel] = [
-//        FilterModel(image: <#T##UIImage#>, displayName: <#T##String#>, filtersFirst: <#T##(positiveFilter: Filter?, negativeFilter: Filter?)#>)
-//    ]
 
 }
