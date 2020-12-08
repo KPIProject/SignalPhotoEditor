@@ -15,10 +15,22 @@ struct SliderModel {
     var minimumValue: Float
     var maximumValue: Float
     
+    static var positiveSliderMax = SliderModel(name: nil,
+                                               sliderNumber: 1,
+                                               defaultValue: 100,
+                                               minimumValue: 0,
+                                               maximumValue: 100)
     
-    static var defaultSlider = SliderModel(name: nil,
-                                           sliderNumber: 1,
-                                           defaultValue: 100,
-                                           minimumValue: 0,
-                                           maximumValue: 100)
+    
+    static var positiveSliderMin = SliderModel(name: nil,
+                                               sliderNumber: 1,
+                                               defaultValue: 0,
+                                               minimumValue: 0,
+                                               maximumValue: 100)
+    
+    static var doubleSlider = SliderModel(name: nil,
+                                          sliderNumber: 1,
+                                          defaultValue: 0,
+                                          minimumValue: -100,
+                                          maximumValue: 100)
 }

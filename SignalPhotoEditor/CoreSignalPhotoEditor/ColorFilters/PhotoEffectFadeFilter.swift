@@ -10,13 +10,13 @@ import UIKit
 struct PhotoEffectFadeFilter: Filter {
     
     var filterName: String = "Fade"
-    var intensity: Float? = 1.0
+    var value: Float = 1.0
     
     func applyFilter(image: inout CIImage) {
         
         let currentFilter = CIFilter.photoEffectFade()
         currentFilter.inputImage = image
+        
         applyIntensity(image: &image, filter: currentFilter)
-
     }
 }

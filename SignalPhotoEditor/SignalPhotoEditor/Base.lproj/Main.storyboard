@@ -18,24 +18,31 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Szy-bC-H8Y">
-                                <rect key="frame" x="148" y="414.5" width="118" height="28"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
-                                <color key="tintColor" systemColor="linkColor"/>
-                                <state key="normal" title="Download" image="arrow.down.doc" catalog="system">
-                                    <color key="titleColor" systemColor="linkColor"/>
-                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" weight="medium"/>
+                                <rect key="frame" x="0.0" y="351.5" width="414" height="77"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="24"/>
+                                <color key="tintColor" red="0.13725490196078433" green="0.28235294117647058" blue="0.792156862745098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title=" Image Download" image="arrow.down.doc" catalog="system">
+                                    <color key="titleColor" red="0.13725490196078433" green="0.28235294117647058" blue="0.792156862745098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large" weight="semibold"/>
                                 </state>
                                 <connections>
                                     <action selector="didPressDownloadButton:" destination="KxY-7v-5sb" eventType="touchUpInside" id="qa6-lD-5zx"/>
                                 </connections>
                             </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="AmT-XD-6nX">
+                                <rect key="frame" x="0.0" y="44" width="414" height="307.5"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Oom-Te-zsb">
+                                <rect key="frame" x="0.0" y="428.5" width="414" height="307.5"/>
+                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gpw-lz-q5m">
-                                <rect key="frame" x="124" y="543" width="166" height="28"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
-                                <color key="tintColor" systemColor="linkColor"/>
-                                <state key="normal" title="Download LUT" image="arrow.down.doc" catalog="system">
-                                    <color key="titleColor" systemColor="linkColor"/>
-                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" weight="medium"/>
+                                <rect key="frame" x="0.0" y="736" width="414" height="77"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="24"/>
+                                <color key="tintColor" red="0.13725490196078433" green="0.28235294117647058" blue="0.792156862745098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title=" LUT Download">
+                                    <color key="titleColor" red="0.13725490196078433" green="0.28235294117647058" blue="0.792156862745098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <imageReference key="image" image="arrow.down.doc" catalog="system" renderingMode="template"/>
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large" weight="semibold"/>
                                 </state>
                                 <connections>
                                     <action selector="didPressDownloadLUT:" destination="KxY-7v-5sb" eventType="touchUpInside" id="VPn-Cw-2d5"/>
@@ -45,13 +52,35 @@
                         <viewLayoutGuide key="safeArea" id="GXh-ca-Z3M"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="Szy-bC-H8Y" firstAttribute="centerY" secondItem="GXh-ca-Z3M" secondAttribute="centerY" id="2hW-ZC-rII"/>
-                            <constraint firstItem="GXh-ca-Z3M" firstAttribute="bottom" secondItem="gpw-lz-q5m" secondAttribute="bottom" constant="242" id="779-QS-8Wx"/>
-                            <constraint firstItem="Szy-bC-H8Y" firstAttribute="centerX" secondItem="GXh-ca-Z3M" secondAttribute="centerX" id="HBe-3T-OLg"/>
-                            <constraint firstItem="gpw-lz-q5m" firstAttribute="centerX" secondItem="Szy-bC-H8Y" secondAttribute="centerX" id="XXv-Dw-leA"/>
+                            <constraint firstItem="Oom-Te-zsb" firstAttribute="leading" secondItem="GXh-ca-Z3M" secondAttribute="leading" id="3rx-CF-Sft"/>
+                            <constraint firstItem="GXh-ca-Z3M" firstAttribute="trailing" secondItem="AmT-XD-6nX" secondAttribute="trailing" id="8Ir-GR-Y4r"/>
+                            <constraint firstItem="AmT-XD-6nX" firstAttribute="leading" secondItem="GXh-ca-Z3M" secondAttribute="leading" id="8gy-Cu-SUe"/>
+                            <constraint firstItem="Szy-bC-H8Y" firstAttribute="top" secondItem="AmT-XD-6nX" secondAttribute="bottom" id="G9q-uQ-arE"/>
+                            <constraint firstItem="gpw-lz-q5m" firstAttribute="centerX" secondItem="Oom-Te-zsb" secondAttribute="centerX" id="K9w-Ej-lI8"/>
+                            <constraint firstItem="Szy-bC-H8Y" firstAttribute="leading" secondItem="GXh-ca-Z3M" secondAttribute="leading" id="NpS-qV-vBf"/>
+                            <constraint firstItem="GXh-ca-Z3M" firstAttribute="trailing" secondItem="Szy-bC-H8Y" secondAttribute="trailing" id="Nvw-Po-dyH"/>
+                            <constraint firstItem="AmT-XD-6nX" firstAttribute="height" secondItem="GXh-ca-Z3M" secondAttribute="height" multiplier="0.4" id="QJ2-kA-bAv"/>
+                            <constraint firstItem="Oom-Te-zsb" firstAttribute="centerX" secondItem="GXh-ca-Z3M" secondAttribute="centerX" id="ReL-pU-3IT"/>
+                            <constraint firstItem="AmT-XD-6nX" firstAttribute="centerX" secondItem="GXh-ca-Z3M" secondAttribute="centerX" id="Sno-q3-bdn"/>
+                            <constraint firstItem="Szy-bC-H8Y" firstAttribute="centerX" secondItem="AmT-XD-6nX" secondAttribute="centerX" id="TuF-cS-NUy"/>
+                            <constraint firstItem="AmT-XD-6nX" firstAttribute="top" secondItem="GXh-ca-Z3M" secondAttribute="top" id="Tv5-PF-55v"/>
+                            <constraint firstItem="Oom-Te-zsb" firstAttribute="trailing" secondItem="GXh-ca-Z3M" secondAttribute="trailing" id="Wen-YT-HpN"/>
+                            <constraint firstItem="Oom-Te-zsb" firstAttribute="height" secondItem="GXh-ca-Z3M" secondAttribute="height" multiplier="0.4" id="X8N-hk-nmy"/>
+                            <constraint firstItem="gpw-lz-q5m" firstAttribute="top" secondItem="Oom-Te-zsb" secondAttribute="bottom" id="Zmv-cl-I7W"/>
+                            <constraint firstItem="Szy-bC-H8Y" firstAttribute="height" secondItem="GXh-ca-Z3M" secondAttribute="height" multiplier="0.1" id="aP3-37-DFx"/>
+                            <constraint firstItem="gpw-lz-q5m" firstAttribute="height" secondItem="GXh-ca-Z3M" secondAttribute="height" multiplier="0.1" id="cpm-uY-Ajm"/>
+                            <constraint firstItem="gpw-lz-q5m" firstAttribute="leading" secondItem="GXh-ca-Z3M" secondAttribute="leading" id="drM-Og-nVs"/>
+                            <constraint firstItem="GXh-ca-Z3M" firstAttribute="trailing" secondItem="gpw-lz-q5m" secondAttribute="trailing" id="ggb-a4-HRx"/>
+                            <constraint firstItem="Oom-Te-zsb" firstAttribute="top" secondItem="Szy-bC-H8Y" secondAttribute="bottom" id="zHu-od-xTB"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Download" image="arrow.down.doc" catalog="system" id="FVb-sZ-wiH"/>
+                    <tabBarItem key="tabBarItem" title="Download" image="downloadUnSelected" selectedImage="downloadSelected" id="FVb-sZ-wiH"/>
+                    <connections>
+                        <outlet property="downloadImageButton" destination="Szy-bC-H8Y" id="Q9B-Mx-Nbl"/>
+                        <outlet property="downloadLUTButton" destination="gpw-lz-q5m" id="fc1-r6-zMv"/>
+                        <outlet property="editedImageView" destination="AmT-XD-6nX" id="49S-bb-J8i"/>
+                        <outlet property="lutImageView" destination="Oom-Te-zsb" id="207-GO-Ukr"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lIJ-9v-Bi1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -66,13 +95,24 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pGf-jv-uAN">
-                                <rect key="frame" x="0.0" y="813" width="414" height="73"/>
+                                <rect key="frame" x="0.0" y="813" width="414" height="83"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="xT9-8Z-kad">
-                                        <rect key="frame" x="16" y="0.0" width="382" height="73"/>
+                                        <rect key="frame" x="16" y="0.0" width="382" height="83"/>
                                         <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QeJ-KJ-zkx">
+                                                <rect key="frame" x="0.0" y="0.0" width="191" height="83"/>
+                                                <color key="tintColor" systemColor="labelColor"/>
+                                                <state key="normal">
+                                                    <imageReference key="image" image="xmark" catalog="system" symbolScale="large"/>
+                                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" weight="semibold"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="cancelAction:" destination="ZIb-xY-hkO" eventType="touchUpInside" id="7jF-kV-xft"/>
+                                                </connections>
+                                            </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hk9-qz-QHL">
-                                                <rect key="frame" x="0.0" y="0.0" width="191" height="73"/>
+                                                <rect key="frame" x="191" y="0.0" width="191" height="83"/>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
                                                 <color key="tintColor" systemColor="labelColor"/>
                                                 <state key="normal">
@@ -81,17 +121,6 @@
                                                 </state>
                                                 <connections>
                                                     <action selector="doneAction:" destination="ZIb-xY-hkO" eventType="touchUpInside" id="7Cq-oa-qeQ"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QeJ-KJ-zkx">
-                                                <rect key="frame" x="191" y="0.0" width="191" height="73"/>
-                                                <color key="tintColor" systemColor="labelColor"/>
-                                                <state key="normal">
-                                                    <imageReference key="image" image="xmark" catalog="system" symbolScale="large"/>
-                                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" weight="semibold"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="cancelAction:" destination="ZIb-xY-hkO" eventType="touchUpInside" id="7jF-kV-xft"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -112,25 +141,27 @@
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="2" translatesAutoresizingMaskIntoConstraints="NO" id="lSb-SH-dNu">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="444"/>
                                     </imageView>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4e3-AL-zC7">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="444"/>
-                                    </imageView>
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="lSb-SH-dNu" secondAttribute="trailing" id="3eQ-yC-3Mm"/>
                                     <constraint firstItem="lSb-SH-dNu" firstAttribute="top" secondItem="9xd-vg-2Ga" secondAttribute="top" id="6ji-yz-NkI"/>
-                                    <constraint firstItem="4e3-AL-zC7" firstAttribute="leading" secondItem="9xd-vg-2Ga" secondAttribute="leading" id="9Be-yz-WnR"/>
                                     <constraint firstItem="lSb-SH-dNu" firstAttribute="width" secondItem="9xd-vg-2Ga" secondAttribute="width" id="Ewv-9t-13P"/>
-                                    <constraint firstItem="4e3-AL-zC7" firstAttribute="width" secondItem="9xd-vg-2Ga" secondAttribute="width" id="OYP-o1-lG5"/>
                                     <constraint firstItem="lSb-SH-dNu" firstAttribute="leading" secondItem="9xd-vg-2Ga" secondAttribute="leading" id="Qom-70-kaU"/>
-                                    <constraint firstItem="4e3-AL-zC7" firstAttribute="height" secondItem="9xd-vg-2Ga" secondAttribute="height" id="Xmf-MU-lYM"/>
                                     <constraint firstAttribute="bottom" secondItem="lSb-SH-dNu" secondAttribute="bottom" id="e5x-U1-ssg"/>
                                     <constraint firstItem="lSb-SH-dNu" firstAttribute="height" secondItem="9xd-vg-2Ga" secondAttribute="height" id="eis-zp-xLu"/>
-                                    <constraint firstAttribute="trailing" secondItem="4e3-AL-zC7" secondAttribute="trailing" id="oEh-QT-tWd"/>
-                                    <constraint firstAttribute="bottom" secondItem="4e3-AL-zC7" secondAttribute="bottom" id="qLL-M2-yYu"/>
-                                    <constraint firstItem="4e3-AL-zC7" firstAttribute="top" secondItem="9xd-vg-2Ga" secondAttribute="top" id="s3x-EK-8aZ"/>
                                 </constraints>
                             </scrollView>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uyb-OH-6hw">
+                                <rect key="frame" x="132" y="375.5" width="150" height="150"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="150" id="X0Z-Kt-wUP"/>
+                                    <constraint firstAttribute="width" constant="150" id="sV7-3u-INe"/>
+                                </constraints>
+                                <state key="normal" image="plusImage"/>
+                                <connections>
+                                    <action selector="addPhotoAction:" destination="ZIb-xY-hkO" eventType="touchUpInside" id="xAk-yN-aUx"/>
+                                </connections>
+                            </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="wnv-PK-b4y">
                                 <rect key="frame" x="0.0" y="542" width="414" height="271"/>
                                 <subviews>
@@ -149,13 +180,15 @@
                         <viewLayoutGuide key="safeArea" id="tBp-pY-gMt"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="Uyb-OH-6hw" firstAttribute="centerY" secondItem="tBp-pY-gMt" secondAttribute="centerY" id="1fD-tX-SuO"/>
                             <constraint firstItem="9xd-vg-2Ga" firstAttribute="leading" secondItem="tBp-pY-gMt" secondAttribute="leading" id="DZS-4v-ecm"/>
                             <constraint firstItem="pGf-jv-uAN" firstAttribute="leading" secondItem="a2S-zV-mBG" secondAttribute="leading" id="VHV-mg-Urf"/>
                             <constraint firstItem="wnv-PK-b4y" firstAttribute="top" secondItem="9xd-vg-2Ga" secondAttribute="bottom" constant="10" id="VZi-wL-LBB"/>
                             <constraint firstAttribute="trailing" secondItem="pGf-jv-uAN" secondAttribute="trailing" id="ehp-fv-mtY"/>
+                            <constraint firstItem="Uyb-OH-6hw" firstAttribute="centerX" secondItem="tBp-pY-gMt" secondAttribute="centerX" id="jOU-XI-v9N"/>
                             <constraint firstItem="tBp-pY-gMt" firstAttribute="bottom" secondItem="wnv-PK-b4y" secondAttribute="bottom" id="jkQ-Uu-DyD"/>
                             <constraint firstItem="tBp-pY-gMt" firstAttribute="trailing" secondItem="wnv-PK-b4y" secondAttribute="trailing" id="kIl-Ku-VxI"/>
-                            <constraint firstAttribute="bottom" secondItem="pGf-jv-uAN" secondAttribute="bottom" constant="10" id="lhq-VY-upo"/>
+                            <constraint firstAttribute="bottom" secondItem="pGf-jv-uAN" secondAttribute="bottom" id="lhq-VY-upo"/>
                             <constraint firstItem="pGf-jv-uAN" firstAttribute="top" secondItem="wnv-PK-b4y" secondAttribute="bottom" id="pjv-RW-R69"/>
                             <constraint firstItem="wnv-PK-b4y" firstAttribute="leading" secondItem="tBp-pY-gMt" secondAttribute="leading" id="pxo-Cf-gl0"/>
                             <constraint firstItem="9xd-vg-2Ga" firstAttribute="top" secondItem="tBp-pY-gMt" secondAttribute="top" id="wVt-Sd-IMr"/>
@@ -165,11 +198,12 @@
                     <tabBarItem key="tabBarItem" title="Item" id="KFx-tA-zRq"/>
                     <navigationItem key="navigationItem" id="bOR-AZ-Xgu"/>
                     <connections>
+                        <outlet property="addPhotoButton" destination="Uyb-OH-6hw" id="u1p-Fy-xcM"/>
                         <outlet property="bottomStackView" destination="wnv-PK-b4y" id="GsZ-xI-G7Z"/>
                         <outlet property="bottomView" destination="pGf-jv-uAN" id="ISJ-Xw-98O"/>
+                        <outlet property="bottomViewBottomConstraint" destination="Jgq-Zm-36G" id="bYE-As-awb"/>
                         <outlet property="filterCollectionView" destination="mlj-wb-wVz" id="sxv-GV-HvV"/>
                         <outlet property="mainImageView" destination="lSb-SH-dNu" id="4po-uX-Hp1"/>
-                        <outlet property="overlayImageView" destination="4e3-AL-zC7" id="e14-K4-iMl"/>
                         <outlet property="scrollView" destination="9xd-vg-2Ga" id="4Xf-Vc-bBE"/>
                         <outlet property="sliderControllerView" destination="f6X-d3-w6f" id="KzE-Ff-Juz"/>
                     </connections>
@@ -203,11 +237,14 @@
         <scene sceneID="cZW-Ag-DK7">
             <objects>
                 <navigationController storyboardIdentifier="CustomNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="sWh-wL-xS2" customClass="CustomNavigationController" customModule="SignalPhotoEditor" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Filter" image="camera.filters" catalog="system" id="3Si-XL-qfs"/>
+                    <tabBarItem key="tabBarItem" title="Filter" image="filterUnSelected" selectedImage="filterSelected" id="3Si-XL-qfs">
+                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="0.0"/>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="hJg-dK-wIW">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -222,11 +259,12 @@
         <scene sceneID="VLV-zB-hzX">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="MXv-X5-dNu" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Regulation" image="slider.horizontal.below.rectangle" catalog="system" id="n2S-Es-S60"/>
+                    <tabBarItem key="tabBarItem" title="Regulation" image="regulationUnSelected" selectedImage="regulationSelected" id="n2S-Es-S60"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="QND-Ko-KZb">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -239,20 +277,22 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="ji6-gx-yYz"/>
+        <segue reference="Jj8-IA-CXT"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="2" width="720" height="1280"/>
         <image name="arrow.down.doc" catalog="system" width="115" height="128"/>
-        <image name="camera.filters" catalog="system" width="128" height="116"/>
         <image name="checkmark" catalog="system" width="128" height="114"/>
-        <image name="slider.horizontal.below.rectangle" catalog="system" width="128" height="115"/>
+        <image name="downloadSelected" width="20" height="25"/>
+        <image name="downloadUnSelected" width="20" height="25"/>
+        <image name="filterSelected" width="25" height="24"/>
+        <image name="filterUnSelected" width="25" height="24"/>
+        <image name="plusImage" width="120" height="120"/>
+        <image name="regulationSelected" width="25" height="25"/>
+        <image name="regulationUnSelected" width="25" height="25"/>
         <image name="xmark" catalog="system" width="128" height="113"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="linkColor">
-            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

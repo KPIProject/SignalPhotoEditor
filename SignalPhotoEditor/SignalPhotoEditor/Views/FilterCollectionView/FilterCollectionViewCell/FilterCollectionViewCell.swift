@@ -13,6 +13,8 @@ final class FilterCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var textLabel: UILabel!
     
     override func prepareForReuse() {
+        super.prepareForReuse()
+        
         textLabel.font = UIFont.systemFont(ofSize: 12, weight: .regular)
     }
 }

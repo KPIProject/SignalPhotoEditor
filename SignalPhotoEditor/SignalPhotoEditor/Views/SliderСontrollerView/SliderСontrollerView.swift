@@ -8,7 +8,7 @@
 import UIKit
 
 final class SliderСontrollerView: UIView, NibLoadable {
-
+    
     // MARK: - IBOutlets
     
     // First sliderView is at the bottom of the stack
@@ -27,7 +27,7 @@ final class SliderСontrollerView: UIView, NibLoadable {
         
         setupView()
     }
-
+    
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         
@@ -38,9 +38,7 @@ final class SliderСontrollerView: UIView, NibLoadable {
         
         setupFromNib()
         
-        firstSliderView.delegate = self
-        secondSliderView.delegate = self
-        thirdSliderView.delegate = self
+        [firstSliderView, secondSliderView, thirdSliderView].forEach { $0?.delegate = self }
         
         secondSliderView.hideInStackView(animated: false)
         thirdSliderView.hideInStackView(animated: false)

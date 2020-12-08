@@ -22,6 +22,8 @@ final class SliderView: UIView, NibLoadable {
     
     public weak var delegate: SliderViewDelegate?
     
+    var currentValue: Int = 0
+    
     // MARK: - Lifecycle
     
     override init(frame: CGRect) {
@@ -55,6 +57,12 @@ final class SliderView: UIView, NibLoadable {
     // MARK: - IBActions
     
     @IBAction func didChageSliderValue(_ sender: UISlider) {
+        
+        if currentValue == Int(sender.value) {
+            return
+        }
+        
+        currentValue = Int(sender.value)
         
         guard let sliderModel = sliderModel else {
             return

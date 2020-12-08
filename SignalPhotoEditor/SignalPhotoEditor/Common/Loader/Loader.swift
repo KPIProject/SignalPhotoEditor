@@ -28,16 +28,4 @@ struct Loader {
             SVProgressHUD.showProgress(progress)
         }
     }
-    
-    static func configureAppearance() {
-        
-        /*
-         // Loader appearance can be configured
-         SVProgressHUD.setDefaultMaskType(.clear)
-         SVProgressHUD.setDefaultStyle(.custom)
-         SVProgressHUD.setBackgroundColor(UIColor.white)
-         SVProgressHUD.setForegroundColor(R.color.pearlAqua()!)
-         SVProgressHUD.setRingThickness(4.0)
-         */
-    }
 }

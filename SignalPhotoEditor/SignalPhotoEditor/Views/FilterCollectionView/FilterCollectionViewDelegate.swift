@@ -11,5 +11,5 @@ protocol FilterCollectionViewDelegate: class {
     
     func didTapOnOrigin()
     func didTapOnAddLUT()
-    func didTapOn(filterCollectionModel: FilterCollectionModel)
+    func didTapOn(filterModel: FilterModel)
 }

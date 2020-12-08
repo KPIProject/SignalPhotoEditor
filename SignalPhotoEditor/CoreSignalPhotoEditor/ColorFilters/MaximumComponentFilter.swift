@@ -10,8 +10,7 @@ import UIKit
 struct MaximumComponentFilter: Filter {
     
     var filterName: String = "Max"
-    
-    var intensity: Float? = 0.5
+    var value: Float = 1
     
     func applyFilter(image: inout CIImage) {
         
@@ -19,9 +18,5 @@ struct MaximumComponentFilter: Filter {
         currentFilter.inputImage = image
         
         applyIntensity(image: &image, filter: currentFilter)
-        
     }
 }
-
-
-

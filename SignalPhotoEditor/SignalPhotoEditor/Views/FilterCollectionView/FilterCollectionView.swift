@@ -19,10 +19,10 @@ final class FilterCollectionView: UIView, NibLoadable {
     
     // MARK: - Private properties
     
-    private var filterCollectionModels: [FilterCollectionModel] = []
+    private var filterModels: [FilterModel] = []
     private var originalImageCompressed : UIImage?
     private var state: FilterViewController.State = .filter
-        
+    
     private var selectedIndexPath: IndexPath?
     
     // MARK: - Lifecycle
@@ -39,12 +39,12 @@ final class FilterCollectionView: UIView, NibLoadable {
         setupView()
     }
     
-    public func config(with filterModel: [FilterCollectionModel],
+    public func config(with model: [FilterModel],
                        filterState: FilterViewController.State,
                        originalImage: UIImage? = nil) {
         
         state = filterState
-        filterCollectionModels = filterModel
+        filterModels = model
         
         if let original = originalImage {
             originalImageCompressed = original
@@ -84,9 +84,9 @@ extension FilterCollectionView: UICollectionViewDataSource, UICollectionViewDele
         
         switch state {
         case .filter:
-            return filterCollectionModels.count + 2
+            return filterModels.count + 2
         case .regulation:
-            return filterCollectionModels.count
+            return filterModels.count
         }
     }
     
@@ -96,7 +96,7 @@ extension FilterCollectionView: UICollectionViewDataSource, UICollectionViewDele
             return UICollectionViewCell()
         }
         
-        var filterCollectionModel: FilterCollectionModel
+        var filterModel: FilterModel
         
         switch state {
         case .filter:
@@ -109,18 +109,18 @@ extension FilterCollectionView: UICollectionViewDataSource, UICollectionViewDele
                 filterCell.textLabel.text = "LUT"
                 filterCell.imageView.image = UIImage(named: "addLut")
             default:
-                filterCollectionModel = filterCollectionModels[indexPath.row - 2]
-                filterCell.textLabel.text = filterCollectionModel.filter.filterName
-                filterCell.imageView.image = filterCollectionModel.image
+                filterModel = filterModels[indexPath.row - 2]
+                filterCell.textLabel.text = filterModel.filter.filterName
+                filterCell.imageView.image = filterModel.image
             }
             
             filterCell.imageView.contentMode = .scaleAspectFill
             
         case .regulation:
             
-            filterCollectionModel = filterCollectionModels[indexPath.row]
-            filterCell.textLabel.text = filterCollectionModel.filter.filterName
-            filterCell.imageView.image = filterCollectionModel.image
+            filterModel = filterModels[indexPath.row]
+            filterCell.textLabel.text = filterModel.filter.filterName
+            filterCell.imageView.image = filterModel.image
             filterCell.imageView.contentMode = .center
         }
         
@@ -152,10 +152,10 @@ extension FilterCollectionView: UICollectionViewDataSource, UICollectionViewDele
             case 1:
                 delegate?.didTapOnAddLUT()
             default:
-                delegate?.didTapOn(filterCollectionModel: filterCollectionModels[indexPath.row - 2])
+                delegate?.didTapOn(filterModel: filterModels[indexPath.row - 2])
             }
         case .regulation:
-            delegate?.didTapOn(filterCollectionModel: filterCollectionModels[indexPath.row])
+            delegate?.didTapOn(filterModel: filterModels[indexPath.row])
         }
     }
     
@@ -164,6 +164,7 @@ extension FilterCollectionView: UICollectionViewDataSource, UICollectionViewDele
         guard let filterCell = collectionView.cellForItem(at: indexPath) as? FilterCollectionViewCell else {
             return
         }
+        
         filterCell.textLabel.font = UIFont.systemFont(ofSize: 12, weight: .regular)
     }
 }

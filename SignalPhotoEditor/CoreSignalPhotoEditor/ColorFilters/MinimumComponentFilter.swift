@@ -10,14 +10,13 @@ import UIKit
 struct MinimumComponentFilter: Filter {
     
     var filterName: String = "Min"
-    
-    var intensity: Float? = 1.0
+    var value: Float = 1.0
     
     func applyFilter(image: inout CIImage) {
         
         let currentFilter = CIFilter.minimumComponent()
         currentFilter.inputImage = image
+        
         applyIntensity(image: &image, filter: currentFilter)
- 
     }
 }

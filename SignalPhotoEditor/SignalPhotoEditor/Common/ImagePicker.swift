@@ -45,7 +45,6 @@ final class ImagePicker: NSObject {
     fileprivate var allowsEditing: Bool = true
     fileprivate var type: PickerType = .image
     fileprivate var from: FromType = .all
-
     
     init(type: PickerType = .image, from: FromType = .all) {
         super.init()
@@ -63,15 +62,17 @@ final class ImagePicker: NSObject {
     }
     
     func show(in controller: UIViewController, title: String? = nil, allowsEditing: Bool = true, completion: @escaping Completion) {
+        
+
         self.completion = completion
         self.allowsEditing = allowsEditing
         
         let alertController = UIAlertController(title: title, message: nil, preferredStyle: .actionSheet)
         
-                
+        
         if UIImagePickerController.isSourceTypeAvailable(.camera) {
             
-
+            
             let takePhotoAction = UIAlertAction(title: "Take a picture", style: .default) { [weak self] _ in
                 
                 let status = AVCaptureDevice.authorizationStatus(for: AVMediaType.video)
@@ -94,6 +95,8 @@ final class ImagePicker: NSObject {
         
         let fromDeviceAction = UIAlertAction(title: "From the device", style: .default) { [weak self] _ in
             
+            Loader.show()
+
             let status = PHPhotoLibrary.authorizationStatus()
             
             guard status != .restricted && status != .denied  else {
@@ -111,7 +114,7 @@ final class ImagePicker: NSObject {
         case .camera:
             break
         }
-                
+        
         alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel) { _ in
             self.completion?(.cancel)
             self.completion = nil
@@ -140,6 +143,7 @@ extension ImagePicker: UIImagePickerControllerDelegate, UINavigationControllerDe
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
         
+
         let uuidStr = UUID().uuidString
         
         switch type {
@@ -182,6 +186,7 @@ extension ImagePicker: UIImagePickerControllerDelegate, UINavigationControllerDe
     }
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        
         completion?(.cancel)
         completion = nil
         picker.dismiss(animated: true, completion: nil)

@@ -10,10 +10,9 @@ import UIKit
 struct ColorPosterizeFilter: Filter {
     
     var filterName: String = "Posterize"
-    
-    var level: Float = 1.0
-    
-    var intensity: Float? = 1.0
+    // TODO: - check level
+    var level: Float = 1.0 // ??
+    var value: Float = 1.0
     
     func applyFilter(image: inout CIImage) {
         
@@ -22,6 +21,5 @@ struct ColorPosterizeFilter: Filter {
         currentFilter.inputImage = image
         
         applyIntensity(image: &image, filter: currentFilter)
-            
     }
 }
