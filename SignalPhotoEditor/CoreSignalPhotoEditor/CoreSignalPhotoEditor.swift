@@ -133,7 +133,9 @@ final class CoreSignalPhotoEditor {
             
             for filter in filteres {
                 if let filterNotNil = filter {
-                    filterNotNil.applyFilter(image: &ciImage)
+                    if !(filterNotNil is VignetteFilter) {
+                        filterNotNil.applyFilter(image: &ciImage)
+                    }
                 } else {
                     if let clearLUTCIImage = CIImage(image: initialLUT) {
                         ciImage = clearLUTCIImage
