@@ -133,7 +133,9 @@ final class CoreSignalPhotoEditor {
             
             for filter in filteres {
                 if let filterNotNil = filter {
-                    filterNotNil.applyFilter(image: &ciImage)
+                    if !(filterNotNil is VignetteFilter) {
+                        filterNotNil.applyFilter(image: &ciImage)
+                    }
                 } else {
                     if let clearLUTCIImage = CIImage(image: initialLUT) {
                         ciImage = clearLUTCIImage
@@ -170,10 +172,12 @@ final class CoreSignalPhotoEditor {
      Returns image there was before cancel last filter.
      */
     public func applyBackFilter() -> UIImage {
+        
         if imageStack.count > editedImageIndex + 1 {
             editedImageIndex += 1
             editedImage = imageStack[editedImageIndex]
             return imageStack[editedImageIndex]
+        
         } else {
             return imageStack[editedImageIndex]
         }
@@ -183,13 +187,15 @@ final class CoreSignalPhotoEditor {
      Returns original image.
      */
     public func restoreImage() {
+        
         guard let sourceImage = sourceImage else {
             return
         }
+        removeOldFilters()
+        filteres.append(nil)
+        imageStack.append(sourceImage)
         editedImageIndex += 1
         editedImage = sourceImage
-        imageStack.append(sourceImage)
-        filteres.append(nil)
     }
     
     // MARK: - Private functions
