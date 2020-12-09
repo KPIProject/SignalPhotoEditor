@@ -197,6 +197,15 @@
 			path = ColorFilters;
 			sourceTree = "<group>";
 		};
+		5D5B7D0E25811F7400625BD2 /* CoreSignalHelprs */ = {
+			isa = PBXGroup;
+			children = (
+				5D1107622577ECB200DBD7D9 /* Resize.swift */,
+				5FB06A50254F68310037132B /* LUT.swift */,
+			);
+			path = CoreSignalHelprs;
+			sourceTree = "<group>";
+		};
 		5DF8E961254D9BCC00190C46 = {
 			isa = PBXGroup;
 			children = (
@@ -235,8 +244,7 @@
 				5D1107492577BB2C00DBD7D9 /* Regulations.swift */,
 				5D19DC78254F3D27007445A5 /* ColorFilters */,
 				5D1107442577B75100DBD7D9 /* ColorRegulation */,
-				5D1107622577ECB200DBD7D9 /* Resize.swift */,
-				5FB06A50254F68310037132B /* LUT.swift */,
+				5D5B7D0E25811F7400625BD2 /* CoreSignalHelprs */,
 			);
 			path = CoreSignalPhotoEditor;
 			sourceTree = "<group>";
