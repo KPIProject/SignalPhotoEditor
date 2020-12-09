@@ -127,7 +127,7 @@ final class FilterViewController: UIViewController {
             
         case .regulation:
             
-            filterCollectionView.config(with: Regulations.filterCollectionModels,
+            filterCollectionView.config(with: CoreSignalPhotoEditor.filterCollectionModels,
                                         filterState: .regulation)
         }
     }
@@ -265,7 +265,7 @@ extension FilterViewController: FilterCollectionViewDelegate {
             
             case let .success(image: image):
                 
-                let lutFilter = Filters.colorCube(name: "LUT", lutImage: image).getFilter()
+                let lutFilter = ColorCubeFilter(filterName: "LUT", lutImage: image)
                 self.currentFilter = lutFilter
                 
                 self.sliderControllerView.config(firstSliderModel: SliderModel.positiveSliderMax)

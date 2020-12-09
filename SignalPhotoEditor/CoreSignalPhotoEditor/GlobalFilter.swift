@@ -1,5 +1,5 @@
 //
-//  Filter.swift
+//  GlobalFilter.swift
 //  SignalPhotoEditor
 //
 //  Created by Anastasia Holovash on 03.12.2020.

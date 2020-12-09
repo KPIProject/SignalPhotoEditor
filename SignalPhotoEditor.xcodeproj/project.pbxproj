@@ -33,7 +33,7 @@
 		5D19DCA5254F63C6007445A5 /* PhotoEffectTonalFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D19DCA4254F63C6007445A5 /* PhotoEffectTonalFilter.swift */; };
 		5D19DCA8254F647B007445A5 /* PhotoEffectTransferFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D19DCA7254F647B007445A5 /* PhotoEffectTransferFilter.swift */; };
 		5D19DCAB254F64B9007445A5 /* VignetteEffectFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D19DCAA254F64B9007445A5 /* VignetteEffectFilter.swift */; };
-		5D671FDA2578FA35009DA0DF /* Filter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D671FD92578FA35009DA0DF /* Filter.swift */; };
+		5D671FDA2578FA35009DA0DF /* GlobalFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D671FD92578FA35009DA0DF /* GlobalFilter.swift */; };
 		5D671FE1257A717B009DA0DF /* ImageSaver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D671FE0257A717B009DA0DF /* ImageSaver.swift */; };
 		5D671FE4257A729A009DA0DF /* DownloadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D671FE3257A729A009DA0DF /* DownloadViewController.swift */; };
 		5DF8E96E254D9BCC00190C46 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF8E96D254D9BCC00190C46 /* AppDelegate.swift */; };
@@ -95,7 +95,7 @@
 		5D19DCA4254F63C6007445A5 /* PhotoEffectTonalFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoEffectTonalFilter.swift; sourceTree = "<group>"; };
 		5D19DCA7254F647B007445A5 /* PhotoEffectTransferFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoEffectTransferFilter.swift; sourceTree = "<group>"; };
 		5D19DCAA254F64B9007445A5 /* VignetteEffectFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VignetteEffectFilter.swift; sourceTree = "<group>"; };
-		5D671FD92578FA35009DA0DF /* Filter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Filter.swift; sourceTree = "<group>"; };
+		5D671FD92578FA35009DA0DF /* GlobalFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalFilter.swift; sourceTree = "<group>"; };
 		5D671FE0257A717B009DA0DF /* ImageSaver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSaver.swift; sourceTree = "<group>"; };
 		5D671FE3257A729A009DA0DF /* DownloadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadViewController.swift; sourceTree = "<group>"; };
 		5DF8E96A254D9BCC00190C46 /* SignalPhotoEditor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SignalPhotoEditor.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -230,13 +230,13 @@
 			isa = PBXGroup;
 			children = (
 				5DF8E98B254DAA5600190C46 /* CoreSignalPhotoEditor.swift */,
-				5D671FD92578FA35009DA0DF /* Filter.swift */,
+				5D671FD92578FA35009DA0DF /* GlobalFilter.swift */,
 				5DF8E988254DA34100190C46 /* Filters.swift */,
 				5D1107492577BB2C00DBD7D9 /* Regulations.swift */,
-				5D1107622577ECB200DBD7D9 /* Resize.swift */,
-				5FB06A50254F68310037132B /* LUT.swift */,
 				5D19DC78254F3D27007445A5 /* ColorFilters */,
 				5D1107442577B75100DBD7D9 /* ColorRegulation */,
+				5D1107622577ECB200DBD7D9 /* Resize.swift */,
+				5FB06A50254F68310037132B /* LUT.swift */,
 			);
 			path = CoreSignalPhotoEditor;
 			sourceTree = "<group>";
@@ -485,7 +485,7 @@
 				5D19DCA5254F63C6007445A5 /* PhotoEffectTonalFilter.swift in Sources */,
 				5FD20C6B2579792B00034D12 /* SliderСontrollerView.swift in Sources */,
 				5F23E4F7256AADA400EB2D9D /* FilterCollectionView.swift in Sources */,
-				5D671FDA2578FA35009DA0DF /* Filter.swift in Sources */,
+				5D671FDA2578FA35009DA0DF /* GlobalFilter.swift in Sources */,
 				5D1107502577BF1200DBD7D9 /* GammaAdjustRegulation.swift in Sources */,
 				5D19DC84254F5EA2007445A5 /* ColorMonochromeFilter.swift in Sources */,
 				5D19DC8A254F6121007445A5 /* FalseColorFilter.swift in Sources */,

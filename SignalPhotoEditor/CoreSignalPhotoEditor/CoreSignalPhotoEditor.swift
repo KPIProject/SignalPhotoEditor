@@ -107,12 +107,12 @@ final class CoreSignalPhotoEditor {
         
         var filters = [FilterModel]()
         
-        Filters.allCases.forEach { filter in
+        CoreSignalPhotoEditor.allCases.forEach { filter in
             
             applyFilterToCompressed(filter) { image in
                 filters.append(FilterModel(image: image, filter: filter))
                 
-                if filters.count == Filters.allCases.count {
+                if filters.count == CoreSignalPhotoEditor.allCases.count {
                     completion(filters.sorted { $0.filter.filterName < $1.filter.filterName })
                 }
             }
