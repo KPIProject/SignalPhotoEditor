@@ -181,6 +181,7 @@ final class FilterViewController: UIViewController {
                 self?.view.isUserInteractionEnabled = true
                 Loader.hide()
                 
+                self?.setupBarButtonItemsState()
             default:
                 self?.view.isUserInteractionEnabled = true
                 Loader.hide()
