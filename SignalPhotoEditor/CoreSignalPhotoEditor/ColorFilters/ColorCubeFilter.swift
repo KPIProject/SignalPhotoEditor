@@ -19,7 +19,6 @@ struct ColorCubeFilter: Filter {
     func applyFilter(image: inout CIImage) {
         
         let colorSpace = CGColorSpace.init(name: CGColorSpace.sRGB) ?? CGColorSpaceCreateDeviceRGB()
-        // TODO: - Other LUTs adding
         let data = ColorCube.cubeData(lutImage: lutImage,
                                       dimension: Int(dimension),
                                       colorSpace: colorSpace)

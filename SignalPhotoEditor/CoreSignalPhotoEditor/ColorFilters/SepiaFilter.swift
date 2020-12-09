@@ -17,7 +17,7 @@ struct SepiaFilter: Filter {
         
         let currentFilter = CIFilter.sepiaTone()
         currentFilter.inputImage = image
-        currentFilter.intensity = value ?? 1
+        currentFilter.intensity = value
         
         // get a CIImage from our filter or exit if that fails
         guard let outputImage = currentFilter.outputImage else { return }
