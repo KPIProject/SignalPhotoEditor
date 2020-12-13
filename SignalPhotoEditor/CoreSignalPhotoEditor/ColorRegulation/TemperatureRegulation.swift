@@ -9,7 +9,7 @@ import UIKit
 
 struct TemperatureRegulation: Regulation {
     
-    var filterName: String = "Temperature"
+    var filterName: String = "Cold/Warm"
     
     var value: Float = 0.0
     var minimumValue: Float = 8000

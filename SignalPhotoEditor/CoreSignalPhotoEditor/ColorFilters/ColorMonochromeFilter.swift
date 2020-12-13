@@ -16,7 +16,7 @@ struct ColorMonochromeFilter: Filter {
     func applyFilter(image: inout CIImage) {
         
         let currentFilter = CIFilter.colorMonochrome()
-        currentFilter.intensity = value ?? 1
+        currentFilter.intensity = value
         currentFilter.color = inputColor
         currentFilter.inputImage = image
         

@@ -90,47 +90,5 @@ public enum ColorCube {
         }
         free(bitmap)
         return Data(bytes: array, count: dataSize)
-        
-//        for _ in stride(from: 0, to: rowNum, by: 1) {
-//            for y in stride(from: 0, to: dimension, by: 1) {
-//                let tmp = z
-//                for _ in stride(from: 0, to: columnNum, by: 1) {
-//                    for x in stride(from: 0, to: dimension, by: 1) {
-//                        
-//                        let dataOffset = (z * dimension * dimension + y * dimension + x) * 4
-//                        
-//                        let position = bitmap
-//                            .advanced(by: bitmapOffest)
-//                        
-//                        array[dataOffset + 0] = Float(position
-//                                                        .advanced(by: 0)
-//                                                        .pointee) / 255
-//                        
-//                        array[dataOffset + 1] = Float(position
-//                                                        .advanced(by: 1)
-//                                                        .pointee) / 255
-//                        
-//                        array[dataOffset + 2] = Float(position
-//                                                        .advanced(by: 2)
-//                                                        .pointee) / 255
-//                        
-//                        array[dataOffset + 3] = Float(position
-//                                                        .advanced(by: 3)
-//                                                        .pointee) / 255
-//                        
-//                        bitmapOffest += 4
-//                        
-//                    }
-//                    z += 1
-//                }
-//                z = tmp
-//            }
-//            z += columnNum
-//        }
-//        
-//        free(bitmap)
-//        
-//        let data = Data.init(bytes: array, count: dataSize)
-//        return data
     }
 }
